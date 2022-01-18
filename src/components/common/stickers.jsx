@@ -3,13 +3,11 @@ import { render } from "react-dom";
 import { Stage, Layer, Rect, Image, Transformer } from "react-konva";
 import useImage from "use-image";
 
-function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
-  const [image] = useImage(
-    "https://rawcdn.githack.com/konvajs/site/726e19d6304c580ad8fe40651bd56a27ba43fcb3/react-demos/filters/public/lion.png",
-    "Anonimus"
-  );
+function Stickers({shapeProps, isSelected, onSelect, onChange }) {
+  const [image] = useImage(shapeProps.src);
   const shapeRef = useRef();
   const trRef = useRef();
+
   useEffect(() => {
     if (isSelected) {
       // we need to attach transformer manually
@@ -23,10 +21,14 @@ function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
     shapeRef.current.cache();
   }, [shapeProps, image, isSelected]);
 
+  console.log('stickers',shapeProps);
   return (
     <>
       <Image
         image={image}
+        offsetX={image ? image.width / 2 : 0}
+        offsetY={image ? image.height / 2 : 0}
+        // I will use offset to set origin to the center of the image
         onClick={onSelect}
         onTap={onSelect}
         ref={shapeRef}

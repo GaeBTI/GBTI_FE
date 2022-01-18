@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useRef } from "react";
 import { Stage, Layer } from "react-konva";
 import Stickers from "./../components/common/stickers";
 
@@ -30,33 +30,84 @@ function Start() {
       selectShape(null);
     }
   };
+  const dragUrl = useRef();
+  const stageRef = useRef();
+  const [images, setImages] = useState([]);
+  console.log(images);
+  console.log('stage',stageRef.current);
+  // useEffect(() => {
+  //   if (isSelected) {
+  //     // we need to attach transformer manually
+  //     //trRef.current.nodes([shapeRef.current]);
+  //     stageRef.current.setNode(shapeRef.current);
+  //     stageRef.current.getLayer().batchDraw();
+  //   }
+  // }, [isSelected]);
+
+  // useLayoutEffect(() => {
+  //   shapeRef.current.cache();
+  // }, [shapeProps, image, isSelected]);
   return (
-    <Stage
-      width="375"
-      height={window.innerHeight}
-      onMouseDown={checkDeselect}
-      onTouchStart={checkDeselect}
-    >
-      <Layer>
-        {rectangles.map((rect, i) => {
-          return (
-            <Stickers
-              key={i}
-              shapeProps={rect}
-              isSelected={rect.id === selectedId}
-              onSelect={() => {
-                selectShape(rect.id);
-              }}
-              onChange={(newAttrs) => {
-                const rects = rectangles.slice();
-                rects[i] = newAttrs;
-                setRectangles(rects);
-              }}
-            />
+    <div>
+      Try to trag and image into the stage:
+      <br />
+      <img
+        alt="lion"
+        src= "https://konvajs.org/assets/lion.png"
+        draggable="true"
+        onDragStart={(e) => {
+          dragUrl.current = e.target.src;
+        }}
+      />
+      <div
+        onDrop={(e) => {
+          e.preventDefault();
+          // register event position
+          stageRef.current.setPointersPositions(e);
+
+          // add image
+          setImages(
+            images.concat([
+              {
+                ...stageRef.current.getPointerPosition(),
+                src: dragUrl.current,
+                id: images.length,
+              },
+            ])
           );
-        })}
-      </Layer>
-    </Stage>
+        }}
+        onDragOver={(e) => e.preventDefault()}
+      >
+        <Stage
+          width="375"
+          height={window.innerHeight}
+          onMouseDown={checkDeselect}
+          onTouchStart={checkDeselect}
+          style={{ border: '1px solid grey' }}
+          ref={stageRef}
+        >
+          <Layer>
+            {images.map((image, i) => {
+              return (
+                <Stickers
+                  key={i}
+                  shapeProps={image}
+                  isSelected={image.id === selectedId}
+                  onSelect={() => {
+                    selectShape(image.id);
+                  }}
+                  onChange={(newAttrs) => {
+                    const imgs = images.slice();
+                    imgs[i] = newAttrs;
+                    setImages(imgs);//setRectangles(rects);
+                  }}
+                />
+              );
+            })}
+          </Layer>
+        </Stage>
+      </div>
+    </div>
   );
 }
 
