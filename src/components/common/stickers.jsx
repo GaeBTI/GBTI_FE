@@ -1,20 +1,32 @@
-import { React, useRef, useEffect } from "react";
+import { React, useRef, useEffect, useLayoutEffect } from "react";
 import { render } from "react-dom";
-import { Stage, Layer, Rect, Transformer } from "react-konva";
+import { Stage, Layer, Rect, Image, Transformer } from "react-konva";
+import useImage from "use-image";
 
 function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
+  const [image] = useImage(
+    "https://rawcdn.githack.com/konvajs/site/726e19d6304c580ad8fe40651bd56a27ba43fcb3/react-demos/filters/public/lion.png",
+    "Anonimus"
+  );
   const shapeRef = useRef();
   const trRef = useRef();
   useEffect(() => {
     if (isSelected) {
       // we need to attach transformer manually
-      trRef.current.nodes([shapeRef.current]);
+      //trRef.current.nodes([shapeRef.current]);
+      trRef.current.setNode(shapeRef.current);
       trRef.current.getLayer().batchDraw();
     }
   }, [isSelected]);
+
+  useLayoutEffect(() => {
+    shapeRef.current.cache();
+  }, [shapeProps, image, isSelected]);
+
   return (
     <>
-      <Rect
+      <Image
+        image={image}
         onClick={onSelect}
         onTap={onSelect}
         ref={shapeRef}

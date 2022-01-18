@@ -8,17 +8,17 @@ const initialRectangles = [
     y: 10,
     width: 100,
     height: 100,
-    fill: "red",
+    fill: "white",
     id: "rect1",
   },
-  {
-    x: 150,
-    y: 150,
-    width: 100,
-    height: 100,
-    fill: "green",
-    id: "rect2",
-  },
+  // {
+  //   x: 150,
+  //   y: 150,
+  //   width: 100,
+  //   height: 100,
+  //   fill: "green",
+  //   id: "rect2",
+  // },
 ];
 function Start() {
   const [rectangles, setRectangles] = useState(initialRectangles);
