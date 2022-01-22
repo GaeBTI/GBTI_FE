@@ -61,11 +61,48 @@ const QuestionText=styled.div`
 const AnswerBox=styled.div`
   background-color:yellow;
   width:287px;
-  height:285px;
+  height:280px;
 `;
-function Test() {
-  const[currentNum,setCurrentNum]=useState(0);
 
+const AnswerButton=styled.button`
+  background-color: green;
+  width:287px;
+  height:124px;
+  margin-bottom:32px;
+  font-size:16px;
+  text-align:center;
+`;
+function Test({setScores}) {
+  const[currentNum,setCurrentNum]=useState(0);
+  const handleClick = (type,clickedFirst) => {
+    console.log(type,clickedFirst);
+    setScores((scores)=>{
+      let newScores = scores.map((scoreObj)=>{
+        return (scoreObj.type==type 
+        ? ( clickedFirst
+            ? {...scoreObj,score:scoreObj.score+1}
+            : {...scoreObj,score:scoreObj.score-1}
+          ): scoreObj
+        )
+      })
+      console.log(newScores);
+      return newScores;
+    });
+    if(currentNum==TESTS.length-1){
+      console.log("last page of Test");
+    } else{
+      setCurrentNum((currentNum)=>currentNum+1);
+    }
+		// if (isCorrect) {
+		// 	setScore((score) => score + 1);
+		// }
+		// // 마지막 퀴즈인지 체크하기
+		// if (currentNo === QUIZZES.length - 1) {
+		// 	history.push("/loading");
+		// } else {
+		// 	setCurrentNo((currentNo) => currentNo + 1);
+		// }
+	};
   return (
     <TestContainer>
         <CharacterImgBox src={TestTopCharacter}/>
@@ -74,7 +111,8 @@ function Test() {
           <QuestionText>{TESTS[currentNum].question}</QuestionText> 
         </QuestionBox>
         <AnswerBox>
-
+          <AnswerButton onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[0].clickedFirst)}>{TESTS[currentNum].answers[0].text}</AnswerButton>
+          <AnswerButton onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[1].clickedFirst)}>{TESTS[currentNum].answers[1].text}</AnswerButton>
         </AnswerBox>
     </TestContainer>
     );
