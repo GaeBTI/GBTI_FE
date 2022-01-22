@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import TestBackgroundImg from '../assets/images/testBackgroundImg.png';
 import TestBackgroundImgWithC from '../assets/images/testBackgroundImgWithC.png';
 import TestTopCharacter from '../assets/images/testTopCharacter.png';
@@ -73,12 +74,13 @@ const AnswerButton=styled.button`
   text-align:center;
 `;
 function Test({setScores}) {
+  let navigate=useNavigate();
   const[currentNum,setCurrentNum]=useState(0);
   const handleClick = (type,clickedFirst) => {
     console.log(type,clickedFirst);
     setScores((scores)=>{
       let newScores = scores.map((scoreObj)=>{
-        return (scoreObj.type==type 
+        return (scoreObj.type===type 
         ? ( clickedFirst
             ? {...scoreObj,score:scoreObj.score+1}
             : {...scoreObj,score:scoreObj.score-1}
@@ -88,8 +90,9 @@ function Test({setScores}) {
       console.log(newScores);
       return newScores;
     });
-    if(currentNum==TESTS.length-1){
+    if(currentNum===TESTS.length-1){
       console.log("last page of Test");
+      navigate("/loading");
     } else{
       setCurrentNum((currentNum)=>currentNum+1);
     }

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Start from "./routes/start";
 import Test from "./routes/test";
 import Result from "./routes/result";
+import Loading from "./routes/loading";
 
 function App() {
   const [scores,setScores]= useState([
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Start />}></Route>
           <Route path="/test" element={<Test setScores={setScores}/>}></Route>
+          <Route path="/loading" element={<Loading finalScores={scores} />}></Route>
           <Route path="/result" element={<Result />}></Route>
         </Routes>
       </Router>
