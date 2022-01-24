@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import TestBackgroundImg from '../assets/images/testBackgroundImg.png';
-import TestBackgroundImgWithC from '../assets/images/testBackgroundImgWithC.png';
-import TestTopCharacter from '../assets/images/testTopCharacter.png';
-import {TESTS} from "../assets/texts/questions"
+import TestBackgroundImg from '../assets/images/testBackgroundImg.svg';
+import QuestionBoxImg from '../assets/images/questionBoxImg.svg';
+import AnswerButtonImg1 from '../assets/images/answerButtonImg1.svg';
+import AnswerButtonImg2 from '../assets/images/answerButtonImg2.svg';
+import { TESTS } from "../assets/texts/questions"
 
 //flex container
 const TestContainer=styled.div`
@@ -17,22 +18,12 @@ const TestContainer=styled.div`
   justify-content:center;
 	flex-direction: column;
 `;
-// width:287px;
-//   heigth:278px;
-// const ContentWrapper=styled.div`
-//   margin-top: 136px;
-//   width:287px;
-// `;
-const CharacterImgBox=styled.img`
-  max-width: 100%;
-  display: block;
-`;
 const QuestionBox=styled.div`
-  background-color:grey;
+  background-image:url(${QuestionBoxImg});
 
-  margin-bottom:34px;
-  width:287px;
-  height:278px;
+  margin-bottom:22px;
+  width:294px;
+  height:327px;
 
   display:flex;
 	flex-direction: column;
@@ -43,9 +34,9 @@ const QuestionBox=styled.div`
 const QuestionNumText=styled.div`
   width:83px;
   height:44px;
-  margin: 4px 11px 2px 193px;
+  margin: 50px 15px 7px 223px;
   
-  font-size:20px;
+  font-size:22px;
   text-align:center;
   line-height:44px;
 
@@ -59,20 +50,27 @@ const QuestionText=styled.div`
   top:50%;
   transform:translate(0,-50%);
 `;
+
 const AnswerBox=styled.div`
-  background-color:yellow;
-  width:287px;
-  height:280px;
+  width:290px;
+  height:290px;
 `;
 
 const AnswerButton=styled.button`
-  background-color: green;
-  width:287px;
-  height:124px;
+  width:290px;
+  height:134px;
   margin-bottom:32px;
-  font-size:16px;
-  text-align:center;
-`;
+	border: 0px;
+  background-color:transparent;
+  div{
+    font-size:16px;
+    text-align:center;
+    width:240px;
+    margin: 26px 20px 13px 20px;
+  }
+`; //280*116
+
+
 function Test({setScores}) {
   let navigate=useNavigate();
   const[currentNum,setCurrentNum]=useState(0);
@@ -96,26 +94,26 @@ function Test({setScores}) {
     } else{
       setCurrentNum((currentNum)=>currentNum+1);
     }
-		// if (isCorrect) {
-		// 	setScore((score) => score + 1);
-		// }
-		// // 마지막 퀴즈인지 체크하기
-		// if (currentNo === QUIZZES.length - 1) {
-		// 	history.push("/loading");
-		// } else {
-		// 	setCurrentNo((currentNo) => currentNo + 1);
-		// }
 	};
   return (
     <TestContainer>
-        <CharacterImgBox src={TestTopCharacter}/>
         <QuestionBox>
           <QuestionNumText>{TESTS[currentNum].id}/{TESTS.length}</QuestionNumText>
           <QuestionText>{TESTS[currentNum].question}</QuestionText> 
         </QuestionBox>
         <AnswerBox>
-          <AnswerButton onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[0].clickedFirst)}>{TESTS[currentNum].answers[0].text}</AnswerButton>
-          <AnswerButton onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[1].clickedFirst)}>{TESTS[currentNum].answers[1].text}</AnswerButton>
+          <AnswerButton 
+            style={{backgroundImage:`url(${AnswerButtonImg1})`}}
+            onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[0].clickedFirst)}
+          >
+            <div>{TESTS[currentNum].answers[0].text}</div>
+          </AnswerButton>
+          <AnswerButton 
+            style={{backgroundImage:`url(${AnswerButtonImg2})`}}
+            onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[1].clickedFirst)}
+          >
+            <div>{TESTS[currentNum].answers[1].text}</div>
+          </AnswerButton>
         </AnswerBox>
     </TestContainer>
     );
