@@ -1,7 +1,8 @@
 import React from "react";
+import TestResult from "./../components/resultPage/testResult";
 
 function Result() {
-  return <div>결과페이지임둥</div>;
+  return <TestResult></TestResult>;
 }
 
 export default Result;

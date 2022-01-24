@@ -11,18 +11,11 @@ const initialRectangles = [
     fill: "white",
     id: "rect1",
   },
-  // {
-  //   x: 150,
-  //   y: 150,
-  //   width: 100,
-  //   height: 100,
-  //   fill: "green",
-  //   id: "rect2",
-  // },
 ];
 function Start() {
   const [rectangles, setRectangles] = useState(initialRectangles);
   const [selectedId, selectShape] = useState(null);
+
   const checkDeselect = (e) => {
     // deselect when clicked on empty area
     const clickedOnEmpty = e.target === e.target.getStage();
@@ -33,27 +26,22 @@ function Start() {
   const dragUrl = useRef();
   const stageRef = useRef();
   const [images, setImages] = useState([]);
-  console.log(images);
-  console.log('stage',stageRef.current);
-  // useEffect(() => {
-  //   if (isSelected) {
-  //     // we need to attach transformer manually
-  //     //trRef.current.nodes([shapeRef.current]);
-  //     stageRef.current.setNode(shapeRef.current);
-  //     stageRef.current.getLayer().batchDraw();
-  //   }
-  // }, [isSelected]);
 
-  // useLayoutEffect(() => {
-  //   shapeRef.current.cache();
-  // }, [shapeProps, image, isSelected]);
   return (
     <div>
       Try to trag and image into the stage:
       <br />
       <img
         alt="lion"
-        src= "https://konvajs.org/assets/lion.png"
+        src="https://konvajs.org/assets/lion.png"
+        draggable="true"
+        onDragStart={(e) => {
+          dragUrl.current = e.target.src;
+        }}
+      />
+      <img
+        alt="yoda"
+        src="https://konvajs.org/assets/yoda.jpg"
         draggable="true"
         onDragStart={(e) => {
           dragUrl.current = e.target.src;
@@ -64,7 +52,6 @@ function Start() {
           e.preventDefault();
           // register event position
           stageRef.current.setPointersPositions(e);
-
           // add image
           setImages(
             images.concat([
@@ -79,11 +66,11 @@ function Start() {
         onDragOver={(e) => e.preventDefault()}
       >
         <Stage
-          width="375"
+          width={375}
           height={window.innerHeight}
           onMouseDown={checkDeselect}
           onTouchStart={checkDeselect}
-          style={{ border: '1px solid grey' }}
+          style={{ border: "1px solid grey" }}
           ref={stageRef}
         >
           <Layer>
@@ -99,7 +86,7 @@ function Start() {
                   onChange={(newAttrs) => {
                     const imgs = images.slice();
                     imgs[i] = newAttrs;
-                    setImages(imgs);//setRectangles(rects);
+                    setImages(imgs); //setRectangles(rects);
                   }}
                 />
               );

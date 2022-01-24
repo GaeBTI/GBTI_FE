@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Stage, Layer, Rect, Image, Transformer } from "react-konva";
 import useImage from "use-image";
 
-function Stickers({shapeProps, isSelected, onSelect, onChange }) {
+function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
   const [image] = useImage(shapeProps.src);
   const shapeRef = useRef();
   const trRef = useRef();
@@ -21,7 +21,7 @@ function Stickers({shapeProps, isSelected, onSelect, onChange }) {
     shapeRef.current.cache();
   }, [shapeProps, image, isSelected]);
 
-  console.log('stickers',shapeProps);
+  console.log("stickers", shapeProps);
   return (
     <>
       <Image
