@@ -18,7 +18,9 @@ function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
   }, [isSelected]);
 
   useLayoutEffect(() => {
-    shapeRef.current.cache();
+    if (image) {
+      shapeRef.current.cache();
+    }
   }, [shapeProps, image, isSelected]);
 
   console.log("stickers", shapeProps);
