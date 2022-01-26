@@ -1,5 +1,35 @@
+@font-face {
+  font-family: "IM_Hyemin-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "HSYuji-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 .page {
-  margin-inline: 20px;
+  padding-inline: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-image: url("/public/images/background.svg");
+  background-size: cover;
+}
+.header {
+  font-family: HSYuji-Regular;
+  font-size: 45px;
+  line-height: 33px;
+  /* identical to box height, or 73% */
+  margin-top: 65px;
+  height: 50px;
+  text-align: center;
+
+  color: #3c3c3c;
 }
 .quote {
   display: flex;
@@ -10,31 +40,164 @@
 .rightQuote {
   margin-left: auto;
 }
+.keySection {
+  height: 103px;
+  padding-block: 26px;
+}
 .keyword {
 }
+.keyBox {
+  position: relative;
+}
 .keySnt {
-  font-family: IM_Hyemin;
+  font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-
+  z-index: 3;
   color: #3c3c3c;
 }
 .keyName {
-  position: relative;
-  font-family: HS유지체;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  font-family: HSYuji-Regular;
   font-size: 29px;
   line-height: 34px;
   text-align: center;
 
+  z-index: 3;
   color: #3c3c3c;
 }
 .keyBack {
   position: absolute;
-  top: 0px;
   text-align: center;
+  top: 3px;
+  /* opacity: 0.99; */
+  z-index: 1;
   margin-left: 85px;
-  z-index: -1;
+}
+.mind {
+  position: relative;
+  text-align: center;
+  /* height: 150px; */
+}
+.mindLevel {
+  position: relative;
+
+  z-index: 2;
+}
+.mindBox {
+  position: relative;
+  width: 335px;
+  height: 122px;
+  top: -20px;
+  /* top: 560px; */
+  z-index: 1;
+  background: #fffae3;
+}
+.majorSection {
+  margin-block: 26px;
+  height: 135px;
+}
+.majorName {
+  position: relative;
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 70px;
+  /* or 156% */
+  height: 70px;
+
+  text-align: center;
+
+  color: #3c3c3c;
+}
+.majorTape {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.smstrSection {
+  position: relative;
+  height: 150px;
+  z-index: 2;
+  margin-block: 26px;
+}
+.smstrMent {
+  position: absolute;
+  height: 150px;
+  z-index: 2;
+}
+.smstrText {
+  position: relative;
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 3;
+  top: 70px;
+  /* or 183% */
+  width: 293px;
+  height: 128px;
+  display: table-cell;
+  vertical-align: middle;
+  left: 19px;
+  z-index: 1;
+  top: 20px;
+  background: #fffae3;
+  text-align: center;
+
+  color: #3c3c3c;
+}
+.smstrBox {
+  position: absolute;
+  width: 293px;
+  height: 128px;
+  left: 19px;
+  z-index: 1;
+  top: 20px;
+  background: #fffae3;
+}
+.teamSection {
+  margin-block: 26px;
+}
+.teamBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+.teamLeft {
+  margin-inline: auto;
+}
+.teamRight {
+  margin-inline: auto;
+}
+.teamText {
+  font-family: HSYuji-Regular;
+  font-size: 20px;
+  line-height: 22px;
+  /* or 110% */
+
+  text-align: center;
+
+  color: #3c3c3c;
+}
+.shareText {
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  /* or 130% */
+
+  text-align: center;
+
+  color: #000000;
+}
+.retry {
+  margin-block: 26px;
+  text-align: center;
 }
