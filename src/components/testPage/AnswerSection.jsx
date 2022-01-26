@@ -26,19 +26,21 @@ const AnswerButton=styled.button`
 const AnswerText=styled.span`
 `;
 const AnswerSection=({currentNum,handleClick})=>{
+    let random=Math.floor((Math.random(0,100)*(100))%2); // 답지가 매번 다르게 나오도록 난수 생성
+    console.log(random);
     return (
         <AnswerBox>
           <AnswerButton 
             style={{backgroundImage:`url(${AnswerButtonImg1})`}}
-            onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[0].clickedFirst)}
+            onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[random%2===0?0:1].clickedFirst)}
           >
-            <div>{TESTS[currentNum].answers[0].text}</div>
+            <div>{TESTS[currentNum].answers[random%2===0?0:1].text}</div>
           </AnswerButton>
           <AnswerButton 
             style={{backgroundImage:`url(${AnswerButtonImg2})`}}
-            onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[1].clickedFirst)}
+            onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[random%2===0?1:0].clickedFirst)}
           >
-            <div>{TESTS[currentNum].answers[1].text}</div>
+            <div>{TESTS[currentNum].answers[random%2===0?1:0].text}</div>
           </AnswerButton>
         </AnswerBox>
     );
