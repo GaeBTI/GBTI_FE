@@ -26,7 +26,9 @@ const getCode=(scores)=>{
     let code='';
     for(let scoreObj of scores){
         //if score==0 > 에러 처리 필요
-        code+= scoreObj.score>0? scoreObj.type[0]:scoreObj.type[-1]
+        code+= scoreObj.score>0? scoreObj.type[0]:scoreObj.type[2]
+        console.log("code",code);
+        console.log(scoreObj.type[2]);
     }
     return code;
 }

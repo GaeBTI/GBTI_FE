@@ -30,11 +30,15 @@ const QuestionNumText=styled.div`
 `;
 const QuestionText=styled.div`
   width:254px;
+  position:absolute;
+  left: 6.27%;
+  right: 5.23%;
+  top: 30.61%;
+  bottom: 0.91%;
+
+  font-family:IM_Hyemin-Regular;
   font-size:20px;
   text-align:center;
-  position:absolute;
-  top:50%;
-  transform:translate(0,-50%);
 `;
 
 const QuestionSection =({currentNum})=>{
