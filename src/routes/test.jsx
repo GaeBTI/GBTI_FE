@@ -2,19 +2,7 @@ import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TESTS } from "../assets/texts/questions"
 import {QuestionSection,AnswerSection} from "../components/testPage";
-import styled from "styled-components";
-import TestBackgroundImg from '../assets/images/testBackgroundImg.svg';
-
-const TestContainer=styled.div`
-  height:100vh;
-  background-size : cover;
-  background-image:url(${TestBackgroundImg});
-  display: flex;
-  align-items: center;
-  justify-content:center;
-  flex-direction: column;
-  font-family:"IM_Hyemin-Regular";
-`;
+import Container from "../components/common/Container";
 
 function Test({setScores}) {
   let navigate=useNavigate(); // 결과 페이지로 이동하기 위한 hook
@@ -47,10 +35,10 @@ function Test({setScores}) {
 	};
 
   return (
-    <TestContainer>
+    <Container>
         <QuestionSection currentNum={currentNum}/>
         <AnswerSection currentNum={currentNum} handleClick={handleClick}/>
-    </TestContainer>
+    </Container>
     );
 }
 

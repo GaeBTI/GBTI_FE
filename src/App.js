@@ -36,7 +36,7 @@ function App() {
             path="/loading"
             element={<Loading finalScores={scores} />}
           ></Route>
-          <Route path="/result" element={<Result />}></Route>
+          <Route path="/result/:code" element={<Result />}></Route>
           <Route path="/deco" element={<Deco />}></Route>
         </Routes>
       </Router>
