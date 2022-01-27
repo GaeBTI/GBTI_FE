@@ -89,6 +89,45 @@
 
   z-index: 2;
 }
+.mindWordBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  margin-top: 20px;
+  width: 250px;
+}
+.mindScoreBox {
+  display: grid;
+  grid-template-columns: 130px 100px;
+  left: 140px;
+  top: 72px;
+  position: absolute;
+  text-align: right;
+}
+.mindWord {
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  /* identical to box height, or 156% */
+
+  text-align: right;
+
+  color: #2d2d2d;
+}
+.mindScore {
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  /* identical to box height, or 156% */
+
+  text-align: left;
+
+  color: red;
+}
 .mindBox {
   position: relative;
   width: 335px;
@@ -97,6 +136,33 @@
   /* top: 560px; */
   z-index: 1;
   background: #fffae3;
+}
+.charSection {
+  position: relative;
+  height: 549px;
+}
+.charBox {
+  position: absolute;
+  z-index: 1;
+}
+.listBox {
+  position: absolute;
+  z-index: 2;
+  top: 68px;
+  left: 20px;
+}
+.charac {
+  z-index: 2;
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 33px;
+  /* or 236% */
+
+  color: #000000;
+
+  opacity: 0.3;
 }
 .majorSection {
   margin-block: 26px;
@@ -120,6 +186,9 @@
   position: absolute;
   top: 0px;
   right: 0px;
+}
+#snt1 {
+  margin-block: 15px;
 }
 .smstrSection {
   position: relative;
