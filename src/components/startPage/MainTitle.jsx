@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { MainTitleItem } from "../startPage/startIcon";
 
 const MainTitleBox=styled.div`
-    width:256px;
-    height:163px;
+    width:260px;
+    height:157px;
     
-    margin-bottom:55px;
+    margin-bottom:27px;
 `;
 const MainTitle=()=>(
     <MainTitleBox>
