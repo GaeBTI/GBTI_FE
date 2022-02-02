@@ -163,7 +163,7 @@ export const MainTitleItem=()=>(
 <path id="Vector_50" d="M243.112 128.505C243.112 128.505 242.036 129.399 243.632 131.075C245.228 132.752 247.084 134.577 248.049 133.459C249.051 132.342 248.754 131.709 247.529 130.405C246.341 129.101 244.114 127.276 243.112 128.505Z" fill="#DBD0A1"/>
 </g>
 </g>
-<g id="maskingtape" clip-path="url(#clip0_423_772)">
+<g id="maskingtape" clipPath="url(#clip0_423_772)">
 <rect id="Rectangle" x="175.545" y="7.63858" width="82.886" height="18.616" transform="rotate(21.2489 175.545 7.63858)" fill="url(#pattern0)"/>
 </g>
 </g>
