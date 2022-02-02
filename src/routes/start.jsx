@@ -1,11 +1,20 @@
 import React from "react";
-import Button from "../components/common/Button";
+import { MainTitle,StartButton } from "../components/startPage";
+import styled from "styled-components";
 
+const StartContainer=styled.div`
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 function Start() {
   return (
-    <div>
-      <Button to="/test">시작하기</Button>
-    </div>
+    <StartContainer>
+      <MainTitle></MainTitle>
+      <StartButton></StartButton>
+    </StartContainer>
   );
 }
 
