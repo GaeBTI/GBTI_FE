@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import {
   Worst,
   Best,
@@ -17,7 +16,6 @@ import { MBTIS } from "../../assets/texts/results";
 import { KeyBackTape } from "./../../icons";
 
 function TestResult({ mbti }) {
-  const navigate = useNavigate();
   const featureList = MBTIS[mbti].CharList.map((c) => (
     <div className={styles.charac}>{"0  \u00A0 \u00A0  \u00A0" + c}</div>
   ));
@@ -29,7 +27,7 @@ function TestResult({ mbti }) {
   ));
 
   const handleRestart = () => {
-    navigate("/");
+    window.location.replace("/");
   };
 
   return (
