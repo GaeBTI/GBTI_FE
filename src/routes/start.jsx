@@ -1,20 +1,13 @@
 import React from "react";
 import { MainTitle,StartButton } from "../components/startPage";
-import styled from "styled-components";
+import Container from "../components/common/Container";
 
-const StartContainer=styled.div`
-  height:100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
 function Start() {
   return (
-    <StartContainer>
+    <Container>
       <MainTitle></MainTitle>
       <StartButton></StartButton>
-    </StartContainer>
+    </Container>
   );
 }
 
