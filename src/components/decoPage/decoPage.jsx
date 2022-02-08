@@ -61,6 +61,8 @@ function DecoPage() {
                 ...stageRef.current.getPointerPosition(),
                 src: dragUrl.current,
                 id: images.length,
+                w:144,
+                h:139,
               },
             ])
           );
