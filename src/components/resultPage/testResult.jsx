@@ -14,10 +14,19 @@ import {
 import styles from "./testResult.module.css";
 import { MBTIS } from "../../assets/texts/results";
 import { KeyBackTape } from "./../../icons";
+import KakaoShare from "./share/kakaoShare";
 
 function TestResult({ mbti }) {
+  const { Kakao } = window;
+  const JAVASCRIPT_KEY = process.env.REACT_APP_KAKAO_KEY;
+  console.log(JAVASCRIPT_KEY);
+  // Kakao.init(JAVASCRIPT_KEY);
+  console.log(Kakao.isInitialized);
   const featureList = MBTIS[mbti].CharList.map((c) => (
-    <div className={styles.charac}>{"0  \u00A0 \u00A0  \u00A0" + c}</div>
+    <div className={styles.charac}>
+      <div className={styles.charac_split}>0</div>
+      <div className={styles.charac_text}>{c}</div>
+    </div>
   ));
   const mindList = MBTIS[mbti].Mind.map((m) => (
     <div className={styles.mindWord}>{m}</div>
@@ -112,6 +121,7 @@ function TestResult({ mbti }) {
       </section>
       <section>
         <div className={styles.shareText}>테스트 공유하기</div>
+        <KakaoShare></KakaoShare>
       </section>
       <section className={styles.retry} onClick={handleRestart}>
         <RetryTag />

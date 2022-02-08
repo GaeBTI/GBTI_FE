@@ -151,6 +151,9 @@
   top: 68px;
   left: 20px;
 }
+.charac_split {
+  margin-right: 10px;
+}
 .charac {
   z-index: 2;
   font-family: IM_Hyemin-Regular;
@@ -159,10 +162,11 @@
   font-size: 14px;
   line-height: 33px;
   /* or 236% */
-
-  color: #000000;
-
-  opacity: 0.3;
+  display: flex;
+  color: #3c3c3c;
+}
+.charac_text {
+  width: 280px;
 }
 .majorSection {
   margin-block: 26px;
