@@ -15,12 +15,12 @@ import styles from "./testResult.module.css";
 import { MBTIS } from "../../assets/texts/results";
 import { KeyBackTape } from "./../../icons";
 import KakaoShare from "./share/kakaoShare";
+import KeywordBox from "../common/keywordBox/keywordBox";
+import Header from "../common/header/header";
 
 function TestResult({ mbti }) {
   const { Kakao } = window;
   const JAVASCRIPT_KEY = process.env.REACT_APP_KAKAO_KEY;
-  console.log(JAVASCRIPT_KEY);
-  // Kakao.init(JAVASCRIPT_KEY);
   console.log(Kakao.isInitialized);
   const featureList = MBTIS[mbti].CharList.map((c) => (
     <div className={styles.charac}>
@@ -41,29 +41,11 @@ function TestResult({ mbti }) {
 
   return (
     <section className={styles.page}>
-      <section className={styles.header}>개강한 나는...!</section>
+      <Header></Header>
       <section>
         <img alt="char" src="images/result_char.png"></img>
       </section>
-      <section className={styles.keySection}>
-        <div className={styles.quote}>
-          <div className={styles.leftQuote}>
-            <LeftQuote></LeftQuote>
-          </div>
-          <div className={styles.rightQuote}>
-            <RightQuote></RightQuote>
-          </div>
-        </div>
-        <div className={styles.keyword}>
-          <div className={styles.keySnt}>{MBTIS[mbti].keySentence}</div>
-          <div className={styles.keyBox}>
-            <div className={styles.keyName}>{MBTIS[mbti].keyWord}</div>
-            <div className={styles.keyBack}>
-              <KeyBackTape />
-            </div>
-          </div>
-        </div>
-      </section>
+      <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
       <section className={styles.mind}>
         <div className={styles.mindLevel}>
           <div>
