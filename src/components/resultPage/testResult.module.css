@@ -20,65 +20,6 @@
   background-image: url("/public/images/background.svg");
   background-size: cover;
 }
-.header {
-  font-family: HSYuji-Regular;
-  font-size: 45px;
-  line-height: 33px;
-  /* identical to box height, or 73% */
-  margin-top: 65px;
-  height: 50px;
-  text-align: center;
-
-  color: #3c3c3c;
-}
-.quote {
-  display: flex;
-  width: 335;
-}
-.leftQuote {
-}
-.rightQuote {
-  margin-left: auto;
-}
-.keySection {
-  height: 103px;
-  padding-block: 26px;
-}
-.keyword {
-}
-.keyBox {
-  position: relative;
-}
-.keySnt {
-  font-family: IM_Hyemin-Regular;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  z-index: 3;
-  color: #3c3c3c;
-}
-.keyName {
-  position: absolute;
-  width: 100%;
-  left: 0px;
-  font-family: HSYuji-Regular;
-  font-size: 29px;
-  line-height: 34px;
-  text-align: center;
-
-  z-index: 3;
-  color: #3c3c3c;
-}
-.keyBack {
-  position: absolute;
-  text-align: center;
-  top: 3px;
-  /* opacity: 0.99; */
-  z-index: 1;
-  margin-left: 85px;
-}
 .mind {
   position: relative;
   text-align: center;
