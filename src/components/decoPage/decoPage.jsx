@@ -60,7 +60,7 @@ function DecoPage() {
                   x: 100,
                   y: 200,
                   src: e.target.src,
-                  id: images.length,
+                  id: images.length.toString(),
                   w: 144,
                   h: 139,
                 },
@@ -82,7 +82,7 @@ function DecoPage() {
               {
                 ...stageRef.current.getPointerPosition(),
                 src: dragUrl.current,
-                id: images.length,
+                id: images.length.toString(),
                 w: 144,
                 h: 139,
               },
