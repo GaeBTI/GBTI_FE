@@ -23,6 +23,7 @@ const initialRectangles = [
 function DecoPage() {
   const [rectangles, setRectangles] = useState(initialRectangles);
   const [selectedId, selectShape] = useState(null);
+
   const checkDeselect = (e) => {
     // deselect when clicked on empty area
     const clickedOnEmpty = e.target === e.target.getStage();
@@ -30,26 +31,47 @@ function DecoPage() {
       selectShape(null);
     }
   };
+  console.log("selectedId", selectedId);
   const dragUrl = useRef();
   const stageRef = useRef();
   const [images, setImages] = useState([]);
+
   console.log(images);
+  console.log(dragUrl);
   console.log("stage", stageRef.current);
 
   return (
     <div>
       Try to trag and image into the stage:
       <br />
-      <img
-        alt="lion"
-        src="https://konvajs.org/assets/lion.png"
-        draggable="true"
-        onDragStart={(e) => {
-          dragUrl.current = e.target.src;
-        }}
-      />
+      <button>
+        <img
+          alt="lion"
+          src="https://konvajs.org/assets/lion.png"
+          draggable="true"
+          onDragStart={(e) => {
+            dragUrl.current = e.target.src;
+          }}
+          onClick={(e) => {
+            e.preventDefault();
+            setImages(
+              images.concat([
+                {
+                  x: 100,
+                  y: 200,
+                  src: e.target.src,
+                  id: images.length,
+                  w: 144,
+                  h: 139,
+                },
+              ])
+            );
+          }}
+        />
+      </button>
       <div
         onDrop={(e) => {
+          console.log("is dropped!");
           e.preventDefault();
           // register event position
           stageRef.current.setPointersPositions(e);
@@ -61,8 +83,8 @@ function DecoPage() {
                 ...stageRef.current.getPointerPosition(),
                 src: dragUrl.current,
                 id: images.length,
-                w:144,
-                h:139,
+                w: 144,
+                h: 139,
               },
             ])
           );

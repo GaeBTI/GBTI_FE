@@ -149,3 +149,7 @@ a {
   font-weight: normal;
   font-style: normal;
 }
+button {
+  border: none;
+  background: none;
+}
