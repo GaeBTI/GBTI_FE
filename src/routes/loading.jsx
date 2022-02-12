@@ -32,13 +32,14 @@ const getCode=(scores)=>{
     }
     return code;
 }
-const Loading=({finalScores})=>{
+const Loading=({finalScores,setCode})=>{
     // 점수에 맞춰 페이지 이동
     let navigate = useNavigate();
     const code = getCode(finalScores);
     useEffect(() => {
-		setTimeout(() => navigate(`/result/${code}`), 2000);
+		setTimeout(() => navigate(`/result`), 2000);
 	}, [navigate,code]);
+    setCode(code);
     return(
         <Container>
             <LoadingBox>
