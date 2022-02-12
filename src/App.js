@@ -5,6 +5,7 @@ import Test from "./routes/test";
 import Result from "./routes/result";
 import Loading from "./routes/loading";
 import Deco from "./routes/deco";
+import Card from "./routes/card";
 const getCode=(scores)=>{
   let code='';
   for(let scoreObj of scores){
@@ -34,7 +35,7 @@ function App() {
       score: 0,
     },
   ]); // EnI, NnS, TnF, PnJ
-  const [code,setCode]=useState('');
+  const [mbti,setMBTI]=useState('');
   console.log("app", scores);
   return (
     <div className="App" style={{ width: 375, margin: "auto" }}>
@@ -44,10 +45,11 @@ function App() {
           <Route path="/test" element={<Test setScores={setScores} />}></Route>
           <Route
             path="/loading"
-            element={<Loading finalScores={scores} setCode={setCode}/>}
+            element={<Loading finalScores={scores} setMBTI={setMBTI}/>}
           ></Route>
-          <Route path="/result" element={<Result code={code}/>}></Route>
+          <Route path="/result" element={<Result mbti={mbti}/>}></Route>
           <Route path="/deco" element={<Deco />}></Route>
+          <Route path="/card" element={<Card mbti={mbti}/>}></Route>
         </Routes>
       </Router>
     </div>
