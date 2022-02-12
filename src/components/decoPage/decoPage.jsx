@@ -2,26 +2,7 @@ import { React, useState, useRef } from "react";
 import { Stage, Layer } from "react-konva";
 import Stickers from "./../common/stickers";
 
-const initialRectangles = [
-  {
-    x: 10,
-    y: 10,
-    width: 100,
-    height: 100,
-    fill: "white",
-    id: "rect1",
-  },
-  // {
-  //   x: 150,
-  //   y: 150,
-  //   width: 100,
-  //   height: 100,
-  //   fill: "green",
-  //   id: "rect2",
-  // },
-];
-function DecoPage() {
-  const [rectangles, setRectangles] = useState(initialRectangles);
+function DecoPage({dragUrl,images,setImages}) {
   const [selectedId, selectShape] = useState(null);
 
   const checkDeselect = (e) => {
@@ -32,9 +13,9 @@ function DecoPage() {
     }
   };
   console.log("selectedId", selectedId);
-  const dragUrl = useRef();
+  //const dragUrl = useRef();
   const stageRef = useRef();
-  const [images, setImages] = useState([]);
+  // const [images, setImages] = useState([]);
 
   console.log(images);
   console.log(dragUrl);
@@ -42,34 +23,8 @@ function DecoPage() {
 
   return (
     <div>
-      Try to trag and image into the stage:
-      <br />
-      <button>
-        <img
-          alt="lion"
-          src="https://konvajs.org/assets/lion.png"
-          draggable="true"
-          onDragStart={(e) => {
-            dragUrl.current = e.target.src;
-          }}
-          onClick={(e) => {
-            e.preventDefault();
-            setImages(
-              images.concat([
-                {
-                  x: 100,
-                  y: 200,
-                  src: e.target.src,
-                  id: images.length.toString(),
-                  w: 144,
-                  h: 139,
-                },
-              ])
-            );
-          }}
-        />
-      </button>
       <div
+        style={{width:317}}
         onDrop={(e) => {
           console.log("is dropped!");
           e.preventDefault();
@@ -92,8 +47,8 @@ function DecoPage() {
         onDragOver={(e) => e.preventDefault()}
       >
         <Stage
-          width={375}
-          height={window.innerHeight}
+          width={317}
+          height={317}
           onMouseDown={checkDeselect}
           onTouchStart={checkDeselect}
           style={{ border: "1px solid grey" }}
@@ -125,3 +80,33 @@ function DecoPage() {
 }
 
 export default DecoPage;
+
+// Try to trag and image into the stage:
+//       <br />
+
+//       <button>
+//         <img
+//           alt="lion"
+//           src="https://konvajs.org/assets/lion.png"
+//           draggable="true"
+//           onDragStart={(e) => {
+//             dragUrl.current = e.target.src;
+//             console.log(e.target.src)
+//           }}
+//           onClick={(e) => {
+//             e.preventDefault();
+//             setImages(
+//               images.concat([
+//                 {
+//                   x: 100,
+//                   y: 200,
+//                   src: e.target.src,
+//                   id: images.length.toString(),
+//                   w: 144,
+//                   h: 139,
+//                 },
+//               ])
+//             );
+//           }}
+//         />
+//       </button>
