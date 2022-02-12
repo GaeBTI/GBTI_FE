@@ -37,7 +37,7 @@ const Loading=({finalScores,setMBTI})=>{
     let navigate = useNavigate();
     const mbti = getMBTI(finalScores);
     useEffect(() => {
-		setTimeout(() => navigate(`/result`), 2000); //deco로 route 바꿔야함
+		setTimeout(() => navigate(`/card`), 2000); //deco로 route 바꿔야함
 	}, [navigate,mbti]);
     setMBTI(mbti);
     return(
