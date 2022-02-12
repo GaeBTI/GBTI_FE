@@ -22,23 +22,24 @@ const LoadingBox=styled.div`
     }
 `;
 
-const getCode=(scores)=>{
-    let code='';
+const getMBTI=(scores)=>{
+    let mbti='';
     for(let scoreObj of scores){
         //if score==0 > 에러 처리 필요
-        code+= scoreObj.score>0? scoreObj.type[0]:scoreObj.type[2]
-        console.log("code",code);
+        mbti+= scoreObj.score>0? scoreObj.type[0]:scoreObj.type[2]
+        console.log("code",mbti);
         console.log(scoreObj.type[2]);
     }
-    return code;
+    return mbti;
 }
-const Loading=({finalScores})=>{
+const Loading=({finalScores,setMBTI})=>{
     // 점수에 맞춰 페이지 이동
     let navigate = useNavigate();
-    const code = getCode(finalScores);
+    const mbti = getMBTI(finalScores);
     useEffect(() => {
-		setTimeout(() => navigate(`/result/${code}`), 2000);
-	}, [navigate,code]);
+		setTimeout(() => navigate(`/result`), 2000); //deco로 route 바꿔야함
+	}, [navigate,mbti]);
+    setMBTI(mbti);
     return(
         <Container>
             <LoadingBox>
