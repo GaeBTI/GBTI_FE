@@ -1,27 +1,18 @@
 import { React, useState, useRef } from "react";
-import { Stage, Layer } from "react-konva";
-import Stickers from "./../common/stickers";
+import { Stage, Layer, Image } from "react-konva";
+import { useLinkClickHandler } from "react-router-dom";
+import useImage from "use-image";
+import Stickers from "../common/stickers";
+import {BackgroundImgList} from "./data.jsx"
+const canvasSize=335;
 
-const initialRectangles = [
-  {
-    x: 10,
-    y: 10,
-    width: 100,
-    height: 100,
-    fill: "white",
-    id: "rect1",
-  },
-  // {
-  //   x: 150,
-  //   y: 150,
-  //   width: 100,
-  //   height: 100,
-  //   fill: "green",
-  //   id: "rect2",
-  // },
-];
-function DecoPage() {
-  const [rectangles, setRectangles] = useState(initialRectangles);
+const BackgroundImg=({bgImgCnt})=>{
+  console.log(BackgroundImgList[bgImgCnt]);
+  const [image]=useImage(require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`))
+  return <Image image={image} width={canvasSize} height={canvasSize}/>
+}
+
+function Canvas({dragUrl,images,setImages,bgImgCnt}) {
   const [selectedId, selectShape] = useState(null);
 
   const checkDeselect = (e) => {
@@ -32,43 +23,20 @@ function DecoPage() {
     }
   };
   console.log("selectedId", selectedId);
-  const dragUrl = useRef();
+  //const dragUrl = useRef();
   const stageRef = useRef();
-  const [images, setImages] = useState([]);
+  // const [images, setImages] = useState([]);
 
   console.log(images);
   console.log(dragUrl);
   console.log("stage", stageRef.current);
 
   return (
-    <div>
-      Try to trag and image into the stage:
-      <br />
-      <button>
-        <img
-          alt="lion"
-          src="https://konvajs.org/assets/lion.png"
-          draggable="true"
-          onDragStart={(e) => {
-            dragUrl.current = e.target.src;
-          }}
-          onClick={(e) => {
-            e.preventDefault();
-            setImages(
-              images.concat([
-                {
-                  x: 100,
-                  y: 200,
-                  src: e.target.src,
-                  id: images.length.toString(),
-                  w: 144,
-                  h: 139,
-                },
-              ])
-            );
-          }}
-        />
-      </button>
+    <div
+      style={{
+        marginBottom:21
+      }}
+    >
       <div
         onDrop={(e) => {
           console.log("is dropped!");
@@ -92,14 +60,14 @@ function DecoPage() {
         onDragOver={(e) => e.preventDefault()}
       >
         <Stage
-          width={375}
-          height={window.innerHeight}
+          width={canvasSize}
+          height={canvasSize}
           onMouseDown={checkDeselect}
           onTouchStart={checkDeselect}
-          style={{ border: "1px solid grey" }}
           ref={stageRef}
         >
           <Layer>
+            <BackgroundImg bgImgCnt={bgImgCnt}/>
             {images.map((image, i) => {
               return (
                 <Stickers
@@ -124,4 +92,34 @@ function DecoPage() {
   );
 }
 
-export default DecoPage;
+export default Canvas;
+
+// Try to trag and image into the stage:
+//       <br />
+
+//       <button>
+//         <img
+//           alt="lion"
+//           src="https://konvajs.org/assets/lion.png"
+//           draggable="true"
+//           onDragStart={(e) => {
+//             dragUrl.current = e.target.src;
+//             console.log(e.target.src)
+//           }}
+//           onClick={(e) => {
+//             e.preventDefault();
+//             setImages(
+//               images.concat([
+//                 {
+//                   x: 100,
+//                   y: 200,
+//                   src: e.target.src,
+//                   id: images.length.toString(),
+//                   w: 144,
+//                   h: 139,
+//                 },
+//               ])
+//             );
+//           }}
+//         />
+//       </button>
