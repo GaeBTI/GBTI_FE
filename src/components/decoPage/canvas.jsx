@@ -1,8 +1,18 @@
 import { React, useState, useRef } from "react";
-import { Stage, Layer } from "react-konva";
-import Stickers from "./../common/stickers";
+import { Stage, Layer, Image } from "react-konva";
+import { useLinkClickHandler } from "react-router-dom";
+import useImage from "use-image";
+import Stickers from "../common/stickers";
+import {BackgroundImgList} from "./data.jsx"
+const canvasSize=335;
 
-function DecoPage({dragUrl,images,setImages}) {
+const BackgroundImg=({bgImgCnt})=>{
+  console.log(BackgroundImgList[bgImgCnt]);
+  const [image]=useImage(require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`))
+  return <Image image={image} width={canvasSize} height={canvasSize}/>
+}
+
+function Canvas({dragUrl,images,setImages,bgImgCnt}) {
   const [selectedId, selectShape] = useState(null);
 
   const checkDeselect = (e) => {
@@ -22,9 +32,12 @@ function DecoPage({dragUrl,images,setImages}) {
   console.log("stage", stageRef.current);
 
   return (
-    <div>
+    <div
+      style={{
+        marginBottom:21
+      }}
+    >
       <div
-        style={{width:317}}
         onDrop={(e) => {
           console.log("is dropped!");
           e.preventDefault();
@@ -47,14 +60,14 @@ function DecoPage({dragUrl,images,setImages}) {
         onDragOver={(e) => e.preventDefault()}
       >
         <Stage
-          width={317}
-          height={317}
+          width={canvasSize}
+          height={canvasSize}
           onMouseDown={checkDeselect}
           onTouchStart={checkDeselect}
-          style={{ border: "1px solid grey" }}
           ref={stageRef}
         >
           <Layer>
+            <BackgroundImg bgImgCnt={bgImgCnt}/>
             {images.map((image, i) => {
               return (
                 <Stickers
@@ -79,7 +92,7 @@ function DecoPage({dragUrl,images,setImages}) {
   );
 }
 
-export default DecoPage;
+export default Canvas;
 
 // Try to trag and image into the stage:
 //       <br />

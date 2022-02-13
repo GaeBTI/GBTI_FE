@@ -35,7 +35,7 @@ function App() {
       score: 0,
     },
   ]); // EnI, NnS, TnF, PnJ
-  const [mbti,setMBTI]=useState('');
+  const [mbti,setMBTI]=useState('intj');
   console.log("app", scores);
   return (
     <div className="App" style={{ width: 375, margin: "auto" }}>
