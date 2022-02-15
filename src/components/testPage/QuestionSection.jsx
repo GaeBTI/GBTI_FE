@@ -20,7 +20,7 @@ const QuestionNumText=styled.div`
 
   position: absolute;
 
-  margin: 88px 11px 0px 215px;
+  margin: 88px 5px 0px 215px;
   
   font-size:22px;
   text-align:center;
