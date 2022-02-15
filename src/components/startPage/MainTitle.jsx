@@ -6,7 +6,7 @@ const MainTitleBox=styled.div`
     width:260px;
     height:157px;
     
-    margin-bottom:27px;
+    margin-bottom:70px;
 `;
 const MainTitle=()=>(
     <MainTitleBox>

@@ -6,22 +6,23 @@ import Stickers from "../common/stickers";
 import {BackgroundImgList} from "./data.jsx"
 const canvasSize=335;
 
-const BackgroundImg=({bgImgCnt})=>{
+const BackgroundImg=({bgImgCnt,name})=>{
   console.log(BackgroundImgList[bgImgCnt]);
   const [image]=useImage(require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`))
-  return <Image image={image} width={canvasSize} height={canvasSize}/>
+  return <Image image={image} width={canvasSize} height={canvasSize} name={name}/>
 }
 
 function Canvas({dragUrl,images,setImages,bgImgCnt}) {
   const [selectedId, selectShape] = useState(null);
 
-  const checkDeselect = (e) => {
+  const checkDeselect = (e) => { 
     // deselect when clicked on empty area
-    const clickedOnEmpty = e.target === e.target.getStage();
+    console.log(e.target.attrs.name,e.target.getStage());
+    const clickedOnEmpty = e.target.attrs.name==="background"; // e.target === e.target.getStage();
     if (clickedOnEmpty) {
       selectShape(null);
     }
-  };
+  }; 
   console.log("selectedId", selectedId);
   //const dragUrl = useRef();
   const stageRef = useRef();
@@ -65,9 +66,10 @@ function Canvas({dragUrl,images,setImages,bgImgCnt}) {
           onMouseDown={checkDeselect}
           onTouchStart={checkDeselect}
           ref={stageRef}
+          style={{backgroundImage:`url(require(../../assets/images/background/${BackgroundImgList[bgImgCnt].url}))`}}
         >
           <Layer>
-            <BackgroundImg bgImgCnt={bgImgCnt}/>
+            <BackgroundImg bgImgCnt={bgImgCnt} name="background"/>
             {images.map((image, i) => {
               return (
                 <Stickers

@@ -8,7 +8,7 @@ const StickerBoxBG=styled.div`
     height: 337px;
 
     background: rgba(0, 0, 0, 0.25);
-
+    margin-bottom: 22px;
 `;
 const StickerBox=({dragUrl,setImages})=>{
     return(

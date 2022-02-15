@@ -13,7 +13,7 @@ const LoadingBox=styled.div`
     div{
         width:145px;
         height:34px;
-        margin-top:4px;
+        margin-top:15px;
 
         font-family: HSYuji-Regular ;
         font-size: 25px;
