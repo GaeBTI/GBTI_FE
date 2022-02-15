@@ -46,10 +46,6 @@ function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
           });
         }}
         onTransformEnd={(e) => {
-          // transformer is changing scale of the node
-          // and NOT its width or height
-          // but in the store we have only width and height
-          // to match the data better we will reset scale on transform end
           const node = shapeRef.current;
           // console.log("shapeRef.current ", node);
           const scaleX = node.scaleX();

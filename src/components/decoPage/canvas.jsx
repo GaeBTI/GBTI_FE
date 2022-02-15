@@ -3,21 +3,24 @@ import { Stage, Layer, Image } from "react-konva";
 import { useLinkClickHandler } from "react-router-dom";
 import useImage from "use-image";
 import Stickers from "../common/stickers";
-import {BackgroundImgList} from "./data.jsx"
-const canvasSize=335;
+import { BackgroundImgList } from "./data.jsx";
+const canvasSize = 335;
 
-const BackgroundImg=({bgImgCnt})=>{
+const BackgroundImg = ({ bgImgCnt }) => {
   console.log(BackgroundImgList[bgImgCnt]);
-  const [image]=useImage(require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`))
-  return <Image image={image} width={canvasSize} height={canvasSize}/>
-}
+  const [image] = useImage(
+    require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`)
+  );
+  return <Image image={image} width={canvasSize} height={canvasSize} />;
+};
 
-function Canvas({dragUrl,images,setImages,bgImgCnt}) {
+function Canvas({ dragUrl, images, setImages, bgImgCnt }) {
   const [selectedId, selectShape] = useState(null);
 
   const checkDeselect = (e) => {
     // deselect when clicked on empty area
-    const clickedOnEmpty = e.target === e.target.getStage();
+    const clickedOnEmpty = e.currentTarget === e.currentTarget.getStage();
+
     if (clickedOnEmpty) {
       selectShape(null);
     }
@@ -34,7 +37,7 @@ function Canvas({dragUrl,images,setImages,bgImgCnt}) {
   return (
     <div
       style={{
-        marginBottom:21
+        marginBottom: 21,
       }}
     >
       <div
@@ -67,7 +70,7 @@ function Canvas({dragUrl,images,setImages,bgImgCnt}) {
           ref={stageRef}
         >
           <Layer>
-            <BackgroundImg bgImgCnt={bgImgCnt}/>
+            <BackgroundImg bgImgCnt={bgImgCnt} />
             {images.map((image, i) => {
               return (
                 <Stickers
