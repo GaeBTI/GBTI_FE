@@ -63,8 +63,8 @@ function Canvas({ dragUrl, images, setImages, bgImgCnt }) {
                 ...stageRef.current.getPointerPosition(),
                 src: dragUrl.current,
                 id: (images.length+1).toString(),
-                w: 200,
-                h: 200,
+                w: 100,
+                h: 100,
               },
             ])
           );
