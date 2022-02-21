@@ -5,6 +5,7 @@ import useImage from "use-image";
 import Stickers from "../common/stickers";
 import {BackgroundImgList} from "./data.jsx"
 const canvasSize=335;
+const bgName="background";
 
 const BackgroundImg=({bgImgCnt,name})=>{
   console.log(BackgroundImgList[bgImgCnt]);
@@ -14,11 +15,11 @@ const BackgroundImg=({bgImgCnt,name})=>{
 
 function Canvas({dragUrl,images,setImages,bgImgCnt}) {
   const [selectedId, selectShape] = useState(null);
-
+  console.log("full imgs",images);
   const checkDeselect = (e) => { 
     // deselect when clicked on empty area
     console.log(e.target.attrs.name,e.target.getStage());
-    const clickedOnEmpty = e.target.attrs.name==="background"; // e.target === e.target.getStage();
+    const clickedOnEmpty = e.target.attrs.name===bgName; // e.target === e.target.getStage();
     if (clickedOnEmpty) {
       selectShape(null);
     }
@@ -44,16 +45,15 @@ function Canvas({dragUrl,images,setImages,bgImgCnt}) {
           e.preventDefault();
           // register event position
           stageRef.current.setPointersPositions(e);
-
           // add image
           setImages(
             images.concat([
               {
                 ...stageRef.current.getPointerPosition(),
                 src: dragUrl.current,
-                id: images.length.toString(),
-                w: 144,
-                h: 139,
+                id: (images.length+1).toString(),
+                w: 200,
+                h: 200,
               },
             ])
           );
@@ -66,10 +66,9 @@ function Canvas({dragUrl,images,setImages,bgImgCnt}) {
           onMouseDown={checkDeselect}
           onTouchStart={checkDeselect}
           ref={stageRef}
-          style={{backgroundImage:`url(require(../../assets/images/background/${BackgroundImgList[bgImgCnt].url}))`}}
         >
           <Layer>
-            <BackgroundImg bgImgCnt={bgImgCnt} name="background"/>
+            <BackgroundImg bgImgCnt={bgImgCnt} name={bgName}/>
             {images.map((image, i) => {
               return (
                 <Stickers

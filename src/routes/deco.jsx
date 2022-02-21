@@ -6,9 +6,19 @@ import Canvas from "./../components/decoPage/canvas";
 import ChooseBackgroundBox from "../components/decoPage/chooseBackgroundBox";
 import GoResultButton from "../components/decoPage/goResultButton";
 
-function Deco() {
+function Deco({mbti}) {
   //dragurl, images
-  const [images, setImages] = useState([]);
+  console.log(mbti);
+  const [images, setImages] = useState([
+    {
+        x: 170,
+        y: 200,
+        src: require(`../assets/images/characters/${mbti}.png`),
+        id: String(1), //images.length.toString(),
+        w: 200,
+        h: 200,
+      }
+  ]);
   //const [dragUrl,setDragUrl] = useState('');
   const dragUrl= useRef();
   console.log("out !!",images);
@@ -16,7 +26,7 @@ function Deco() {
   //drag url ref
   return(
     <Container>
-      <Canvas dragUrl={dragUrl} images={images} setImages={setImages} bgImgCnt={bgImgCnt}></Canvas>
+      <Canvas dragUrl={dragUrl} images={images} setImages={setImages} bgImgCnt={bgImgCnt} mbti={mbti}></Canvas>
       <ChooseBackgroundBox setBgImgCnt={setBgImgCnt} bgImgCnt={bgImgCnt}></ChooseBackgroundBox>
       <StickerBox dragUrl={dragUrl} setImages={setImages}></StickerBox>
       <GoResultButton></GoResultButton>
