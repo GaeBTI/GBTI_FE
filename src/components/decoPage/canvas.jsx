@@ -14,7 +14,7 @@ const bgName="background";
 const BackgroundImg = ({ bgImgCnt, name }) => {
   console.log(BackgroundImgList[bgImgCnt]);
   const [image] = useImage(
-    require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`)
+    require(`../../assets/images/backgrounds/${BackgroundImgList[bgImgCnt].url}`)
   );
   return (
     <Image image={image} width={canvasSize} height={canvasSize} name={name} />

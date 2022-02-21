@@ -19,7 +19,7 @@ const CardChaImg=styled.img`
 `
 const ResultCard=({mbti})=>{
     return <ResultCardBox>
-        <CardBgImg src={require(`../../assets/images/background/${BackgroundImgList[0].url}`)}/>
+        <CardBgImg src={require(`../../assets/images/backgrounds/${BackgroundImgList[0].url}`)}/>
         <CardChaImg src={require(`../../assets/images/characters/${mbti}.png`)}/>
     </ResultCardBox>
 };
