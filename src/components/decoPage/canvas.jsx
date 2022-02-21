@@ -3,40 +3,51 @@ import { Stage, Layer, Image } from "react-konva";
 import { useLinkClickHandler } from "react-router-dom";
 import useImage from "use-image";
 import Stickers from "../common/stickers";
+// feature/makeDecoPage
 import {BackgroundImgList} from "./data.jsx"
 const canvasSize=335;
 const bgName="background";
+// import { BackgroundImgList } from "./data.jsx";
+// const canvasSize = 335;
+// >>>>>>> develop
 
-const BackgroundImg=({bgImgCnt,name})=>{
+const BackgroundImg = ({ bgImgCnt, name }) => {
   console.log(BackgroundImgList[bgImgCnt]);
-  const [image]=useImage(require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`))
-  return <Image image={image} width={canvasSize} height={canvasSize} name={name}/>
-}
+  const [image] = useImage(
+    require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`)
+  );
+  return (
+    <Image image={image} width={canvasSize} height={canvasSize} name={name} />
+  );
+};
 
-function Canvas({dragUrl,images,setImages,bgImgCnt}) {
+function Canvas({ dragUrl, images, setImages, bgImgCnt }) {
   const [selectedId, selectShape] = useState(null);
+// <<<<<<< feature/makeDecoPage
   console.log("full imgs",images);
   const checkDeselect = (e) => { 
     // deselect when clicked on empty area
     console.log(e.target.attrs.name,e.target.getStage());
     const clickedOnEmpty = e.target.attrs.name===bgName; // e.target === e.target.getStage();
+// =======
+//   const checkDeselect = (e) => {
+//     // deselect when clicked on empty area
+//     console.log(e.target.attrs.name, e.target.getStage());
+//     const clickedOnEmpty = e.target.attrs.name === "background"; // e.target === e.target.getStage();
+// >>>>>>> develop
     if (clickedOnEmpty) {
       selectShape(null);
     }
-  }; 
+  };
   console.log("selectedId", selectedId);
   //const dragUrl = useRef();
   const stageRef = useRef();
   // const [images, setImages] = useState([]);
 
-  console.log(images);
-  console.log(dragUrl);
-  console.log("stage", stageRef.current);
-
   return (
     <div
       style={{
-        marginBottom:21
+        marginBottom: 21,
       }}
     >
       <div
@@ -72,11 +83,14 @@ function Canvas({dragUrl,images,setImages,bgImgCnt}) {
             {images.map((image, i) => {
               return (
                 <Stickers
+                  setImages={setImages}
+                  images={images}
                   key={i}
+                  selectedId={selectedId}
                   shapeProps={image}
-                  isSelected={image.id === selectedId}
+                  isSelected={i === selectedId}
                   onSelect={() => {
-                    selectShape(image.id);
+                    selectShape(i);
                   }}
                   onChange={(newAttrs) => {
                     const imgs = images.slice();
