@@ -109,6 +109,7 @@ function Stickers({
           <Image
             image={deleteImage}
             onClick={onDelete}
+            onTap={onDelete}
             // onTransformEnd={(e) => {
             //   // transformer is changing scale of the node
             //   // and NOT its width or height
