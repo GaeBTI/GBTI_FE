@@ -1,18 +1,30 @@
 import { React, useRef, useEffect, useLayoutEffect, useState } from "react";
 import { render } from "react-dom";
-import { Stage, Layer, Rect, Image, Transformer } from "react-konva";
+import { Stage, Layer, Rect, Image, Transformer, Group } from "react-konva";
 import useImage from "use-image";
+import DelBtn from "../../assets/images/DelBtn.png";
 
-function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
+function Stickers({
+  selectedId,
+  images,
+  setImages,
+  shapeProps,
+  isSelected,
+  onSelect,
+  onChange,
+  stageScale,
+}) {
   const [image] = useImage(shapeProps.src);
+  const [deleteImage] = useImage(DelBtn);
   const shapeRef = useRef();
   const trRef = useRef();
-  console.log("img", image);
+
+  console.log(images);
+
   const [size, setSize] = useState({ w: shapeProps.w, h: shapeProps.h });
   useEffect(() => {
     if (isSelected) {
       // we need to attach transformer manually
-      //trRef.current.nodes([shapeRef.current]);
       trRef.current.setNode(shapeRef.current);
       trRef.current.getLayer().batchDraw();
     }
@@ -25,51 +37,61 @@ function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
     }
   }, [shapeProps, image, isSelected]);
 
-  console.log(shapeProps.id, "stickers", shapeProps, "h", shapeProps.height);
+  const onDelete = () => {
+    console.log("Sticker is deleted");
+    setImages(
+      images.filter((image, i) => {
+        return i !== selectedId;
+      })
+    );
+    console.log(selectedId);
+  };
+  // console.log(shapeProps.id, "stickers", shapeProps, "h", shapeProps.height);
   return (
     <>
-      <Image
-        image={image}
-        offsetX={image ? size.w / 2 : 0}
-        offsetY={image ? size.h / 2 : 0}
-        // I will use offset to set origin to the center of the image
-        onClick={onSelect}
-        onTap={onSelect}
-        ref={shapeRef}
-        {...shapeProps}
-        draggable
-        onDragEnd={(e) => {
-          onChange({
-            ...shapeProps,
-            x: e.target.x(),
-            y: e.target.y(),
-          });
-        }}
-        onTransformEnd={(e) => {
-          // transformer is changing scale of the node
-          // and NOT its width or height
-          // but in the store we have only width and height
-          // to match the data better we will reset scale on transform end
-          const node = shapeRef.current;
-          // console.log("shapeRef.current ", node);
-          const scaleX = node.scaleX();
-          const scaleY = node.scaleY();
+      <Group draggable>
+        <Image
+          image={image}
+          offsetX={image ? size.w / 2 : 0}
+          offsetY={image ? size.h / 2 : 0}
+          // I will use offset to set origin to the center of the image
+          onClick={onSelect}
+          onTap={onSelect}
+          ref={shapeRef}
+          {...shapeProps}
+          onDragEnd={(e) => {
+            onChange({
+              ...shapeProps,
+              x: e.target.x(),
+              y: e.target.y(),
+            });
+          }}
+          onTransformEnd={(e) => {
+            // transformer is changing scale of the node
+            // and NOT its width or height
+            // but in the store we have only width and height
+            // to match the data better we will reset scale on transform end
+            const node = shapeRef.current;
+            // console.log("shapeRef.current ", node);
+            const scaleX = node.scaleX();
+            const scaleY = node.scaleY();
 
-          // we will reset it back
-          node.scaleX(1);
-          node.scaleY(1);
-          onChange({
-            ...shapeProps,
-            x: node.x(),
-            y: node.y(),
-            // set minimal value
-            width: Math.max(image.width / 2, node.width() * scaleX), //5
-            height: Math.max(node.height() * scaleY),
-          });
-          // console.log("changed to ", node);
-          setSize({ w: node.width(), h: node.height() });
-        }}
-      />
+            // we will reset it back
+            node.scaleX(1);
+            node.scaleY(1);
+            onChange({
+              ...shapeProps,
+              x: node.x(),
+              y: node.y(),
+              // set minimal value
+              width: Math.max(image.width / 2, node.width() * scaleX), //5
+              height: Math.max(node.height() * scaleY),
+            });
+            // console.log("changed to ", node);
+            setSize({ w: node.width(), h: node.height() });
+          }}
+        />
+      </Group>
       {isSelected && (
         <Transformer
           ref={trRef}
@@ -83,7 +105,34 @@ function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
             }
             return newBox;
           }}
-        />
+        >
+          <Image
+            image={deleteImage}
+            onClick={onDelete}
+            // onTransformEnd={(e) => {
+            //   // transformer is changing scale of the node
+            //   // and NOT its width or height
+            //   // but in the store we have only width and height
+            //   // to match the data better we will reset scale on transform end
+            //   const node = shapeRef.current;
+            //   // console.log("shapeRef.current ", node);
+            //   const scaleX = node.scaleX();
+            //   const scaleY = node.scaleY();
+
+            //   // we will reset it back
+            //   node.scaleX(1);
+            //   node.scaleY(1);
+            //   onChange({
+            //     ...shapeProps,
+            //     x: node.x(),
+            //     y: node.y(),
+            //     // set minimal value
+            //     width: Math.max(image.width / 2, node.width() * scaleX), //5
+            //     height: Math.max(node.height() * scaleY),
+            //   });
+            // }}
+          ></Image>
+        </Transformer>
       )}
     </>
   );
