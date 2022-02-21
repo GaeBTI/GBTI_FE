@@ -30,7 +30,7 @@ const StickerBox=({dragUrl,setImages})=>{
                         x: 100,
                         y: 200,
                         src: e.target.src,
-                        id: images.length.toString(),
+                        id: (images.length+1).toString(),
                         w: 144,
                         h: 139,
                         },
@@ -42,8 +42,8 @@ const StickerBox=({dragUrl,setImages})=>{
         <button>
             <img
             alt="intj"
-            src={require("../../assets/images/characters/intj.png")}
-            width={100}
+            src={require("../../assets/images/characters/INTJ.png")}
+            width={200}
             draggable="true"
             onDragStart={(e) => {
                 dragUrl.current = e.target.src;
@@ -57,9 +57,9 @@ const StickerBox=({dragUrl,setImages})=>{
                         x: 100,
                         y: 200,
                         src: e.target.src,
-                        id: images.length.toString(),
-                        w: 100,
-                        h: 100,
+                        id: (images.length+1).toString(),
+                        w: 200,
+                        h: 200,
                         },
                     ])
                 );
