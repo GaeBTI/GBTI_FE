@@ -24,7 +24,7 @@ const StickerBoxBG=styled.div`
 
 const StickerBox=({dragUrl,setImages})=>{
     const StickerImgLength=57;
-    const stickerButtonList=[];
+    let stickerButtonList=[];
     for(var i =0;i<StickerImgLength;i++){
         stickerButtonList.push(`sticker${i}.png`);
     }
