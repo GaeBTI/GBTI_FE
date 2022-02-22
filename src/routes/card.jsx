@@ -6,15 +6,17 @@ import { MBTIS } from "../assets/texts/results";
 import StartDecoButton from "../components/cardPage/startDecoButton";
 import ResultCard from "../components/cardPage/resultCard";
 
-function Card({mbti}){
-    mbti= mbti? mbti: "INTJ";
-    return <Container>
+function Card({ mbti }) {
+  mbti = mbti ? mbti : "INTJ";
+  return (
+    <Container>
       <Header></Header>
       <section>
-          <ResultCard mbti={mbti}></ResultCard>
+        <ResultCard mbti={mbti}></ResultCard>
       </section>
       <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
       <StartDecoButton></StartDecoButton>
-  </Container>;
+    </Container>
+  );
 }
 export default Card;
