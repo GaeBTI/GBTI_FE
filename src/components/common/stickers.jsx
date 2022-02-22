@@ -21,6 +21,7 @@ const Stickers = memo(
     onSelect,
     onChange,
     stageScale,
+    decoDone,
   }) => {
     const [image] = useImage(shapeProps.src);
     const [deleteImage] = useImage(DelBtn);
@@ -100,7 +101,7 @@ const Stickers = memo(
             }}
           />
         </Group>
-        {isSelected && (
+        {isSelected && !decoDone && (
           <Transformer
             ref={trRef}
             boundBoxFunc={(oldBox, newBox) => {

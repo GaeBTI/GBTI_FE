@@ -38,7 +38,7 @@ function Canvas({
   decoDone,
   setCardUri,
 }) {
-  const [selectedId, selectShape] = useState(null);
+  const [selectedId, selectShape] = useState(0);
   const stageRef = useRef(null);
   console.log("decoDone", decoDone);
   // <<<<<<< feature/makeDecoPage
@@ -46,6 +46,7 @@ function Canvas({
 
   const navigate = useNavigate();
   const handleExport = () => {
+    selectShape(null);
     const uri = stageRef.current.toDataURL();
     console.log("추출완", uri);
     setCardUri(uri); // uri 추출 후 결과페이지에서 사용하기 위해 state 저장
@@ -124,6 +125,7 @@ function Canvas({
                     imgs[i] = newAttrs;
                     setImages(imgs); //setRectangles(rects);
                   }}
+                  decoDone={decoDone}
                 />
               );
             })}
