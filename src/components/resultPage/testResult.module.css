@@ -182,13 +182,16 @@
 }
 .teamBox {
   display: flex;
-  flex-wrap: wrap;
+  text-align: center;
 }
 .teamLeft {
   margin-inline: auto;
 }
 .teamRight {
   margin-inline: auto;
+}
+.teamImg {
+  width: 150px;
 }
 .teamText {
   font-family: HSYuji-Regular;
