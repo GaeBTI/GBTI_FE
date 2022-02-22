@@ -71,7 +71,12 @@ function TestResult({ mbti, cardUri }) {
         <div className={styles.teamBox}>
           <div className={styles.teamLeft}>
             <Best />
-            <div></div>
+            <div>
+              <img
+                className={styles.teamImg}
+                src={require(`../../assets/images/characters/${MBTIS[mbti].best.mbti}.png`)}
+              ></img>
+            </div>
             <div className={styles.teamText}>
               <div>{MBTIS[mbti].best.word1}</div>
               <div>{MBTIS[mbti].best.word2}</div>
@@ -79,7 +84,12 @@ function TestResult({ mbti, cardUri }) {
           </div>
           <div className={styles.teamRight}>
             <Worst />
-            <div></div>
+            <div>
+              <img
+                className={styles.teamImg}
+                src={require(`../../assets/images/characters/${MBTIS[mbti].worst.mbti}.png`)}
+              ></img>
+            </div>
             <div className={styles.teamText}>
               <div>{MBTIS[mbti].worst.word1}</div>
               <div>{MBTIS[mbti].worst.word2}</div>
