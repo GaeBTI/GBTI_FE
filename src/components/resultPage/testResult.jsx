@@ -3,12 +3,10 @@ import {
   Worst,
   Best,
   CharList,
-  LeftQuote,
   Major,
   MajorMasking,
   MindLevel,
   RetryTag,
-  RightQuote,
   SmstrComnt,
 } from "../../icons";
 import styles from "./testResult.module.css";
@@ -17,6 +15,7 @@ import KakaoShare from "./share/kakaoShare/kakaoShare";
 import KeywordBox from "../common/keywordBox/keywordBox";
 import Header from "../common/header/header";
 import FacebookShare from "./share/facebookShare";
+import CopyLink from "./share/copyLink";
 
 function TestResult({ mbti, cardUri }) {
   const featureList = MBTIS[mbti].CharList.map((c) => (
@@ -100,8 +99,11 @@ function TestResult({ mbti, cardUri }) {
       </section>
       <section>
         <div className={styles.shareText}>테스트 공유하기</div>
-        <KakaoShare></KakaoShare>
-        <FacebookShare></FacebookShare>
+        <div className={styles.shareBox}>
+          <KakaoShare></KakaoShare>
+          <FacebookShare></FacebookShare>
+          <CopyLink></CopyLink>
+        </div>
       </section>
       <section className={styles.retry} onClick={handleRestart}>
         <RetryTag />
