@@ -24,14 +24,12 @@ const GoResultText = styled.div`
 const GoResultButtonBGBox = styled.div`
   position: absolute;
 `; //4,11
-const GoResultButton = ({ isDone }) => (
-  <GoResultBox onClick={isDone}>
-    {/* <StyledLink to="/result"> */}
+const GoResultButton = () => (
+  <GoResultBox>
     <GoResultButtonBGBox>
       <GoResultButtonBG />
     </GoResultButtonBGBox>
     <GoResultText>확인</GoResultText>
-    {/* </StyledLink> */}
   </GoResultBox>
 );
 

@@ -1,6 +1,6 @@
 import { React, useState, useRef } from "react";
 import { Stage, Layer, Image } from "react-konva";
-import { useLinkClickHandler } from "react-router-dom";
+import { useLinkClickHandler, useNavigate } from "react-router-dom";
 import useImage from "use-image";
 import Stickers from "../common/stickers";
 // feature/makeDecoPage
@@ -30,27 +30,26 @@ const downloadURI = (uri, name) => {
   document.body.removeChild(link);
 };
 
-function Canvas({ dragUrl, images, setImages, bgImgCnt, decoDone }) {
+function Canvas({ dragUrl, images, setImages, bgImgCnt, decoDone, setCardUri }) {
   const [selectedId, selectShape] = useState(null);
   const stageRef = useRef(null);
   console.log("decoDone", decoDone);
   // <<<<<<< feature/makeDecoPage
   console.log("full imgs", images);
+  
+  const navigate = useNavigate();
   const handleExport = () => {
     const uri = stageRef.current.toDataURL();
-    console.log(uri);
+    console.log('추출완',uri);
+    setCardUri(uri); // uri 추출 후 결과페이지에서 사용하기 위해 state 저장
+    navigate('/result'); // result 페이지 이동
   };
   decoDone && handleExport();
   const checkDeselect = (e) => {
     // deselect when clicked on empty area
     console.log(e.target.attrs.name, e.target.getStage());
-    const clickedOnEmpty = e.target.attrs.name === bgName; // e.target === e.target.getStage();
-    // =======
-    //   const checkDeselect = (e) => {
-    //     // deselect when clicked on empty area
-    //     console.log(e.target.attrs.name, e.target.getStage());
-    //     const clickedOnEmpty = e.target.attrs.name === "background"; // e.target === e.target.getStage();
-    // >>>>>>> develop
+    const clickedOnEmpty = e.target.attrs.name === bgName;
+
     if (clickedOnEmpty) {
       selectShape(null);
     }

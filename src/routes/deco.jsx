@@ -6,7 +6,7 @@ import Canvas from "./../components/decoPage/canvas";
 import ChooseBackgroundBox from "../components/decoPage/chooseBackgroundBox";
 import GoResultButton from "../components/decoPage/goResultButton";
 
-function Deco({ mbti }) {
+function Deco({ mbti, setCardUri }) {
   //dragurl, images
   console.log(mbti);
   const [images, setImages] = useState([
@@ -19,16 +19,18 @@ function Deco({ mbti }) {
       h: 200,
     },
   ]);
-  const [decoDone, setDone] = useState(false);
   //const [dragUrl,setDragUrl] = useState('');
   const dragUrl = useRef();
   console.log("out !!", images);
   const [bgImgCnt, setBgImgCnt] = useState(0);
   //drag url ref
 
+  // 이미지 추출 후 result 페이지로 이동하기 위한 flag 세우기
+  const [decoDone, setDone] = useState(false);
   const isDone = () => {
     console.log("decodecodonedone");
-    setDone(true);
+    console.log("done ",decoDone);
+    setDone(true); // 추출 시작
   }; //데코 마무리 됐으면
   return (
     <Container>
@@ -39,6 +41,7 @@ function Deco({ mbti }) {
         bgImgCnt={bgImgCnt}
         mbti={mbti}
         decoDone={decoDone}
+        setCardUri={setCardUri}
       ></Canvas>
       <ChooseBackgroundBox
         setBgImgCnt={setBgImgCnt}

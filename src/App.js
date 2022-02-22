@@ -37,6 +37,7 @@ function App() {
   ]); // EnI, NnS, TnF, PnJ
   const [mbti,setMBTI]=useState('INTJ');
   console.log("app", scores);
+  const [cardUri,setCardUri] = useState('');
   return (
     <div className="App" style={{ width: 375, margin: "auto" }}>
       <Router>
@@ -47,8 +48,8 @@ function App() {
             path="/loading"
             element={<Loading finalScores={scores} setMBTI={setMBTI}/>}
           ></Route>
-          <Route path="/result" element={<Result mbti={mbti}/>}></Route>
-          <Route path="/deco" element={<Deco mbti={mbti}/>}></Route>
+          <Route path="/result" element={<Result mbti={mbti} cardUri={cardUri}/>}></Route>
+          <Route path="/deco" element={<Deco mbti={mbti} setCardUri={setCardUri}/>}></Route>
           <Route path="/card" element={<Card mbti={mbti}/>}></Route>
         </Routes>
       </Router>
