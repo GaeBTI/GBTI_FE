@@ -19,9 +19,6 @@ import KeywordBox from "../common/keywordBox/keywordBox";
 import Header from "../common/header/header";
 
 function TestResult({ mbti }) {
-  const { Kakao } = window;
-  const JAVASCRIPT_KEY = process.env.REACT_APP_KAKAO_KEY;
-  console.log(Kakao.isInitialized);
   const featureList = MBTIS[mbti].CharList.map((c) => (
     <div className={styles.charac}>
       <div className={styles.charac_split}>0</div>
