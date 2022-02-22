@@ -18,10 +18,6 @@ function KakaoShare() {
     }
   };
 
-  useEffect(() => {
-    sharing();
-  }, []);
-
   return (
     <a id="kakao-link-btn" onClick={sharing}>
       <img
