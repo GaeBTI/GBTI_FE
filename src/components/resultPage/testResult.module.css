@@ -211,6 +211,13 @@
 
   color: #000000;
 }
+.shareBox {
+  margin-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 .retry {
   margin-block: 26px;
   text-align: center;
