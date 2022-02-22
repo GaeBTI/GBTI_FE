@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
+import styles from "./kakaoShare.module.css";
+
 const { Kakao } = window;
 function KakaoShare() {
   const sharing = () => {
@@ -21,6 +23,7 @@ function KakaoShare() {
   return (
     <a id="kakao-link-btn" onClick={sharing}>
       <img
+        className={styles.shareBtn}
         src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
         alt="카카오링크 보내기 버튼"
       />
