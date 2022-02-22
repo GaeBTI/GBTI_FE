@@ -29,7 +29,7 @@ function Deco({ mbti, setCardUri }) {
   const [decoDone, setDone] = useState(false);
   const isDone = () => {
     console.log("decodecodonedone");
-    console.log("done ",decoDone);
+    console.log("done ", decoDone);
     setDone(true); // 추출 시작
   }; //데코 마무리 됐으면
   return (
@@ -48,7 +48,7 @@ function Deco({ mbti, setCardUri }) {
         bgImgCnt={bgImgCnt}
       ></ChooseBackgroundBox>
       <StickerBox dragUrl={dragUrl} setImages={setImages}></StickerBox>
-      <button onClick={isDone}>
+      <button onClick={() => isDone()}>
         <GoResultButton></GoResultButton>
       </button>
     </Container>
