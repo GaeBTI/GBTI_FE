@@ -38,7 +38,7 @@ function Canvas({
   decoDone,
   setCardUri,
 }) {
-  const [selectedId, selectShape] = useState(null);
+  const [selectedId, selectShape] = useState(0);
   const stageRef = useRef(null);
   console.log("decoDone", decoDone);
   // <<<<<<< feature/makeDecoPage
