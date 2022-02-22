@@ -4,9 +4,9 @@ import { useLinkClickHandler } from "react-router-dom";
 import useImage from "use-image";
 import Stickers from "../common/stickers";
 // feature/makeDecoPage
-import {BackgroundImgList} from "./data.jsx"
-const canvasSize=335;
-const bgName="background";
+import { BackgroundImgList } from "./data.jsx";
+const canvasSize = 335;
+const bgName = "background";
 // import { BackgroundImgList } from "./data.jsx";
 // const canvasSize = 335;
 // >>>>>>> develop
@@ -21,27 +21,43 @@ const BackgroundImg = ({ bgImgCnt, name }) => {
   );
 };
 
-function Canvas({ dragUrl, images, setImages, bgImgCnt }) {
+const downloadURI = (uri, name) => {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+function Canvas({ dragUrl, images, setImages, bgImgCnt, decoDone }) {
   const [selectedId, selectShape] = useState(null);
-// <<<<<<< feature/makeDecoPage
-  console.log("full imgs",images);
-  const checkDeselect = (e) => { 
+  const stageRef = useRef(null);
+  console.log("decoDone", decoDone);
+  // <<<<<<< feature/makeDecoPage
+  console.log("full imgs", images);
+  const handleExport = () => {
+    const uri = stageRef.current.toDataURL();
+    console.log(uri);
+  };
+  decoDone && handleExport();
+  const checkDeselect = (e) => {
     // deselect when clicked on empty area
-    console.log(e.target.attrs.name,e.target.getStage());
-    const clickedOnEmpty = e.target.attrs.name===bgName; // e.target === e.target.getStage();
-// =======
-//   const checkDeselect = (e) => {
-//     // deselect when clicked on empty area
-//     console.log(e.target.attrs.name, e.target.getStage());
-//     const clickedOnEmpty = e.target.attrs.name === "background"; // e.target === e.target.getStage();
-// >>>>>>> develop
+    console.log(e.target.attrs.name, e.target.getStage());
+    const clickedOnEmpty = e.target.attrs.name === bgName; // e.target === e.target.getStage();
+    // =======
+    //   const checkDeselect = (e) => {
+    //     // deselect when clicked on empty area
+    //     console.log(e.target.attrs.name, e.target.getStage());
+    //     const clickedOnEmpty = e.target.attrs.name === "background"; // e.target === e.target.getStage();
+    // >>>>>>> develop
     if (clickedOnEmpty) {
       selectShape(null);
     }
   };
   console.log("selectedId", selectedId);
   //const dragUrl = useRef();
-  const stageRef = useRef();
+
   // const [images, setImages] = useState([]);
 
   return (
@@ -62,9 +78,9 @@ function Canvas({ dragUrl, images, setImages, bgImgCnt }) {
               {
                 ...stageRef.current.getPointerPosition(),
                 src: dragUrl.current,
-                id: (images.length+1).toString(),
-                w: 100,
-                h: 100,
+                id: (images.length + 1).toString(),
+                w: 200,
+                h: 200,
               },
             ])
           );
@@ -79,7 +95,7 @@ function Canvas({ dragUrl, images, setImages, bgImgCnt }) {
           ref={stageRef}
         >
           <Layer>
-            <BackgroundImg bgImgCnt={bgImgCnt} name={bgName}/>
+            <BackgroundImg bgImgCnt={bgImgCnt} name={bgName} />
             {images.map((image, i) => {
               return (
                 <Stickers
