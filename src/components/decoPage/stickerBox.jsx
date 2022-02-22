@@ -49,8 +49,8 @@ const StickerBox=({dragUrl,setImages})=>{
                                 y: 158,
                                 src: e.target.src,
                                 id: (images.length+1).toString(),
-                                w: 100,
-                                h: 100,
+                                w: 200,
+                                h: 200,
                                 },
                             ])
                         );
