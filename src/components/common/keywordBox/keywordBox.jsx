@@ -13,12 +13,16 @@ function KeywordBox({ MBTIS, mbti }) {
         </div>
       </div>
       <div className={styles.keyword}>
-        <div className={styles.keySnt}>{MBTIS[mbti].keySentence}</div>
+        <div className={styles.sntBox}>
+          <div className={styles.keySnt}>{MBTIS[mbti].keySentence1}</div>
+          <div className={styles.keySnt}>{MBTIS[mbti].keySentence2}</div>
+        </div>
         <div className={styles.keyBox}>
-          <div className={styles.keyName}>{MBTIS[mbti].keyWord}</div>
-          <div className={styles.keyBack}>
+          <div className={styles.keyName}>{MBTIS[mbti].keyWord1}</div>
+          <div className={styles.keyName}>{MBTIS[mbti].keyWord2}</div>
+          {/* <div className={styles.keyBack}>
             <KeyBackTape />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
