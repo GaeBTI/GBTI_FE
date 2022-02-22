@@ -61,6 +61,8 @@ const Stickers = memo(
         <Group draggable>
           <Image
             image={image}
+            width={200}
+            height={200}
             offsetX={image ? size.w / 2 : 0}
             offsetY={image ? size.h / 2 : 0}
             // I will use offset to set origin to the center of the image
@@ -93,8 +95,8 @@ const Stickers = memo(
                 x: node.x(),
                 y: node.y(),
                 // set minimal value
-                width: Math.max(image.width / 2, node.width() * scaleX), //5
-                height: Math.max(node.height() * scaleY),
+                width: Math.max( node.width() * scaleX), //5
+                height: Math.max( node.height() * scaleY),
               });
               // console.log("changed to ", node);
               setSize({ w: node.width(), h: node.height() });
@@ -107,8 +109,8 @@ const Stickers = memo(
             boundBoxFunc={(oldBox, newBox) => {
               // limit resize
               if (
-                newBox.width < image.width / 2 ||
-                newBox.height < image.height / 2
+                newBox.width < 50 ||
+                newBox.height < 50
               ) {
                 return oldBox;
               }
