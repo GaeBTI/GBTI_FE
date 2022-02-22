@@ -37,9 +37,9 @@ function App() {
       score: 0,
     },
   ]); // EnI, NnS, TnF, PnJ
-  const [mbti, setMBTI] = useState("INTJ");
+  const [mbti, setMBTI] = useState("INFP");
   console.log("app", scores);
-  const [cardUri,setCardUri] = useState('');
+  const [cardUri, setCardUri] = useState("");
   useEffect(() => {
     if (!Kakao.isInitialized()) {
       Kakao.init(JAVASCRIPT_KEY);
@@ -56,9 +56,15 @@ function App() {
             path="/loading"
             element={<Loading finalScores={scores} setMBTI={setMBTI} />}
           ></Route>
-          <Route path="/result" element={<Result mbti={mbti} cardUri={cardUri}/>}></Route>
-          <Route path="/deco" element={<Deco mbti={mbti} setCardUri={setCardUri}/>}></Route>
-          <Route path="/card" element={<Card mbti={mbti}/>}></Route>
+          <Route
+            path="/result"
+            element={<Result mbti={mbti} cardUri={cardUri} />}
+          ></Route>
+          <Route
+            path="/deco"
+            element={<Deco mbti={mbti} setCardUri={setCardUri} />}
+          ></Route>
+          <Route path="/card" element={<Card mbti={mbti} />}></Route>
         </Routes>
       </Router>
     </div>

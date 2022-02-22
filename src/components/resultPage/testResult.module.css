@@ -81,6 +81,7 @@
 .charSection {
   position: relative;
   height: 549px;
+  margin-top: 26px;
 }
 .charBox {
   position: absolute;
@@ -139,7 +140,7 @@
   position: relative;
   height: 150px;
   z-index: 2;
-  margin-block: 26px;
+  margin-top: 26px;
 }
 .smstrMent {
   position: absolute;

@@ -42,15 +42,15 @@ function TestResult({ mbti, cardUri }) {
         <img alt="char" src={cardUri} />
       </section>
       <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
-      <section className={styles.mind}>
-        <div className={styles.mindLevel}>
-          <div>
-            <MindLevel />
-          </div>
-          <div className={styles.mindWordBox}>{mindList}</div>
-          <div className={styles.mindScoreBox}>{scoreList}</div>
+      <section className={styles.smstrSection}>
+        <div className={styles.smstrMent}>
+          <SmstrComnt />
         </div>
-        <div className={styles.mindBox}></div>
+        <div className={styles.smstrText}>
+          <div id={styles.snt1}>{MBTIS[mbti].promise.snt1}</div>
+          <div>{MBTIS[mbti].promise.snt2}</div>
+        </div>
+        {/* <div className={styles.smstrBox}></div> */}
       </section>
       <section className={styles.majorSection}>
         <Major></Major>
@@ -87,15 +87,15 @@ function TestResult({ mbti, cardUri }) {
           </div>
         </div>
       </section>
-      <section className={styles.smstrSection}>
-        <div className={styles.smstrMent}>
-          <SmstrComnt />
+      <section className={styles.mind}>
+        <div className={styles.mindLevel}>
+          <div>
+            <MindLevel />
+          </div>
+          <div className={styles.mindWordBox}>{mindList}</div>
+          <div className={styles.mindScoreBox}>{scoreList}</div>
         </div>
-        <div className={styles.smstrText}>
-          <div id={styles.snt1}>{MBTIS[mbti].promise.snt1}</div>
-          <div>{MBTIS[mbti].promise.snt2}</div>
-        </div>
-        {/* <div className={styles.smstrBox}></div> */}
+        <div className={styles.mindBox}></div>
       </section>
       <section>
         <div className={styles.shareText}>테스트 공유하기</div>
