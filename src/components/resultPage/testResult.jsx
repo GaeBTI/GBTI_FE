@@ -18,17 +18,21 @@ import FacebookShare from "./share/facebookShare";
 import CopyLink from "./share/copyLink";
 
 function TestResult({ mbti, cardUri }) {
-  const featureList = MBTIS[mbti].CharList.map((c) => (
-    <div className={styles.charac}>
+  const featureList = MBTIS[mbti].CharList.map((c, i) => (
+    <div key={i} className={styles.charac}>
       <div className={styles.charac_split}>0</div>
       <div className={styles.charac_text}>{c}</div>
     </div>
   ));
-  const mindList = MBTIS[mbti].Mind.map((m) => (
-    <div className={styles.mindWord}>{m}</div>
+  const mindList = MBTIS[mbti].Mind.map((m, i) => (
+    <div key={i} className={styles.mindWord}>
+      {m}
+    </div>
   ));
-  const scoreList = MBTIS[mbti].Score.map((s) => (
-    <div className={styles.mindScore}>{s}</div>
+  const scoreList = MBTIS[mbti].Score.map((s, i) => (
+    <div key={i} className={styles.mindScore}>
+      {s}
+    </div>
   ));
 
   const handleRestart = () => {
