@@ -2,71 +2,63 @@ import { React, useState, useRef } from "react";
 import { Stage, Layer } from "react-konva";
 import Stickers from "./../common/stickers";
 import styled from "styled-components";
-
 const StickerBoxBG=styled.div`
     width: 335px;
     height: 337px;
 
+    padding:10px;
+
     background: rgba(0, 0, 0, 0.25);
     margin-bottom: 22px;
+
+    overflow:auto;
+
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap; 
 `;
+ const StickerButton=styled.button`
+    flex:23%;
+    margin:5px;
+ `;
+
 const StickerBox=({dragUrl,setImages})=>{
-    return(
+    const StickerImgLength=57;
+    const stickerButtonList=[];
+    for(var i =0;i<StickerImgLength;i++){
+        stickerButtonList.push(`sticker${i}.png`);
+    }
+    return (
         <StickerBoxBG>
-        <button>
-            <img
-            alt="lion"
-            src="https://konvajs.org/assets/lion.png"
-            draggable="true"
-            onDragStart={(e) => {
-                dragUrl.current = e.target.src;
-            }}
-            onClick={(e) => {
-                e.preventDefault();
-                console.log('cicked',e.target)
-                setImages((images)=>
-                    images.concat([
-                        {
-                        x: 100,
-                        y: 200,
-                        src: e.target.src,
-                        id: (images.length+1).toString(),
-                        w: 144,
-                        h: 139,
-                        },
-                    ])
-                );
-            }}
-            />
-        </button>
-        <button>
-            <img
-            alt="intj"
-            src={require("../../assets/images/characters/INTJ.png")}
-            width={200}
-            draggable="true"
-            onDragStart={(e) => {
-                dragUrl.current = e.target.src;
-            }}
-            onClick={(e) => {
-                e.preventDefault();
-                console.log('cicked',e.target)
-                setImages((images)=>
-                    images.concat([
-                        {
-                        x: 100,
-                        y: 200,
-                        src: e.target.src,
-                        id: (images.length+1).toString(),
-                        w: 200,
-                        h: 200,
-                        },
-                    ])
-                );
-            }}
-            />
-        </button>
-    </StickerBoxBG>
-    );
+            {stickerButtonList.map((url,index)=>(
+                <StickerButton>
+                <img
+                    style={{width:60,height:60}}
+                    src={require(`../../assets/images/stickers/${url}`)}
+                    draggable="true"
+                    onDragStart={(e) => {
+                        dragUrl.current = e.target.src;
+                    }}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        console.log('cicked',e.target)
+                        setImages((images)=>
+                            images.concat([
+                                {
+                                x: 158,
+                                y: 158,
+                                src: e.target.src,
+                                id: (images.length+1).toString(),
+                                w: 100,
+                                h: 100,
+                                },
+                            ])
+                        );
+                    }}
+                />
+            </StickerButton>
+            ))}
+        </StickerBoxBG>
+    )
 }
 export default StickerBox;

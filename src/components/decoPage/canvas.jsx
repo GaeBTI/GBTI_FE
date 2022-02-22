@@ -14,7 +14,7 @@ const bgName="background";
 const BackgroundImg = ({ bgImgCnt, name }) => {
   console.log(BackgroundImgList[bgImgCnt]);
   const [image] = useImage(
-    require(`../../assets/images/background/${BackgroundImgList[bgImgCnt].url}`)
+    require(`../../assets/images/backgrounds/${BackgroundImgList[bgImgCnt].url}`)
   );
   return (
     <Image image={image} width={canvasSize} height={canvasSize} name={name} />
@@ -63,8 +63,8 @@ function Canvas({ dragUrl, images, setImages, bgImgCnt }) {
                 ...stageRef.current.getPointerPosition(),
                 src: dragUrl.current,
                 id: (images.length+1).toString(),
-                w: 200,
-                h: 200,
+                w: 100,
+                h: 100,
               },
             ])
           );
