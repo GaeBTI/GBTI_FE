@@ -36,11 +36,11 @@ const onRightClick=()=>{
 }
 const ChooseBackgroundBox=({setBgImgCnt, bgImgCnt})=>{
     return <ChooseBox>
-        <NextButton onClick={()=>setBgImgCnt(cur=>cur==0? 5 : cur-1)} style={{marginLeft:8}}>
+        <NextButton onClick={()=>setBgImgCnt(cur=>cur==0? BackgroundImgList.length-1 : cur-1)} style={{marginLeft:8}}>
             <LeftBackgroundBtnImg/>
         </NextButton>
         <BackgroundTitle>{BackgroundImgList[bgImgCnt].name}</BackgroundTitle>
-        <NextButton onClick={()=>setBgImgCnt(cur=>(cur+1)%6 )}>
+        <NextButton onClick={()=>setBgImgCnt(cur=>(cur+1)%BackgroundImgList.length )}>
             <RightBackgroundImg/>
         </NextButton>
     </ChooseBox>
