@@ -19,6 +19,15 @@ const getCode = (scores) => {
   return code;
 };
 function App() {
+  // 화면 높이에 맞춰 렌더링 
+  function setScreenSize() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  }
+  useEffect(() => {
+    setScreenSize();
+  });
+
   const [scores, setScores] = useState([
     {
       type: "EnI",

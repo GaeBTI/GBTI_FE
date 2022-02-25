@@ -2,7 +2,7 @@ import styled from "styled-components";
 import backgroundImg from "../../assets/images/background.svg";
 
 const Container=styled.div`
-  height:100vh;
+  height:calc(var(--vh, 1vh) * 100);
   background-size : cover;
   background-image:url(${backgroundImg});
 
