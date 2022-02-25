@@ -20,13 +20,15 @@ const QuestionNumText=styled.div`
 
   position: absolute;
 
-  margin: 88px 5px 0px 215px;
+  left:78%;
+  top:25%;
   
-  font-size:22px;
+  font-size:1.4rem;
   text-align:center;
   line-height:35px;
   font-family:HSYuji-Regular;
 `;
+//88px 5px 0px 215px;
 
 const QuestionTextBox=styled.div`
   width:287px;
@@ -37,7 +39,7 @@ const QuestionTextBox=styled.div`
   font-family:IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.1rem;
   text-align:center;
   color: #3C3C3C;
 
