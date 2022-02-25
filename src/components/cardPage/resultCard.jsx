@@ -14,8 +14,10 @@ const CardBgImg=styled.img`
 `;
 const CardChaImg=styled.img`
     position: absolute;
-    left:20%;
-    top:25%;
+    left:0;
+    top:0;
+    width:317px;
+    heigth:317px;
 `
 const ResultCard=({mbti})=>{
     return <ResultCardBox>
