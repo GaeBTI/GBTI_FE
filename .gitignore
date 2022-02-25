@@ -23,10 +23,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Test Questions
-questions.js
+# # Test Questions
+# questions.js
 
-# result
-results.js
-src/assets/texts/
-src/assets/
+# # result
+# results.js
+# src/assets/texts/
+# src/assets/
