@@ -6,6 +6,7 @@ import Result from "./routes/result";
 import Loading from "./routes/loading";
 import Deco from "./routes/deco";
 import Card from "./routes/card";
+import { isMobile } from "react-device-detect";
 const { Kakao } = window;
 const JAVASCRIPT_KEY = process.env.REACT_APP_KAKAO_KEY;
 const getCode = (scores) => {
@@ -55,7 +56,7 @@ function App() {
     }
   }, []);
   return (
-    <div className="App" style={{ width:375, margin: "auto" }}>
+    <div className="App" style={isMobile?{margin:"auto"}:{width:375, margin: "auto" }}>
       <Router>
         <Routes>
           <Route exact path="/" element={<Start />}></Route>

@@ -21,8 +21,6 @@ const AnswerButton=styled.button`
 
   width:270px;
   height:124px;
-	border: 0px;
-  background-color:transparent;
 
   display: flex;
   align-items: center;
