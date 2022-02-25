@@ -42,8 +42,9 @@ function TestResult({ mbti, cardUri }) {
   return (
     <section className={styles.page}>
       <Header></Header>
-      <section>
-        <img alt="char" src={cardUri} />
+      <section className={styles.imageBox}>
+        <img className={styles.charImage} alt="char" src={cardUri} />
+        <div className={styles.download}>이미지를 꾹 눌러 다운로드 하세요!</div>
       </section>
       <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
       <section className={styles.smstrSection}>
