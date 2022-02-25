@@ -25,12 +25,12 @@ export default Card;
 const CheerSentence=styled.div`
   width: 166px;
   height: 25px;
-  margin-top: 40px;
+  margin-top: 2%;
 
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 0.9rem;
   line-height: 25px;
 
   text-align: center;
