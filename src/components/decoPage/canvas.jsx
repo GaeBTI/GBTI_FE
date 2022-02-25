@@ -75,7 +75,7 @@ function Canvas({
   return (
     <div
       style={{
-        marginBottom: 21,
+        marginBottom: 1,
       }}
     >
       <div

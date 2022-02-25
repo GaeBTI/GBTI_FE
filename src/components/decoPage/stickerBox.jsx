@@ -9,7 +9,7 @@ const StickerBoxBG=styled.div`
     padding:10px;
 
     background: rgba(0, 0, 0, 0.25);
-    margin-bottom: 22px;
+    margin-bottom: 12px;
 
     overflow:auto;
 
