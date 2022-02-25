@@ -6,10 +6,8 @@ const StickerBoxBG=styled.div`
     width: 335px;
     height: 337px;
 
-    padding:10px;
-
     background: rgba(0, 0, 0, 0.25);
-    margin-bottom: 12px;
+    margin-bottom: 3%;
 
     overflow:auto;
 
@@ -31,7 +29,7 @@ const StickerBox=({dragUrl,setImages})=>{
     return (
         <StickerBoxBG>
             {stickerButtonList.map((url,index)=>(
-                <StickerButton>
+                <StickerButton key={index}>
                 <img
                     style={{width:60,height:60}}
                     src={require(`../../assets/images/stickers/${url}`)}

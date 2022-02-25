@@ -55,7 +55,7 @@ function App() {
     }
   }, []);
   return (
-    <div className="App" style={{ width: 375, margin: "auto" }}>
+    <div className="App" style={{ width:375, margin: "auto" }}>
       <Router>
         <Routes>
           <Route exact path="/" element={<Start />}></Route>

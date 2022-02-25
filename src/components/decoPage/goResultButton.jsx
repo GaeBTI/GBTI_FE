@@ -8,7 +8,6 @@ const StyledLink = styled(Link)`
 const GoResultBox = styled.div`
   width: 111px;
   height: 48px;
-
   position: relative;
 `;
 const GoResultText = styled.div`
