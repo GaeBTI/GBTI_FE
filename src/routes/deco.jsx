@@ -1,10 +1,7 @@
 import { setPointerCapture } from "konva/lib/PointerEvents";
 import Container from "../components/common/Container";
 import React, { useRef, useState } from "react";
-import StickerBox from "../components/decoPage/stickerBox";
-import Canvas from "./../components/decoPage/canvas";
-import ChooseBackgroundBox from "../components/decoPage/chooseBackgroundBox";
-import GoResultButton from "../components/decoPage/goResultButton";
+import { GoResultButton,ChooseBackgroundBox,Canvas,StickerBox } from "../components/decoPage";
 
 function Deco({ mbti, setCardUri }) {
   //dragurl, images
