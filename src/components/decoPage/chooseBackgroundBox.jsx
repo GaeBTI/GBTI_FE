@@ -8,7 +8,7 @@ const ChooseBox=styled.div`
     height:50px;
     display:flex;
     align-items: center;
-    margin-bottom:11px;
+    margin-bottom:1px;
 `;
 const BackgroundTitle=styled.div`
     font-family: IM_Hyemin-Regular;
