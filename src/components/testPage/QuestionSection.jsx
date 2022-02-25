@@ -39,7 +39,7 @@ const QuestionTextBox=styled.div`
   font-family:IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-align:center;
   color: #3C3C3C;
 

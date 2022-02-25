@@ -32,7 +32,7 @@ const AnswerButton=styled.button`
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 0.94rem;
   line-height: 25px;
   text-align: center;
   color: #3C3C3C;
