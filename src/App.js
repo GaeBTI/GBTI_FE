@@ -7,8 +7,11 @@ import Loading from "./routes/loading";
 import Deco from "./routes/deco";
 import Card from "./routes/card";
 import { isMobile } from "react-device-detect";
+import ReactGA from "react-ga";
+
 const { Kakao } = window;
 const JAVASCRIPT_KEY = process.env.REACT_APP_KAKAO_KEY;
+const GA_TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
 const getCode = (scores) => {
   let code = "";
   for (let scoreObj of scores) {
@@ -20,13 +23,16 @@ const getCode = (scores) => {
   return code;
 };
 function App() {
-  // 화면 높이에 맞춰 렌더링 
+  // 화면 높이에 맞춰 렌더링
   function setScreenSize() {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
   useEffect(() => {
     setScreenSize();
+    ReactGA.initialize(GA_TRACKING_ID);
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname + window.location.search);
   });
 
   const [scores, setScores] = useState([
@@ -56,7 +62,10 @@ function App() {
     }
   }, []);
   return (
-    <div className="App" style={isMobile?{margin:"auto"}:{width:375, margin: "auto" }}>
+    <div
+      className="App"
+      style={isMobile ? { margin: "auto" } : { width: 375, margin: "auto" }}
+    >
       <Router>
         <Routes>
           <Route exact path="/" element={<Start />}></Route>
