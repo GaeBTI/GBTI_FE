@@ -4,7 +4,7 @@ import copyIcon from "../../../assets/images/linkClip.png";
 function CopyLink() {
   function copyTextUrl() {
     // Browser compatibility 알림
-    navigator.clipboard.writeText("http://gbti.site").then(() => {
+    navigator.clipboard.writeText("https://gbti.site/").then(() => {
       alert("링크를 복사했습니다.");
     });
   }
