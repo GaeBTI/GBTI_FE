@@ -12,6 +12,7 @@
   padding-top: 26px;
 }
 .keyword {
+  text-align: center;
 }
 .keyBox {
   position: relative;
@@ -22,14 +23,13 @@
   font-weight: bold;
   font-size: 20px;
   line-height: 24px;
-  width: 300px;
-  margin-left: 15px;
-  margin-bottom: 3px;
   text-align: center;
+
   z-index: 3;
   color: #3c3c3c;
 }
 .sntBox {
+  text-align: center;
   margin-bottom: 20px;
 }
 .keyName {

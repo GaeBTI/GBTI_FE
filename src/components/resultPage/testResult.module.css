@@ -95,6 +95,8 @@
 }
 .charSection {
   position: relative;
+  justify-content: center;
+  display: flex;
   height: 549px;
   margin-top: 26px;
 }
@@ -106,7 +108,7 @@
   position: absolute;
   z-index: 2;
   top: 68px;
-  left: 20px;
+  /* left: 20px; */
 }
 .charac_split {
   margin-right: 10px;
