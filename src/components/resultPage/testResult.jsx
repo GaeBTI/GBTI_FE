@@ -107,8 +107,10 @@ function TestResult({ mbti, cardUri }) {
           <div>
             <MindLevel />
           </div>
-          <div className={styles.mindWordBox}>{mindList}</div>
-          <div className={styles.mindScoreBox}>{scoreList}</div>
+          <div className={styles.mindTable}>
+            <div className={styles.mindWordBox}>{mindList}</div>
+            <div className={styles.mindScoreBox}>{scoreList}</div>
+          </div>
         </div>
         <div className={styles.mindBox}></div>
       </section>
