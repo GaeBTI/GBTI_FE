@@ -48,7 +48,7 @@ function Canvas({
   const handleExport = () => {
     selectShape(null);
     const uri = stageRef.current.toDataURL({ pixelRatio: 2 });
-    console.log("추출완", uri);
+    // console.log("추출완", uri);
     setCardUri(uri); // uri 추출 후 결과페이지에서 사용하기 위해 state 저장
     navigate("/result"); // result 페이지 이동
   };
