@@ -1,40 +1,56 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StartButtonBG } from "./startIcon";
-const StyledLink = styled(Link)`
-	width: 100%;
+import ReactGA from "react-ga";
+// const StyledLink = styled(Link)`
+//   width: 100%;
+// `;
+const StartBox = styled.div`
+  width: 108px;
+  height: 36px;
+  cursor: pointer;
+  position: relative;
 `;
-const StartBox= styled.div`
-    width: 108px;
-    height: 36px;
+const StartText = styled.div`
+  width: 108px;
+  height: 36px;
 
-    position:relative;
-    
+  position: absolute;
+  font-family: "HSYuji-Regular";
+  font-size: 25px;
+  line-height: 36px;
+  text-align: center;
+  color: #3c3c3c;
 `;
-const StartText=styled.div`
-    width:108px;
-    height:36px;
+const StartBGBox = styled.div`
+  position: absolute;
+  top: 15px;
+  left: 1px;
+`;
 
-    position:absolute;
-    font-family: "HSYuji-Regular" ;
-    font-size: 25px;
-    line-height: 36px;
-    text-align: center;
-    color: #3C3C3C;
-`;
-const StartBGBox=styled.div`
-    position:absolute;
-    top:15px;
-    left:1px;
-`;
-const StartButton=()=>(
-    <StartBox>
-        <StyledLink to="/test">
-            <StartBGBox><StartButtonBG/></StartBGBox>
-            <StartText>시작하기</StartText>
-        </StyledLink>
+const StartButton = () => {
+  const navigate = useNavigate();
+  const handleStart = () => {
+    // const ga = ReactGA.ga();
+    // ga("create", process.env.REACT_APP_GA_TRACKING_ID, {
+    //   cookieDomain: "none",
+    // });
+    ReactGA.event({
+      category: "User",
+      action: "Start the quiz",
+    });
+    navigate("/test");
+  };
+
+  return (
+    <StartBox onClick={handleStart}>
+      <StartBGBox>
+        <StartButtonBG />
+      </StartBGBox>
+      <StartText>시작하기</StartText>
     </StartBox>
-);
+  );
+};
 
 export default StartButton;
