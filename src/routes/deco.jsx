@@ -32,12 +32,12 @@ function Deco({ mbti, setCardUri }) {
   }; //데코 마무리 됐으면
 
   // 팝업
-  const [isModalOn,setIsModalOn]=useState(true);
-  console.log("Is Modal On",isModalOn);
+  const [isOpen,setIsOpen]=useState(true);
+  console.log("Is Modal On",isOpen);
 
   return (
     <Container>
-      {isModalOn&&<Modal isModalOn={isModalOn}><DecoModal></DecoModal></Modal>}
+      {isOpen&&<Modal setIsOpen={setIsOpen}><DecoModal></DecoModal></Modal>}
       <Canvas
         dragUrl={dragUrl}
         images={images}

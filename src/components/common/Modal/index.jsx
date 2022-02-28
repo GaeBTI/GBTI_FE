@@ -1,5 +1,6 @@
 import { React } from "react";
 import styled from "styled-components";
+import { ModalCancelBtnBg } from "./modalIcon";
 const ModalPageBox=styled.div`
     position:fixed;
     top:0;
@@ -25,9 +26,20 @@ const ModalBox=styled.div`
     align-items: center;
     justify-content:center;
 `;
-const Modal=({children, isModalOn})=>{
+
+const ModalCancelBtn=styled.button`
+    width:35px;
+    height:35px;
+    padding:0px;
+
+    position:absolute;
+    top:22%;
+    right:7%;
+`;
+const Modal=({children, setIsOpen})=>{
     return <ModalPageBox>
         <ModalBox>
+        <ModalCancelBtn onClick={()=>setIsOpen((cur)=>!cur)}><ModalCancelBtnBg/></ModalCancelBtn>
             {children}
         </ModalBox>
     </ModalPageBox>;
