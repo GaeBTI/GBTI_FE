@@ -23,6 +23,8 @@
   font-weight: bold;
   font-size: 20px;
   line-height: 24px;
+  width: 300px;
+  margin: auto;
   text-align: center;
 
   z-index: 3;

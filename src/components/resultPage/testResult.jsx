@@ -104,15 +104,15 @@ function TestResult({ mbti, cardUri }) {
       </section>
       <section className={styles.mind}>
         <div className={styles.mindLevel}>
-          <div>
+          <div className={styles.mindTag}>
             <MindLevel />
           </div>
-          <div className={styles.mindTable}>
+          <div className={styles.mindBox}>
             <div className={styles.mindWordBox}>{mindList}</div>
             <div className={styles.mindScoreBox}>{scoreList}</div>
           </div>
         </div>
-        <div className={styles.mindBox}></div>
+        {/* <div className={styles.mindBox}></div> */}
       </section>
       <section>
         <div className={styles.shareText}>테스트 공유하기</div>

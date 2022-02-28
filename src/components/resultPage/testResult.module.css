@@ -49,16 +49,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: absolute;
-  margin-top: 20px;
+  margin-top: 40px;
   width: 250px;
 }
 .mindScoreBox {
   display: grid;
-  grid-template-columns: 130px 100px;
+  grid-template-columns: 125px 100px;
   left: 140px;
-  top: 72px;
+  top: 40px;
   position: absolute;
-  text-align: right;
 }
 .mindWord {
   font-family: IM_Hyemin-Regular;
@@ -84,16 +83,23 @@
 
   color: red;
 }
+.mindTag {
+  position: relative;
+  z-index: 2;
+}
 .mindBox {
   position: relative;
   width: 335px;
   height: 122px;
   top: -20px;
+  margin: auto;
   /* top: 560px; */
   z-index: 1;
   background: #fffae3;
 }
 .charSection {
+  display: flex;
+  justify-content: center;
   position: relative;
   justify-content: center;
   display: flex;
@@ -105,10 +111,12 @@
   z-index: 1;
 }
 .listBox {
-  position: absolute;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   z-index: 2;
-  top: 68px;
-  /* left: 20px; */
+  top: 18px;
 }
 .charac_split {
   margin-right: 10px;
@@ -161,7 +169,7 @@
 }
 .smstrMent {
   position: absolute;
-  height: 150px;
+  left: 5%;
   z-index: 2;
 }
 .smstrText {
@@ -170,15 +178,14 @@
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
-  z-index: 3;
-  top: 70px;
-  /* or 183% */
   width: 293px;
   height: 128px;
-  display: table-cell;
+  display: flex;
+  flex-direction: column;
   vertical-align: middle;
-  left: 19px;
-  z-index: 1;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
   top: 20px;
   background: #fffae3;
   text-align: center;
