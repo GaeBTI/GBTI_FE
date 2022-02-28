@@ -33,7 +33,7 @@ function App() {
     ReactGA.initialize(GA_TRACKING_ID);
     ReactGA.set({ page: window.location.pathname });
     ReactGA.pageview(window.location.pathname + window.location.search);
-  });
+  }, []);
 
   const [scores, setScores] = useState([
     {
