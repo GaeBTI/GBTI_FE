@@ -25,8 +25,10 @@ const getCode = (scores) => {
 function App() {
   // 화면 높이에 맞춰 렌더링
   function setScreenSize() {
+    let vw = window.innerWidth * 0.01;
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
+    document.documentElement.style.setProperty("--vw", `${vw}px`);
   }
   useEffect(() => {
     setScreenSize();

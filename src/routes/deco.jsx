@@ -2,7 +2,6 @@ import { setPointerCapture } from "konva/lib/PointerEvents";
 import Container from "../components/common/Container";
 import React, { useRef, useState } from "react";
 import { GoResultButton, ChooseBackgroundBox, Canvas, StickerBox, DecoModal } from "../components/decoPage";
-import Modal from "../components/common/Modal";
 
 function Deco({ mbti, setCardUri }) {
   //dragurl, images
@@ -37,7 +36,7 @@ function Deco({ mbti, setCardUri }) {
 
   return (
     <Container>
-      {isOpen&&<Modal setIsOpen={setIsOpen}><DecoModal></DecoModal></Modal>}
+      {isOpen&&<DecoModal setIsOpen={setIsOpen}></DecoModal>}
       <Canvas
         dragUrl={dragUrl}
         images={images}

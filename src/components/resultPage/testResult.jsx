@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Worst,
   Best,
@@ -8,6 +8,7 @@ import {
   MindLevel,
   RetryTag,
   SmstrComnt,
+  ShowFullCharIcon,
 } from "../../icons";
 import styles from "./testResult.module.css";
 import { MBTIS } from "../../assets/texts/results";
@@ -16,6 +17,7 @@ import KeywordBox from "../common/keywordBox/keywordBox";
 import Header from "../common/header/header";
 import FacebookShare from "./share/facebookShare";
 import CopyLink from "./share/copyLink";
+import FullCharModal from "./FullCharModal";
 
 function TestResult({ mbti, cardUri }) {
   const featureList = MBTIS[mbti].CharList.map((c, i) => (
@@ -34,16 +36,20 @@ function TestResult({ mbti, cardUri }) {
       {s}
     </div>
   ));
+  //팝업
+  const [isOpen,setIsOpen]=useState(false);
 
   const handleRestart = () => {
     window.location.replace("/");
   };
 
   return (
+    <>
+    {isOpen&&(<FullCharModal setIsOpen={setIsOpen}></FullCharModal>)}
     <section className={styles.page}>
       <Header></Header>
       <section className={styles.imageBox}>
-        <img className={styles.charImage} alt="char" src={cardUri} />
+        <img className={styles.charImage} alt="My Card" src={cardUri} />
         <div className={styles.download}>이미지를 꾹 눌러 다운로드 하세요!</div>
       </section>
       <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
@@ -114,8 +120,17 @@ function TestResult({ mbti, cardUri }) {
         </div>
         {/* <div className={styles.mindBox}></div> */}
       </section>
+      <section className={styles.showFullChar}>
+        <button className={styles.showFullCharBox} onClick={()=>{ 
+          console.log('change showing modal',isOpen);
+          return setIsOpen((cur)=>!cur)}}>
+          <div className={styles.showFullCharIconBox}><ShowFullCharIcon/></div>
+          <div className={styles.showFullCharText}>전체 결과 보기</div>
+        </button>
+      </section>
       <section>
-        <div className={styles.shareText}>테스트 공유하기</div>
+        <div className={styles.shareText}>
+        </div>
         <div className={styles.shareBox}>
           <KakaoShare></KakaoShare>
           <FacebookShare></FacebookShare>
@@ -126,6 +141,7 @@ function TestResult({ mbti, cardUri }) {
         <RetryTag />
       </section>
     </section>
+    </>
   );
 }
 
