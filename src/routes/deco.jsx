@@ -1,7 +1,8 @@
 import { setPointerCapture } from "konva/lib/PointerEvents";
 import Container from "../components/common/Container";
 import React, { useRef, useState } from "react";
-import { GoResultButton,ChooseBackgroundBox,Canvas,StickerBox } from "../components/decoPage";
+import { GoResultButton, ChooseBackgroundBox, Canvas, StickerBox, DecoModal } from "../components/decoPage";
+import Modal from "../components/common/Modal";
 
 function Deco({ mbti, setCardUri }) {
   //dragurl, images
@@ -29,8 +30,14 @@ function Deco({ mbti, setCardUri }) {
     console.log("done ", decoDone);
     setDone(true); // 추출 시작
   }; //데코 마무리 됐으면
+
+  // 팝업
+  const [isModalOn,setIsModalOn]=useState(true);
+  console.log("Is Modal On",isModalOn);
+
   return (
     <Container>
+      {isModalOn&&<Modal isModalOn={isModalOn}><DecoModal></DecoModal></Modal>}
       <Canvas
         dragUrl={dragUrl}
         images={images}
