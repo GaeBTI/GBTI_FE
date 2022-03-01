@@ -32,12 +32,20 @@
   background-size: cover;
 }
 .page {
-  padding-inline: 20px;
+  height: calc(var(--vh, 1vh) * 100);
+  background-size: cover;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  /* padding-inline: 20px;
   width: 375px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 }
 .mind {
   position: relative;
@@ -257,7 +265,6 @@
   width: 335px;
   height: 35px;
   margin-bottom: 26px;
-  margin-left: 20px;
   background: #fffae3;
   display: flex;
   justify-content: center;
