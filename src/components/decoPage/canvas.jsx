@@ -40,9 +40,7 @@ function Canvas({
 }) {
   const [selectedId, selectShape] = useState(0);
   const stageRef = useRef(null);
-  console.log("decoDone", decoDone);
-  // <<<<<<< feature/makeDecoPage
-  console.log("full imgs", images);
+  let imgLength = images.length;
 
   const navigate = useNavigate();
   const handleExport = () => {
@@ -57,10 +55,13 @@ function Canvas({
     decoDone && handleExport();
   }, [decoDone]);
 
+  useEffect(() => {
+    imgLength += 1;
+  }, [images]);
   // decoDone && handleExport();
   const checkDeselect = (e) => {
     // deselect when clicked on empty area
-    console.log(e.target.attrs.name, e.target.getStage());
+
     const clickedOnEmpty = e.target.attrs.name === bgName;
 
     if (clickedOnEmpty) {
@@ -79,25 +80,25 @@ function Canvas({
       }}
     >
       <div
-        onDrop={(e) => {
-          console.log("is dropped!");
-          e.preventDefault();
-          // register event position
-          stageRef.current.setPointersPositions(e);
-          // add image
-          setImages(
-            images.concat([
-              {
-                ...stageRef.current.getPointerPosition(),
-                src: dragUrl.current,
-                id: (images.length + 1).toString(),
-                w: 200,
-                h: 200,
-              },
-            ])
-          );
-        }}
-        onDragOver={(e) => e.preventDefault()}
+      // onDrop={(e) => {
+      //   console.log("is dropped!");
+      //   e.preventDefault();
+      //   // register event position
+      //   stageRef.current.setPointersPositions(e);
+      //   // add image
+      //   setImages(
+      //     images.concat([
+      //       {
+      //         ...stageRef.current.getPointerPosition(),
+      //         src: dragUrl.current,
+      //         id: imgLength, //(images.length + 1).toString(),
+      //         w: 200,
+      //         h: 200,
+      //       },
+      //     ])
+      //   );
+      // }}
+      // onDragOver={(e) => e.preventDefault()}
       >
         <Stage
           width={canvasSize}
@@ -116,9 +117,9 @@ function Canvas({
                   key={i}
                   selectedId={selectedId}
                   shapeProps={image}
-                  isSelected={i === selectedId}
+                  isSelected={image.id === selectedId}
                   onSelect={() => {
-                    selectShape(i);
+                    selectShape(image.id);
                   }}
                   onChange={(newAttrs) => {
                     const imgs = images.slice();
