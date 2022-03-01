@@ -107,6 +107,4 @@ const TESTS = [
 			{ text: <>다음주까지라고?<br/>그럼 일단 오늘은 놀아야지~</>, clickedFirst:true},
 		],
 	},
-];
-
-export { TESTS };
+]
