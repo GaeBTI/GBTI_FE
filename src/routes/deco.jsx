@@ -51,9 +51,8 @@ function Deco({ mbti, setCardUri }) {
         bgImgCnt={bgImgCnt}
       ></ChooseBackgroundBox>
       <StickerBox dragUrl={dragUrl} setImages={setImages}></StickerBox>
-      <button onClick={() => isDone()}>
-        <GoResultButton></GoResultButton>
-      </button>
+      <GoResultButton isDone={isDone}></GoResultButton>
+      <GoResultButton isDone={isDone}></GoResultButton>
     </Container>
   );
 }

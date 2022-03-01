@@ -2,9 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { GoResultButtonBG } from "./decoIcon";
-const StyledLink = styled(Link)`
-  width: 100%;
-`;
+const GoResultButton = ({isDone}) => (
+  <GoResultBox>
+    <button onClick={()=>isDone()}>
+      <GoResultButtonBGBox>
+        <GoResultButtonBG />
+      </GoResultButtonBGBox>
+      <GoResultText>확인</GoResultText>
+    </button>
+  </GoResultBox>
+);
 const GoResultBox = styled.div`
   width: 111px;
   height: 48px;
@@ -23,13 +30,4 @@ const GoResultText = styled.div`
 const GoResultButtonBGBox = styled.div`
   position: absolute;
 `; //4,11
-const GoResultButton = () => (
-  <GoResultBox>
-    <GoResultButtonBGBox>
-      <GoResultButtonBG />
-    </GoResultButtonBGBox>
-    <GoResultText>확인</GoResultText>
-  </GoResultBox>
-);
-
 export default GoResultButton;
