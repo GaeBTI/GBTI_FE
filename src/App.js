@@ -56,7 +56,7 @@ function App() {
       score: 0,
     },
   ]); // EnI, NnS, TnF, PnJ
-  const [mbti, setMBTI] = useState("INFP");
+  const [mbti, setMBTI] = useState("INTJ");
   const [cardUri, setCardUri] = useState("");
   useEffect(() => {
     if (!Kakao.isInitialized()) {
