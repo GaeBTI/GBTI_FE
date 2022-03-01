@@ -4,7 +4,7 @@ import { TESTS } from "../../assets/texts/questions"
 import { QuestionBGImg } from "./testIcons";
 
 const QuestionBox=styled.div`
-  margin-bottom:32px;
+  margin-bottom:20px;
   width:287px;
   height:355px;
 
