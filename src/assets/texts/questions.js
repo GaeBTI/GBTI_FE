@@ -108,3 +108,5 @@ const TESTS = [
 		],
 	},
 ]
+
+export { TESTS }
