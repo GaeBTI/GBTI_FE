@@ -28,11 +28,10 @@
   height: 293px;
 }
 .boddy {
-  background-image: url("/public/images/background.svg");
-  background-size: cover;
 }
 .page {
-  height: calc(var(--vh, 1vh) * 100);
+  background-image: url("/public/images/background.svg");
+  height: calc(var(--vh, 1vh) * 250);
   background-size: cover;
   display: flex;
   -webkit-box-align: center;
@@ -151,6 +150,8 @@
   margin-block: 26px;
   height: 135px;
 }
+.majorTag {
+}
 .majorName {
   position: relative;
   font-family: IM_Hyemin-Regular;
@@ -181,7 +182,6 @@
 }
 .smstrMent {
   position: absolute;
-  left: 5%;
   z-index: 2;
 }
 .smstrText {

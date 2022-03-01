@@ -66,7 +66,9 @@ function TestResult({ mbti, cardUri }) {
           {/* <div className={styles.smstrBox}></div> */}
         </section>
         <section className={styles.majorSection}>
-          <Major></Major>
+          <div className={styles.majorTag}>
+            <Major></Major>
+          </div>
           <div className={styles.majorName}>
             {MBTIS[mbti].Major}
             <div className={styles.majorTape}>
