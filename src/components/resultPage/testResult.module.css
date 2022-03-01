@@ -34,7 +34,6 @@
 .page {
   height: calc(var(--vh, 1vh) * 100);
   background-size: cover;
-  background-image: url(/static/media/background.324abe3….svg);
   display: flex;
   -webkit-box-align: center;
   align-items: center;
