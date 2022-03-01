@@ -47,10 +47,11 @@ const Stickers = memo(
     }, [shapeProps, image, isSelected]);
 
     const onDelete = () => {
-      console.log("Sticker is deleted");
+      console.log("Sticker is deleted",selectedId);
       setImages(
         images.filter((image, i) => {
-          return i !== selectedId;
+          console.log('image deleted',image);
+          return image.id !== selectedId;
         })
       );
       console.log(selectedId);
