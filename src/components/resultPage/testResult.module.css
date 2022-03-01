@@ -246,6 +246,34 @@
   align-items: center;
   justify-content: center;
 }
+.showFullChar {
+  position: relative;
+}
+.showFullCharBox {
+  position: absolute;
+  width: 335px;
+  height: 35px;
+  margin-bottom: 26px;
+
+  background: #fffae3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.showFullCharIconBox {
+  margin-right: 10px;
+}
+.showFullCharText {
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  /* or 130% */
+
+  text-align: center;
+}
 .retry {
   margin-block: 26px;
   text-align: center;

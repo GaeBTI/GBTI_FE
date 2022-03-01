@@ -1,12 +1,22 @@
 import { React } from "react";
+import { isMobile } from "react-device-detect";
 import styled from "styled-components";
 import { ModalCancelBtnBg } from "./modalIcon";
+
+const Modal=({children, setIsOpen, w, h })=>{
+    const fWidth= isMobile? window.innerWidth :375;
+    return <ModalPageBox style={{top:window.scrollY}} onClick={ (e)=>e.stopPropagation()}>
+        <ModalBox style={{width:w, height:h}}>
+        <ModalCancelBtn style={{top:(window.innerHeight-h)/2-10, right:(fWidth-w)/2-10}} onClick={()=>setIsOpen((cur)=>!cur)}><ModalCancelBtnBg/></ModalCancelBtn>
+            {children}
+        </ModalBox>
+    </ModalPageBox>;
+}
+
 const ModalPageBox=styled.div`
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    position:absolute;
+    width:${isMobile?`calc(var(--vw, 1vw) * 100)`:`375px`};
+    height:100%;
     background:#00000080;
     z-index:10000;
 
@@ -16,33 +26,16 @@ const ModalPageBox=styled.div`
 `;
 
 const ModalBox=styled.div`
-    width:335px;
-    height:488px;
-
     background:white;
     border-radius:10px;
-    
-    display: flex;
-    align-items: center;
-    justify-content:center;
+
+    overflow:auto;
 `;
 
 const ModalCancelBtn=styled.button`
     width:35px;
     height:35px;
     padding:0px;
-
     position:absolute;
-    top:22%;
-    right:7%;
 `;
-const Modal=({children, setIsOpen})=>{
-    return <ModalPageBox>
-        <ModalBox>
-        <ModalCancelBtn onClick={()=>setIsOpen((cur)=>!cur)}><ModalCancelBtnBg/></ModalCancelBtn>
-            {children}
-        </ModalBox>
-    </ModalPageBox>;
-}
-
 export default Modal;
