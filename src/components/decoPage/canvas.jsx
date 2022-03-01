@@ -137,33 +137,3 @@ function Canvas({
 }
 
 export default Canvas;
-
-// Try to trag and image into the stage:
-//       <br />
-
-//       <button>
-//         <img
-//           alt="lion"
-//           src="https://konvajs.org/assets/lion.png"
-//           draggable="true"
-//           onDragStart={(e) => {
-//             dragUrl.current = e.target.src;
-//             console.log(e.target.src)
-//           }}
-//           onClick={(e) => {
-//             e.preventDefault();
-//             setImages(
-//               images.concat([
-//                 {
-//                   x: 100,
-//                   y: 200,
-//                   src: e.target.src,
-//                   id: images.length.toString(),
-//                   w: 144,
-//                   h: 139,
-//                 },
-//               ])
-//             );
-//           }}
-//         />
-//       </button>
