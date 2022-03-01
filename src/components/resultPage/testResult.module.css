@@ -27,13 +27,17 @@
   width: 293px;
   height: 293px;
 }
+.boddy {
+  background-image: url("/public/images/background.svg");
+  background-size: cover;
+}
 .page {
   padding-inline: 20px;
+  width: 375px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-image: url("/public/images/background.svg");
-  background-size: cover;
 }
 .mind {
   position: relative;
@@ -250,11 +254,10 @@
   position: relative;
 }
 .showFullCharBox {
-  position: absolute;
   width: 335px;
   height: 35px;
   margin-bottom: 26px;
-
+  margin-left: 20px;
   background: #fffae3;
   display: flex;
   justify-content: center;
