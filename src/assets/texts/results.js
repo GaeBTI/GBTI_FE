@@ -202,7 +202,7 @@ const MBTIS = {
       word2: "",
     },
     worst: {
-      image: "",
+      mbti: "ESFP",
       word1: "사람 좋아하는",
       word2: "관종",
     },
