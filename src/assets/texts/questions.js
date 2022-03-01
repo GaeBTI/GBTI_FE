@@ -5,15 +5,15 @@ const TESTS = [
 		question: <>개강 첫 날.<br/>강의실로 향하는 길에<br/>얼굴만 아는 동기를<br/>오랜만에 마주쳤다. 나는?</>,
 		answers: [
 			{ text: <>"이게 누구야 !"<br/>당장 달려가서 아는 척 한다.</>, clickedFirst:true },
-			{ text: <>‘못알아봤겠지?’....<br/>못 본 척 눈을 돌리고 지나간다.</>, clickedFirst:false },
+			{ text: <>오랜만이긴한데..<br/>굳이 인사할 필요까진 없겠지..?!</>, clickedFirst:false },
 		],
 	},
 	{
 		id: 2,
         type:'NnS',
-		question: <><br/>어느덧 다가온 시험 기간.<br/> 시험 범위가 너무 많아<br/>학교에서 밤샘 공부를 하게 되었다.<br/>지금 시간은 새벽 3시.<br/>화장실을 가려고 나왔는데<br/>복도가 너무 어둡다.</>,
+		question: <>시험 범위가 너무 많아<br/>학교에서 밤샘 공부를 하게 되었다.<br/>지금 시간은 새벽 3시.<br/>화장실을 가려고 나왔는데<br/>복도가 너무 어둡다.</>,
 		answers: [
-			{ text: <>"가다가 귀신 만나면 어떡하지?<br/>못본 척하고 지나가야된다고 했는데<br/>보자마자 놀라서 본 거 다 들키면 어떡하지?"</>, clickedFirst:true },
+			{ text: <>가다가 귀신 만나면 어떡하지?<br/>못본 척하고 지나가야된다고 했는데</>, clickedFirst:true },
 			{ text: "왜 이렇게 어둡냐... 무섭네", clickedFirst:false },
 		],
 	},
@@ -31,8 +31,8 @@ const TESTS = [
         type:'PnJ',
 		question: <>중간고사 3시간 전,<br/>남은 시험 범위는 PPT 50장..!!<br/>친구가 학교 앞에 새로 발견한 맛집이 있다고 나를 꼬신다.</>,
 		answers: [
-			{ text: <>일단 밥은 먹어야지..<br/>빨리 먹고 오면 공부할 수 있을 거 같은뎁?<br/>일단 친구의 꼬심에 넘어간다.</>, clickedFirst:true  },
-			{ text: <>시험 공부가 먼저!<br/>친구의 꼬심을 이겨내고 공부에 집중한다.</>, clickedFirst:false},
+			{ text: <>일단 밥은 먹어야지..<br/>빨리 먹고 오면 괜찮지 않을까?ㅎ</>, clickedFirst:true  },
+			{ text: <>아니야 그래도 시험 공부가 먼저!<br/>친구의 꼬심을 이겨내고 공부에 집중한다.</>, clickedFirst:false},
 		],
 	},
 	{
@@ -40,8 +40,8 @@ const TESTS = [
         type:'EnI',
 		question: <>팀플을 하게 되었다.<br/>어색한 첫 모임에 나는 주로</>,
 		answers: [
-			{ text: <>내가 먼저 나서서 인사한다.<br/>“안녕하세요. 잘부탁드립니다!!!<br/>뫄뫄학과 22학번 뫄뫄뫄입니다~”</>, clickedFirst:true },
-			{ text: <>눈치보다가 마지막에 조용히 인사한다.<br/>“안녕하세요...! 모모학과<br/>22학번 모모모입니다...<br/> 잘부탁드려요...!” </>, clickedFirst:false },
+			{ text: <>내가 먼저 나서서 인사한다.<br/>“안녕하세요. 잘부탁드립니다!!!<br/>22학번 OOO입니다~”</>, clickedFirst:true },
+			{ text: <>눈치보다가 마지막에 조용히 인사한다.<br/>“안녕하세요...! 22학번 OOO입니다...<br/> 잘부탁드려요...!” </>, clickedFirst:false },
 		],
 	},
 	{
@@ -49,7 +49,7 @@ const TESTS = [
         type:'NnS',
 		question: <>수업이 끝나기 10분 전.<br/>교수님의 몇가닥 남지 않은<br/>머리에 시선이 꽂힌다.<br/>나는 무슨 생각을 할까?</>,
 		answers: [
-			{ text: "갑자기 대머리가 되는 상상을 한다. 그러면 당황해서 수업을 일찍 끝내시지 않을까? 아 아니면 아무렇지 않게 계속 수업하시나? 생각하다보니 어느새 수업이 끝나있다. 개이득!", clickedFirst:true },
+			{ text: "저 교수님은 언제부터 대머리셨을까.. 언제쯤 다 떨어질까? 한 가닥에 1년이라 치면.. ", clickedFirst:true },
 			{ text: "언제 끝나냐....", clickedFirst:false },
 		],
 	},
@@ -58,7 +58,7 @@ const TESTS = [
         type:'TnF',
 		question: <>동기가 중간고사 망했다고<br/>우울해하고 있다면</>,
 		answers: [
-			{ text: <>"야, 원래 기말이 진짜잖아.<br/>기말 때 잘 보면 되지! 그럼 그냥 A 쌉가능!” 라고 말해준다.</>, clickedFirst:true  },
+			{ text: <>"야, 원래 기말이 진짜잖아.<br/>기말 때 잘 보면 되지! 그럼 그냥 A 완전 가능!” 라고 말해준다.</>, clickedFirst:true  },
 			{ text: <>“너가 어려웠으면<br/>다른 애들도 어려웠을거야…<br/> 너무 속상해하지말자 ㅜㅜ“라고 말해준다.</>, clickedFirst:false },
 		],
 	},
@@ -67,7 +67,7 @@ const TESTS = [
         type:'PnJ',
 		question: <>기말 프로젝트 발표를 하기 전<br/>내가 하는 행동은?</>,
 		answers: [
-			{ text: <>피지컬에 맡긴다.<br/> "어차피 PPT 보고 하는 건데<br/>보면서 하면 되지!"</>, clickedFirst:true  },
+			{ text: <>어떻게든 되겠지~<br/> "어차피 PPT 보고 하는 건데<br/>보면서 하면 되지!"</>, clickedFirst:true  },
 			{ text: <>발표 대본에 예상 질문 리스트는 기본!<br/>발표 중 발생할 수 있는 모든 상황을<br/>머릿속에서 시뮬레이션을 돌려본다.</>, clickedFirst:false},
 		],
 	},
