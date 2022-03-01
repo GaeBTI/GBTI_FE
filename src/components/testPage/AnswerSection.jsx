@@ -12,7 +12,7 @@ const AnswerButtonBox=styled.div`
   width:288px;
   height:135px;
   
-  margin-bottom:15px;
+  margin-bottom:1rem;
 `;
 const AnswerButton=styled.button`
   position:absolute;
