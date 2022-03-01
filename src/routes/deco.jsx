@@ -1,7 +1,13 @@
 import { setPointerCapture } from "konva/lib/PointerEvents";
 import Container from "../components/common/Container";
 import React, { useRef, useState } from "react";
-import { GoResultButton, ChooseBackgroundBox, Canvas, StickerBox, DecoModal } from "../components/decoPage";
+import {
+  GoResultButton,
+  ChooseBackgroundBox,
+  Canvas,
+  StickerBox,
+  DecoModal,
+} from "../components/decoPage";
 
 function Deco({ mbti, setCardUri }) {
   //dragurl, images
@@ -11,7 +17,7 @@ function Deco({ mbti, setCardUri }) {
       x: 170,
       y: 200,
       src: require(`../assets/images/characters/${mbti}.png`),
-      id: String(1), //images.length.toString(),
+      id: Date.now().toString(), //images.length.toString(),
       w: 200,
       h: 200,
     },
@@ -31,12 +37,12 @@ function Deco({ mbti, setCardUri }) {
   }; //데코 마무리 됐으면
 
   // 팝업
-  const [isOpen,setIsOpen]=useState(true);
-  console.log("Is Modal On",isOpen);
+  const [isOpen, setIsOpen] = useState(true);
+  console.log("Is Modal On", isOpen);
 
   return (
     <Container>
-      {isOpen&&<DecoModal setIsOpen={setIsOpen}></DecoModal>}
+      {isOpen && <DecoModal setIsOpen={setIsOpen}></DecoModal>}
       <Canvas
         dragUrl={dragUrl}
         images={images}
@@ -50,7 +56,11 @@ function Deco({ mbti, setCardUri }) {
         setBgImgCnt={setBgImgCnt}
         bgImgCnt={bgImgCnt}
       ></ChooseBackgroundBox>
-      <StickerBox dragUrl={dragUrl} setImages={setImages}></StickerBox>
+      <StickerBox
+        dragUrl={dragUrl}
+        images={images}
+        setImages={setImages}
+      ></StickerBox>
       <GoResultButton isDone={isDone}></GoResultButton>
       <GoResultButton isDone={isDone}></GoResultButton>
     </Container>

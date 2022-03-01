@@ -47,10 +47,9 @@ const Stickers = memo(
     }, [shapeProps, image, isSelected]);
 
     const onDelete = () => {
-      console.log("Sticker is deleted",selectedId);
+      console.log("Sticker is deleted", selectedId);
       setImages(
         images.filter((image, i) => {
-          console.log('image deleted',image);
           return image.id !== selectedId;
         })
       );
@@ -89,8 +88,8 @@ const Stickers = memo(
                 ...shapeProps,
                 x: node.x(),
                 y: node.y(),
-                width: Math.max( node.width() * scaleX), //5
-                height: Math.max( node.height() * scaleY),
+                width: Math.max(node.width() * scaleX), //5
+                height: Math.max(node.height() * scaleY),
               });
               setSize({ w: node.width(), h: node.height() });
             }}
@@ -101,10 +100,7 @@ const Stickers = memo(
             ref={trRef}
             boundBoxFunc={(oldBox, newBox) => {
               // limit resize
-              if (
-                newBox.width < 50 ||
-                newBox.height < 50
-              ) {
+              if (newBox.width < 50 || newBox.height < 50) {
                 return oldBox;
               }
               return newBox;
