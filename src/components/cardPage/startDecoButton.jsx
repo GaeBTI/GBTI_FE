@@ -2,6 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { StartDecoButtonBG } from "./cardIcon";
+const StartDecoButton=({hide})=>(
+    <StartBox>
+        <StyledLink to={`/deco/${hide}`}>
+            <StartBGBox><StartDecoButtonBG/></StartBGBox>
+            <StartText>카드 꾸미기</StartText>
+        </StyledLink>
+    </StartBox>
+);
+
 const StyledLink = styled(Link)`
 	width: 100%;
 `;
@@ -25,13 +34,4 @@ const StartText=styled.div`
 const StartBGBox=styled.div`
     position:absolute;
 `; //4,11
-const StartDecoButton=()=>(
-    <StartBox>
-        <StyledLink to="/deco">
-            <StartBGBox><StartDecoButtonBG/></StartBGBox>
-            <StartText>카드 꾸미기</StartText>
-        </StyledLink>
-    </StartBox>
-);
-
 export default StartDecoButton;

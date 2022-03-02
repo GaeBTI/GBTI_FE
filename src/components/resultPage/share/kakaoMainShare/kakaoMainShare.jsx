@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./kakaoShare.module.css";
+import styles from "./kakaoMainShare.module.css";
 
 const { Kakao } = window;
-function KakaoShare() {
+function KakaoMainShare() {
   const sharing = () => {
     if (Kakao.isInitialized()) {
       Kakao.Link.createCustomButton({
@@ -31,4 +31,4 @@ function KakaoShare() {
   );
 }
 
-export default KakaoShare;
+export default KakaoMainShare;

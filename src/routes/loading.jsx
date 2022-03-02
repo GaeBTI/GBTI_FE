@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Container from "../components/common/Container";
 import { Dots } from "../components/loadingPage/icons";
 import dots from "../assets/images/dots.gif";
+import { HIDES } from "../assets/texts/results";
 const LoadingBox = styled.div`
   display: flex;
   align-items: center;
@@ -41,11 +42,12 @@ const getMBTI = (scores) => {
 const Loading = ({ finalScores, setMBTI }) => {
   // 점수에 맞춰 페이지 이동
   let navigate = useNavigate();
-  const mbti = getMBTI(finalScores);
+  const hide = HIDES[getMBTI(finalScores)];
+
   useEffect(() => {
-    setMBTI(mbti);
-    setTimeout(() => navigate(`/card`), 2000); //deco로 route 바꿔야함
-  }, [navigate, mbti]);
+    //setMBTI(mbti);
+    setTimeout(() => navigate(`/card/${hide}`), 2000); //deco로 route 바꿔야함
+  }, [navigate, hide]);
   return (
     <Container>
       <LoadingBox>

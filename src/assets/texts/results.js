@@ -674,8 +674,17 @@ const MBTIS = {
     },
   },
 };
- 
-export { MBTIS };
+const HIDES = {}
+let salt = 19980403
+Object.keys(MBTIS).map((mbti)=>{
+  let temp=''
+  for(let i=0;i<4;i++){
+    temp+=mbti[i].charCodeAt()
+  }
+  temp= (Number(temp)+salt).toString();
+  HIDES[mbti]=temp;
+});
+export { MBTIS, HIDES };
  
  
 

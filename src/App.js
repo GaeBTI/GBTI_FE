@@ -78,14 +78,14 @@ function App() {
             element={<Loading finalScores={scores} setMBTI={setMBTI} />}
           ></Route>
           <Route
-            path="/result"
-            element={<Result mbti={mbti} cardUri={cardUri} />}
+            path="/result/:hide"
+            element={<Result cardUri={cardUri} />}
           ></Route>
           <Route
-            path="/deco"
-            element={<Deco mbti={mbti} setCardUri={setCardUri} />}
+            path="/deco/:hide"
+            element={<Deco setCardUri={setCardUri} />}
           ></Route>
-          <Route path="/card" element={<Card mbti={mbti} />}></Route>
+          <Route path="/card/:hide" element={<Card/>}></Route>
         </Routes>
       </Router>
     </div>

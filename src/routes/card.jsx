@@ -2,12 +2,15 @@ import React from "react";
 import Container from "../components/common/Container";
 import Header from "../components/common/header/header";
 import KeywordBox from "../components/common/keywordBox/keywordBox";
-import { MBTIS } from "../assets/texts/results";
+import { MBTIS, HIDES } from "../assets/texts/results";
 import StartDecoButton from "../components/cardPage/startDecoButton";
 import ResultCard from "../components/cardPage/resultCard";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 
-function Card({ mbti }) {
+function Card(){ //({ mbti }) {
+  const { hide } = useParams();
+  const mbti = Object.keys(HIDES).find((key)=>HIDES[key]===hide);
   return (
     <Container>
       <Header></Header>
@@ -16,7 +19,7 @@ function Card({ mbti }) {
       </section>
       <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
       <CheerSentence>나만의 카드를 꾸며보세요!</CheerSentence>
-      <StartDecoButton></StartDecoButton>
+      <StartDecoButton hide={hide}></StartDecoButton>
     </Container>
   );
 }

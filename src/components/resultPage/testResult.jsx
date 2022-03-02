@@ -12,12 +12,13 @@ import {
 } from "../../icons";
 import styles from "./testResult.module.css";
 import { MBTIS } from "../../assets/texts/results";
-import KakaoShare from "./share/kakaoShare/kakaoShare";
+// import KakaoShare from "./share/kakaoMainShare/kakaoMainShare";
 import KeywordBox from "../common/keywordBox/keywordBox";
 import Header from "../common/header/header";
 import FacebookShare from "./share/facebookShare";
 import CopyLink from "./share/copyLink";
 import FullCharModal from "./FullCharModal";
+import KakaoResultShare from "./share/kakaoResultShare/kakaoResultShare";
 
 function TestResult({ mbti, cardUri }) {
   const featureList = MBTIS[mbti].CharList.map((c, i) => (
@@ -42,6 +43,10 @@ function TestResult({ mbti, cardUri }) {
   const handleRestart = () => {
     window.location.replace("/");
   };
+  console.log("result card", cardUri);
+
+  const keywords = MBTIS[mbti].keyWord1 + " " + MBTIS[mbti].keyWord2;
+  const keySentence = MBTIS[mbti].keySentence1 + " " + MBTIS[mbti].keySentence2;
 
   return (
     <section className={styles.boddy}>
@@ -49,10 +54,28 @@ function TestResult({ mbti, cardUri }) {
       <section className={styles.page}>
         <Header></Header>
         <section className={styles.imageBox}>
-          <img className={styles.charImage} alt="My Card" src={cardUri} />
-          <div className={styles.download}>
-            이미지를 꾹 눌러 다운로드 하세요!
-          </div>
+          {cardUri ? (
+            <>
+              <img className={styles.charImage} alt="My Card" src={cardUri} />
+              <div className={styles.download}>
+                이미지를 꾹 눌러 다운로드 하세요!
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.charImage_gone_box}>
+                <img
+                  className={styles.charImage}
+                  src={require(`../../assets/images/characters/${mbti}.png`)}
+                />
+              </div>
+              <div className={styles.download}>
+                나만의 카드가 저장되지 않았어요!
+                <br />
+                뒤로 돌아가 다시 생성 후 저장해주세요
+              </div>
+            </>
+          )}
         </section>
         <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
         <section className={styles.smstrSection}>
@@ -139,9 +162,12 @@ function TestResult({ mbti, cardUri }) {
           </button>
         </section>
         <section>
-          <div className={styles.shareText}>테스트 공유하기</div>
+          <div className={styles.shareText}>결과 공유하기</div>
           <div className={styles.shareBox}>
-            <KakaoShare></KakaoShare>
+            <KakaoResultShare
+              keySentence={keySentence}
+              words={keywords}
+            ></KakaoResultShare>
             <FacebookShare></FacebookShare>
             <CopyLink></CopyLink>
           </div>
