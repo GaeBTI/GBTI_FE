@@ -1,17 +1,3 @@
-@font-face {
-  font-family: "IM_Hyemin-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "HSYuji-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 .download {
   font-family: IM_Hyemin-Regular;
   font-style: normal;
@@ -31,7 +17,7 @@
 }
 .page {
   background-image: url("/public/images/background.svg");
-  height: calc(var(--vh, 1vh) * 250);
+  /* height: calc(var(--vh, 1vh) * 250); */
   background-size: cover;
   display: flex;
   -webkit-box-align: center;
