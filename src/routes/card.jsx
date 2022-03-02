@@ -25,7 +25,7 @@ export default Card;
 const CheerSentence=styled.div`
   width: 166px;
   height: 25px;
-  margin-top: 2%;
+  margin-top: 0rem;
 
   font-family: IM_Hyemin-Regular;
   font-style: normal;
