@@ -11,7 +11,6 @@ import { useParams } from "react-router-dom";
 function Card(){ //({ mbti }) {
   const { hide } = useParams();
   const mbti = Object.keys(HIDES).find((key)=>HIDES[key]===hide);
-  console.log("card", hide, mbti);
   return (
     <Container>
       <Header></Header>

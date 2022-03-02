@@ -681,11 +681,9 @@ Object.keys(MBTIS).map((mbti)=>{
   for(let i=0;i<4;i++){
     temp+=mbti[i].charCodeAt()
   }
-  temp= (Number(temp)+salt).toString()
-  console.log(temp);
+  temp= (Number(temp)+salt).toString();
   HIDES[mbti]=temp;
 });
-console.log(HIDES);
 export { MBTIS, HIDES };
  
  
