@@ -19,6 +19,8 @@ import FacebookShare from "./share/facebookShare";
 import CopyLink from "./share/copyLink";
 import FullCharModal from "./FullCharModal";
 import KakaoResultShare from "./share/kakaoResultShare/kakaoResultShare";
+import { TwitterIcon } from "./shareIcons";
+import TwitterShare from "./share/TwitterShare";
 
 function TestResult({ mbti, cardUri }) {
   const featureList = MBTIS[mbti].CharList.map((c, i) => (
@@ -168,7 +170,8 @@ function TestResult({ mbti, cardUri }) {
               keySentence={keySentence}
               words={keywords}
             ></KakaoResultShare>
-            <FacebookShare></FacebookShare>
+            <TwitterShare></TwitterShare>
+            {/* <FacebookShare></FacebookShare> */}
             <CopyLink></CopyLink>
           </div>
         </section>
