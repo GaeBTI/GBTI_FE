@@ -9,7 +9,11 @@ function CopyLink() {
       alert("링크를 복사했습니다.");
     });
   }
-  return <LinkShare onClick={copyTextUrl}></LinkShare>;
+  return (
+    <div onClick={copyTextUrl}>
+      <LinkShare onClick={copyTextUrl}></LinkShare>
+    </div>
+  );
 }
 
 export default CopyLink;
