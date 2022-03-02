@@ -1,6 +1,5 @@
 import React from "react";
-import styles from "./kakaoResultShare.module.css";
-import { KakaoCustomBtn } from "./../../../../icons";
+import { KakaoCustomBtn } from "../../../../icons";
 
 const { Kakao } = window;
 function KakaoResultShare({ words, keySentence }) {
