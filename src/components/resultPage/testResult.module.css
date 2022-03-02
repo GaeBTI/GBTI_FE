@@ -235,21 +235,23 @@
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.25rem;
-  line-height: 1.625rem;
+  font-size: 20px;
+  line-height: 26px;
   /* or 130% */
 
   text-align: center;
 
-  color: #000000;
+  color: #3c3c3c;
 }
 .shareBox {
   margin-block: 1rem;
+  width: 170px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
+
 .showFullChar {
   position: relative;
 }
