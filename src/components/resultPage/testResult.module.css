@@ -24,14 +24,14 @@
   text-align: center;
 }
 .charImage {
-  width: 293px;
-  height: 293px;
+  width: 18.313rem;
+  height: 18.313rem;
 }
 .boddy {
 }
 .page {
   background-image: url("/public/images/background.svg");
-  height: calc(var(--vh, 1vh) * 300);
+  height: calc(var(--vh, 1vh) * 250);
   background-size: cover;
   display: flex;
   -webkit-box-align: center;
@@ -60,22 +60,22 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: absolute;
-  margin-top: 40px;
-  width: 250px;
+  margin-top: 2.5rem;
+  width: 15.625rem;
 }
 .mindScoreBox {
   display: grid;
-  grid-template-columns: 125px 100px;
-  left: 140px;
-  top: 40px;
+  grid-template-columns: 7.813rem 6.25rem;
+  left: 8.75rem;
+  top: 2.5rem;
   position: absolute;
 }
 .mindWord {
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   /* identical to box height, or 156% */
 
   text-align: right;
@@ -86,8 +86,8 @@
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   /* identical to box height, or 156% */
 
   text-align: left;
@@ -100,9 +100,9 @@
 }
 .mindBox {
   position: relative;
-  width: 335px;
-  height: 122px;
-  top: -20px;
+  width: 20.938rem;
+  height: 7.625rem;
+  top: -1.25rem;
   margin: auto;
   /* top: 560px; */
   z-index: 1;
@@ -114,8 +114,8 @@
   position: relative;
   justify-content: center;
   display: flex;
-  height: 549px;
-  margin-top: 26px;
+  height: 34.313rem;
+  margin-top: 1.625rem;
 }
 .charBox {
   position: absolute;
@@ -127,28 +127,28 @@
   justify-content: center;
   flex-direction: column;
   z-index: 2;
-  top: 18px;
+  top: 1.125rem;
 }
 .charac_split {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 .charac {
   z-index: 2;
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
-  line-height: 33px;
+  font-size: 0.875rem;
+  line-height: 2.063rem;
   /* or 236% */
   display: flex;
   color: #3c3c3c;
 }
 .charac_text {
-  width: 280px;
+  width: 17.5rem;
 }
 .majorSection {
-  margin-block: 26px;
-  height: 135px;
+  margin-block: 1.625rem;
+  height: 8.438rem;
 }
 .majorTag {
 }
@@ -157,10 +157,10 @@
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 70px;
+  font-size: 1.125rem;
+  line-height: 4.375rem;
   /* or 156% */
-  height: 70px;
+  height: 4.375rem;
 
   text-align: center;
 
@@ -172,13 +172,13 @@
   right: 0px;
 }
 #snt1 {
-  margin-block: 15px;
+  margin-block: 0.938rem;
 }
 .smstrSection {
   position: relative;
-  height: 150px;
+  height: 9.375rem;
   z-index: 2;
-  margin-top: 26px;
+  margin-top: 1.625rem;
 }
 .smstrMent {
   position: absolute;
@@ -189,16 +189,16 @@
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  width: 293px;
-  height: 128px;
+  font-size: 1.125rem;
+  width: 18.313rem;
+  height: 8rem;
   display: flex;
   flex-direction: column;
   vertical-align: middle;
   margin: auto;
   align-items: center;
   justify-content: center;
-  top: 20px;
+  top: 1.25rem;
   background: #fffae3;
   text-align: center;
 
@@ -206,15 +206,15 @@
 }
 .smstrBox {
   position: absolute;
-  width: 293px;
-  height: 128px;
-  left: 19px;
+  width: 18.313rem;
+  height: 8rem;
+  left: 1.188rem;
   z-index: 1;
-  top: 20px;
+  top: 1.25rem;
   background: #fffae3;
 }
 .teamSection {
-  margin-block: 26px;
+  margin-block: 1.625rem;
 }
 .teamBox {
   display: flex;
@@ -227,7 +227,7 @@
   margin-inline: auto;
 }
 .teamImg {
-  width: 150px;
+  width: 9.375rem;
 }
 .teamText {
   font-family: HSYuji-Regular;
@@ -243,8 +243,8 @@
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 1.25rem;
+  line-height: 1.625rem;
   /* or 130% */
 
   text-align: center;
@@ -262,29 +262,29 @@
   position: relative;
 }
 .showFullCharBox {
-  width: 335px;
-  height: 35px;
-  margin-bottom: 26px;
+  width: 20.938rem;
+  height: 2.188rem;
+  margin-bottom: 1.625rem;
   background: #fffae3;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .showFullCharIconBox {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 .showFullCharText {
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 1.25rem;
+  line-height: 1.625rem;
   text-align: center;
   /* or 130% */
 
   text-align: center;
 }
 .retry {
-  margin-block: 26px;
+  margin-block: 1.625rem;
   text-align: center;
 }
