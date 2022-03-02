@@ -2,23 +2,6 @@ import { React, useState, useRef, useEffect } from "react";
 import { Stage, Layer } from "react-konva";
 import Stickers from "./../common/stickers";
 import styled from "styled-components";
-const StickerBoxBG = styled.div`
-  width: 335px;
-  height: 337px;
-
-  background: rgba(0, 0, 0, 0.25);
-  margin-bottom: 3%;
-
-  overflow: auto;
-
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-`;
-const StickerButton = styled.button`
-  flex: 23%;
-  margin: 5px;
-`;
 
 const StickerBox = ({ dragUrl, images, setImages }) => {
   const StickerImgLength = 57;
@@ -60,4 +43,21 @@ const StickerBox = ({ dragUrl, images, setImages }) => {
     </StickerBoxBG>
   );
 };
+const StickerBoxBG = styled.div`
+  width: 335px;
+  height: 15rem;
+
+  background: rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.5rem;
+
+  overflow: auto;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+`;//height: 250px;
+const StickerButton = styled.button`
+  flex: 23%;
+  margin: 5px;
+`;
 export default StickerBox;

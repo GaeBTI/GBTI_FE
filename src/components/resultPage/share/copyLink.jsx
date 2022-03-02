@@ -1,5 +1,6 @@
 import React from "react";
 import copyIcon from "../../../assets/images/linkClip.png";
+import { LinkShare } from "../../../icons";
 
 function CopyLink() {
   function copyTextUrl() {
@@ -8,7 +9,7 @@ function CopyLink() {
       alert("링크를 복사했습니다.");
     });
   }
-  return <img src={copyIcon} onClick={copyTextUrl}></img>;
+  return <LinkShare> onClick={copyTextUrl}</LinkShare>;
 }
 
 export default CopyLink;
