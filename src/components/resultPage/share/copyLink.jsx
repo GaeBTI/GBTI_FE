@@ -5,7 +5,8 @@ import { LinkShare } from "../../../icons";
 function CopyLink() {
   function copyTextUrl() {
     // Browser compatibility 알림
-    navigator.clipboard.writeText("https://gbti.site/").then(() => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
       alert("링크를 복사했습니다.");
     });
   }

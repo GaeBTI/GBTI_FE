@@ -1,0 +1,22 @@
+.shareSection {
+  margin-top: 116px;
+}
+.shareText {
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  /* or 130% */
+
+  text-align: center;
+
+  color: #3c3c3c;
+}
+.shareBox {
+  margin-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
