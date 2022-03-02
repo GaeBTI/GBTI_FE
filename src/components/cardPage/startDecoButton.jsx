@@ -25,9 +25,9 @@ const StartText=styled.div`
 const StartBGBox=styled.div`
     position:absolute;
 `; //4,11
-const StartDecoButton=()=>(
+const StartDecoButton=({hide})=>(
     <StartBox>
-        <StyledLink to="/deco">
+        <StyledLink to={`/deco/${hide}`}>
             <StartBGBox><StartDecoButtonBG/></StartBGBox>
             <StartText>카드 꾸미기</StartText>
         </StyledLink>

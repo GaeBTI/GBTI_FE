@@ -37,6 +37,7 @@ function Canvas({
   bgImgCnt,
   decoDone,
   setCardUri,
+  hide,
 }) {
   const [selectedId, selectShape] = useState(0);
   const stageRef = useRef(null);
@@ -48,7 +49,7 @@ function Canvas({
     const uri = stageRef.current.toDataURL({ pixelRatio: 2 });
     // console.log("추출완", uri);
     setCardUri(uri); // uri 추출 후 결과페이지에서 사용하기 위해 state 저장
-    navigate("/result"); // result 페이지 이동
+    navigate(`/result/${hide}`); // result 페이지 이동
   };
 
   useEffect(() => {

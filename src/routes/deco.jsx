@@ -8,10 +8,15 @@ import {
   StickerBox,
   DecoModal,
 } from "../components/decoPage";
+import { useParams } from "react-router-dom";
+import { HIDES } from "../assets/texts/results";
 
-function Deco({ mbti, setCardUri }) {
+function Deco({ setCardUri }) {
   //dragurl, images
-  console.log(mbti);
+  const { hide } = useParams();
+  const mbti = Object.keys(HIDES).find((key)=>HIDES[key]===hide);
+  console.log('deco',mbti);
+
   const [images, setImages] = useState([
     {
       x: 170,
@@ -48,7 +53,7 @@ function Deco({ mbti, setCardUri }) {
         images={images}
         setImages={setImages}
         bgImgCnt={bgImgCnt}
-        mbti={mbti}
+        hide={hide}
         decoDone={decoDone}
         setCardUri={setCardUri}
       ></Canvas>
