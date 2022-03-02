@@ -62,7 +62,6 @@ function Deco({ mbti, setCardUri }) {
         setImages={setImages}
       ></StickerBox>
       <GoResultButton isDone={isDone}></GoResultButton>
-      <GoResultButton isDone={isDone}></GoResultButton>
     </Container>
   );
 }

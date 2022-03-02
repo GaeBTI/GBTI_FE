@@ -4,18 +4,21 @@ import { Link } from "react-router-dom";
 import { GoResultButtonBG } from "./decoIcon";
 const GoResultButton = ({isDone}) => (
   <GoResultBox>
-    <button onClick={()=>isDone()}>
+    <GoResultBtn onClick={()=>isDone()}>
       <GoResultButtonBGBox>
         <GoResultButtonBG />
       </GoResultButtonBGBox>
       <GoResultText>확인</GoResultText>
-    </button>
+    </GoResultBtn>
   </GoResultBox>
 );
 const GoResultBox = styled.div`
   width: 111px;
   height: 48px;
   position: relative;
+`;
+const GoResultBtn = styled.div`
+  padding:0;
 `;
 const GoResultText = styled.div`
   width: 111px;
