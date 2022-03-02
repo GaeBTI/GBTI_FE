@@ -45,7 +45,7 @@ const StickerBox = ({ dragUrl, images, setImages }) => {
 };
 const StickerBoxBG = styled.div`
   width: 335px;
-  height: 290px;
+  height:calc(var(--vh, 1vh) * 26);
 
   background: rgba(0, 0, 0, 0.25);
   margin-bottom: 0.5rem;
@@ -55,7 +55,7 @@ const StickerBoxBG = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-`;
+`;//height: 250px;
 const StickerButton = styled.button`
   flex: 23%;
   margin: 5px;
