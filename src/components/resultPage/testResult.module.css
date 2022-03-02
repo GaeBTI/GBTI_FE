@@ -8,10 +8,15 @@
 }
 .imageBox {
   text-align: center;
+  position: relative;
 }
 .charImage {
   width: 18.313rem;
   height: 18.313rem;
+}
+.charImage_gone_box {
+  background-color: #eaf6f2;
+  margin-bottom: 0.5rem;
 }
 .boddy {
 }

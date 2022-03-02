@@ -42,6 +42,7 @@ function TestResult({ mbti, cardUri }) {
   const handleRestart = () => {
     window.location.replace("/");
   };
+  console.log('result card', cardUri)
 
   return (
     <section className={styles.boddy}>
@@ -49,10 +50,24 @@ function TestResult({ mbti, cardUri }) {
       <section className={styles.page}>
         <Header></Header>
         <section className={styles.imageBox}>
-          <img className={styles.charImage} alt="My Card" src={cardUri} />
-          <div className={styles.download}>
-            이미지를 꾹 눌러 다운로드 하세요!
-          </div>
+          {
+            cardUri ? 
+            <>
+              <img className={styles.charImage} alt="My Card" src={cardUri} />
+              <div className={styles.download}>
+                이미지를 꾹 눌러 다운로드 하세요!
+              </div>
+            </> :
+            <>
+              <div className={styles.charImage_gone_box}>
+                <img className={styles.charImage} src={require(`../../assets/images/characters/${mbti}.png`)}/>
+              </div>
+              <div className={styles.download}>
+                나만의 카드가 저장되지 않았어요!<br/>
+                뒤로 돌아가 다시 생성 후 저장해주세요
+              </div>
+            </>
+          }
         </section>
         <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
         <section className={styles.smstrSection}>
