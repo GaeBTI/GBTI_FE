@@ -45,7 +45,7 @@ const StickerBox = ({ dragUrl, images, setImages }) => {
 };
 const StickerBoxBG = styled.div`
   width: 335px;
-  height:calc(var(--vh, 1vh) * 26);
+  height: 15rem;
 
   background: rgba(0, 0, 0, 0.25);
   margin-bottom: 0.5rem;
