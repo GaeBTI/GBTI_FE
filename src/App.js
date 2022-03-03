@@ -88,7 +88,7 @@ function App() {
           ></Route>
           <Route path="/card/:hide" element={<Card />}></Route>
         </Routes>
-        <RouteChangeTracker></RouteChangeTracker>
+        {/* <RouteChangeTracker></RouteChangeTracker> */}
       </Router>
     </div>
   );
