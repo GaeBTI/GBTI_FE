@@ -62,7 +62,9 @@ function TestResult({ mbti, cardUri }) {
             <>
               <img className={styles.charImage} alt="My Card" src={cardUri} />
               <div className={styles.download}>
-                이미지를 꾹 눌러 다운로드 하세요!
+                이미지를 꾹 눌러 다운로드 하세요
+                <br/>
+                <span style={{color:"red", fontSize:"17px"}}>!!</span> 저장하지 않으면 사라질 수도 있어요.<span style={{color:"red", fontSize:"17px"}}>!!</span>
               </div>
             </>
           ) : (
