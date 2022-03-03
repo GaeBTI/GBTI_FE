@@ -16,7 +16,7 @@ const Modal=({children, setIsOpen, w, h })=>{
 const ModalPageBox=styled.div`
     position:absolute;
     width:${isMobile?`100vw`:`375px`};
-    min-height: 100vh;
+    height:calc(var(--vh, 1vh) * 100);
     background:#00000080;
     z-index:10000;
 
