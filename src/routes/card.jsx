@@ -18,7 +18,7 @@ function Card(){ //({ mbti }) {
         <ResultCard mbti={mbti}></ResultCard>
       </section>
       <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
-      <CheerSentence>나만의 카드를 꾸며보세요!</CheerSentence>
+      <CheerSentence>나만의 카드를 꾸미고<br/><span style={{color:"#3c3c3c", fontSize:"1.0rem"}}>최종 결과</span>를 확인하세요!</CheerSentence>
       <StartDecoButton hide={hide}></StartDecoButton>
     </Container>
   );
@@ -26,8 +26,8 @@ function Card(){ //({ mbti }) {
 export default Card;
 
 const CheerSentence=styled.div`
-  width: 166px;
-  height: 25px;
+  width: 250px;
+  height: 50px;
   margin-top: 0rem;
 
   font-family: IM_Hyemin-Regular;

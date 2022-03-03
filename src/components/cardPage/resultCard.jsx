@@ -1,23 +1,24 @@
 import styled from "styled-components";
 import { BackgroundImgList } from "../decoPage/data";
+let imgSize=300;
 const ResultCardBox=styled.div`
     display:flex;
-    width:317px;
-    height:317px;
+    width:${imgSize}px;
+    height:${imgSize}px;
 
     position:relative;
 `;
 const CardBgImg=styled.img`
     position: absolute;
-    width:317px;
-    height:317px;
+    width:${imgSize}px;
+    height:${imgSize}px;
 `;
 const CardChaImg=styled.img`
     position: absolute;
     left:0;
     top:0;
-    width:317px;
-    heigth:317px;
+    width:${imgSize}px;
+    heigth:${imgSize}px;
 `
 const ResultCard=({mbti})=>{
     return <ResultCardBox>
