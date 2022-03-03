@@ -6,6 +6,9 @@
   line-height: 25px;
   color: #727272;
 }
+.headerBox {
+  margin-top: 65px;
+}
 .imageBox {
   text-align: center;
   position: relative;

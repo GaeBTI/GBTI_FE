@@ -54,7 +54,9 @@ function TestResult({ mbti, cardUri }) {
     <section className={styles.boddy}>
       {isOpen && <FullCharModal setIsOpen={setIsOpen}></FullCharModal>}
       <section className={styles.page}>
-        <Header></Header>
+        <section className={styles.headerBox}>
+          <Header></Header>
+        </section>
         <section className={styles.imageBox}>
           {cardUri ? (
             <>
