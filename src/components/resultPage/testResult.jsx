@@ -45,7 +45,6 @@ function TestResult({ mbti, cardUri }) {
   const handleRestart = () => {
     window.location.replace("/");
   };
-  console.log("result card", cardUri);
 
   const keywords = MBTIS[mbti].keyWord1 + " " + MBTIS[mbti].keyWord2;
   const keySentence = MBTIS[mbti].keySentence1 + " " + MBTIS[mbti].keySentence2;
@@ -76,9 +75,9 @@ function TestResult({ mbti, cardUri }) {
                 />
               </div>
               <div className={styles.download}>
-                나만의 카드가 저장되지 않았어요!
+                나만의 GBTI 카드가 저장되지 않았어요!
                 <br />
-                뒤로 돌아가 다시 생성 후 저장해주세요
+                기본 카드를 보여드릴게요.
               </div>
             </>
           )}
