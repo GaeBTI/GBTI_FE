@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./kakaoMainShare.module.css";
 import { KakaoCustomBtn } from "./../../../../icons";
+import ReactGA from "react-ga";
 
 const { Kakao } = window;
 function KakaoMainShare() {
@@ -14,6 +15,10 @@ function KakaoMainShare() {
         },
       });
     }
+    ReactGA.event({
+      category: "result",
+      action: `Kakao Main Share`,
+    });
   };
 
   return (

@@ -8,6 +8,7 @@ import Deco from "./routes/deco";
 import Card from "./routes/card";
 import { isMobile } from "react-device-detect";
 import ReactGA from "react-ga";
+import RouteChangeTracker from "./routes/routeChangeTracker";
 
 const { Kakao } = window;
 const JAVASCRIPT_KEY = process.env.REACT_APP_KAKAO_KEY;
@@ -85,8 +86,9 @@ function App() {
             path="/deco/:hide"
             element={<Deco setCardUri={setCardUri} />}
           ></Route>
-          <Route path="/card/:hide" element={<Card/>}></Route>
+          <Route path="/card/:hide" element={<Card />}></Route>
         </Routes>
+        <RouteChangeTracker></RouteChangeTracker>
       </Router>
     </div>
   );
