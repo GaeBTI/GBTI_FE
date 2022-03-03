@@ -24,6 +24,7 @@ const QuestionNumText=styled.div`
   top:25%;
   
   font-size:1.4rem;
+  color: #3C3C3C;
   text-align:center;
   line-height:35px;
   font-family:HSYuji-Regular;

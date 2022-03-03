@@ -5,23 +5,6 @@ import Container from "../components/common/Container";
 import { Dots } from "../components/loadingPage/icons";
 import dots from "../assets/images/dots.gif";
 import { HIDES } from "../assets/texts/results";
-const LoadingBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  div {
-    width: 145px;
-    height: 34px;
-    margin-top: 15px;
-
-    font-family: HSYuji-Regular;
-    font-size: 25px;
-    line-height: 29px;
-    text-align: center;
-  }
-`;
 
 const LoadingDotes = styled.img`
   width: 100px;
@@ -53,9 +36,29 @@ const Loading = ({ finalScores, setMBTI }) => {
       <LoadingBox>
         {/* <Dots /> */}
         <LoadingDotes></LoadingDotes>
-        <div>나의 MBTI를 분석중이에요</div>
+        <LoadingText>나의 MBTI를 분석중이에요</LoadingText>
       </LoadingBox>
     </Container>
   );
 };
+const LoadingBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  div {
+  }
+`;
+const LoadingText = styled.div`
+  width: 145px;
+  height: 34px;
+  margin-top: 15px;
+
+  font-family: HSYuji-Regular;
+  font-size: 25px;
+  color: #3c3c3c;
+  line-height: 29px;
+  text-align: center;
+`
 export default Loading;
