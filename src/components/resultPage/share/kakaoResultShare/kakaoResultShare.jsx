@@ -1,5 +1,6 @@
 import React from "react";
 import { KakaoCustomBtn } from "../../../../icons";
+import ReactGA from "react-ga";
 
 const { Kakao } = window;
 function KakaoResultShare({ words, keySentence }) {
@@ -23,18 +24,10 @@ function KakaoResultShare({ words, keySentence }) {
           },
         ],
       });
-      //   Kakao.Link.createCustomButton({
-      //     container: "#kakao-link-btn",
-      //     templateId: 70404,
-      //     templateArgs: {
-      //       title: "제목 영역입니다.",
-      //       description: "설명 영역입니다.",
-      //     },
-      //   });
-
-      //   Kakao.Link.sendCustom({
-      //     templateId: 70404,
-      //   });
+      ReactGA.event({
+        category: "result",
+        action: `Kakao Result Share`,
+      });
     }
   };
 

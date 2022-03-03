@@ -37,6 +37,19 @@
   flex-direction: column;
   flex-wrap: wrap; */
 }
+/* .page_no_scroll {
+  background-image: url("/public/images/background.svg");
+  background-size: cover;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+  overflow-y: scroll;
+} */
 .mind {
   position: relative;
   text-align: center;

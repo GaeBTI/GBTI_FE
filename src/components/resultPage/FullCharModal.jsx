@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import styled from "styled-components";
 import { MBTIS } from "../../assets/texts/results";
 import Modal from "../common/Modal";// components/common/Modal/index.jsx"
@@ -57,6 +57,19 @@ const CharKeyWordText=styled.div`
 `;
 const FullCharModal=({setIsOpen})=>{
     console.log(Object.keys(MBTIS));
+    // 모달 오버레이에서 스크롤 방지
+    useEffect(() => {
+        document.body.style.cssText = `
+        position: fixed; 
+        top: -${window.scrollY}px;
+        overflow-y: scroll;
+        width: 100%;`;
+        return () => {
+        const scrollY = document.body.style.top;
+        document.body.style.cssText = '';
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+        };
+    }, []);
     return <Modal setIsOpen={setIsOpen} w={335} h={608}>
         <ContentBox>
             <TitleText>전체 결과 보기</TitleText>

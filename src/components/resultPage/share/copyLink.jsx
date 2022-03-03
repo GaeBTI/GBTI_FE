@@ -1,10 +1,15 @@
 import React from "react";
 import copyIcon from "../../../assets/images/linkClip.png";
 import { LinkShare } from "../../../icons";
+import ReactGA from "react-ga";
 
 function CopyLink() {
   function copyTextUrl() {
     // Browser compatibility 알림
+    ReactGA.event({
+      category: "result",
+      action: `Link Share`,
+    });
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
       alert("링크를 복사했습니다.");
