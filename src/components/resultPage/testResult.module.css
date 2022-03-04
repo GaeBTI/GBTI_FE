@@ -25,7 +25,7 @@
 .boddy {
 }
 .page {
-  background-image: url("/public/images/background.svg");
+  background-image: url("../../assets/images/background_optimize.svg");
   /* height: calc(var(--vh, 1vh) * 250); */
   background-size: cover;
   display: flex;

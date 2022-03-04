@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import backgroundImg from "../../assets/images/background.png";
+import backgroundImg from "../../assets/images/background_optimize.svg";
 
 const Container = styled.div`
   height: calc(var(--vh, 1vh) * 100);
