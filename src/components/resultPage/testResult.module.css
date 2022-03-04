@@ -138,14 +138,14 @@
   top: 1.125rem;
 }
 .charac_split {
-  margin-right: 0.625rem;
+  margin-right: 0.4rem;
 }
 .charac {
   z-index: 2;
   font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   line-height: 2.05rem;
   /* or 236% */
   display: flex;

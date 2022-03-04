@@ -25,7 +25,7 @@ import TwitterShare from "./share/TwitterShare";
 function TestResult({ mbti, cardUri }) {
   const featureList = MBTIS[mbti].CharList.map((c, i) => (
     <div key={i} className={styles.charac}>
-      <div className={styles.charac_split}>0</div>
+      <div className={styles.charac_split}>o</div>
       <div className={styles.charac_text}>{c}</div>
     </div>
   ));
