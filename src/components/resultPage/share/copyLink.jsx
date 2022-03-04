@@ -1,5 +1,4 @@
 import React from "react";
-import copyIcon from "../../../assets/images/linkClip.png";
 import { LinkShare } from "../../../icons";
 import ReactGA from "react-ga";
 
