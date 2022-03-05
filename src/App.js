@@ -13,16 +13,6 @@ import RouteChangeTracker from "./routes/routeChangeTracker";
 const { Kakao } = window;
 const JAVASCRIPT_KEY = process.env.REACT_APP_KAKAO_KEY;
 const GA_TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
-const getCode = (scores) => {
-  let code = "";
-  for (let scoreObj of scores) {
-    //if score==0 > 에러 처리 필요
-    code += scoreObj.score > 0 ? scoreObj.type[0] : scoreObj.type[2];
-    console.log("code", code);
-    console.log(scoreObj.type[2]);
-  }
-  return code;
-};
 function App() {
   // 화면 높이에 맞춰 렌더링
   function setScreenSize() {
@@ -57,7 +47,6 @@ function App() {
       score: 0,
     },
   ]); // EnI, NnS, TnF, PnJ
-  const [mbti, setMBTI] = useState("INTJ");
   const [cardUri, setCardUri] = useState("");
   useEffect(() => {
     if (!Kakao.isInitialized()) {
@@ -76,7 +65,7 @@ function App() {
           <Route path="/test" element={<Test setScores={setScores} />}></Route>
           <Route
             path="/loading"
-            element={<Loading finalScores={scores} setMBTI={setMBTI} />}
+            element={<Loading finalScores={scores} />}
           ></Route>
           <Route
             path="/result/:hide"

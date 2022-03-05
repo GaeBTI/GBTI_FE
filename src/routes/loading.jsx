@@ -22,13 +22,12 @@ const getMBTI = (scores) => {
   }
   return mbti;
 };
-const Loading = ({ finalScores, setMBTI }) => {
+const Loading = ({ finalScores}) => {
   // 점수에 맞춰 페이지 이동
   let navigate = useNavigate();
   const hide = HIDES[getMBTI(finalScores)];
 
   useEffect(() => {
-    //setMBTI(mbti);
     setTimeout(() => navigate(`/card/${hide}`), 2000); //deco로 route 바꿔야함
   }, [navigate, hide]);
   return (
