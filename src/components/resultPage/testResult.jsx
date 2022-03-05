@@ -184,6 +184,13 @@ function TestResult({ mbti, cardUri }) {
           <RetryTag />
         </section>
       </section>
+      <footer >
+          <section className={styles.footerBox}>
+            <div>Copyright © 2022 TEAMIRUEM. All rights reserved.</div>
+            <div><a href="mailto:teamiruem@gmail.com">contact to TEAMIRUEM</a></div>
+            <div><a href="">@yeri </a><a href="">@kyeong </a><a href="">@me_ji</a></div>
+          </section>
+      </footer>
     </section>
   );
 }

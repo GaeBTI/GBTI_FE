@@ -300,3 +300,13 @@
   margin-block: 1.625rem;
   text-align: center;
 }
+
+.footerBox {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #b0b0b0;
+  font-size: 0.5rem;
+}
