@@ -718,7 +718,7 @@ const MBTIS = {
 };
 
 const HIDES = {};
-let salt = 19980403;
+const salt = 19980403;
 Object.keys(MBTIS).map((mbti) => {
   let temp = "";
   for (let i = 0; i < 4; i++) {

@@ -36,6 +36,9 @@ const ModalCancelBtn=styled.button`
     width:35px;
     height:35px;
     padding:0px;
-    position:absolute;
+    
+    margin-top:2px;
+    margin-right:2px;
+    float:right;
 `;
 export default Modal;

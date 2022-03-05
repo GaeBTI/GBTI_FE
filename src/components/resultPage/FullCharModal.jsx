@@ -20,40 +20,41 @@ const FullCharModal=({setIsOpen})=>{
     }, []);
     return <Modal setIsOpen={setIsOpen} w={335} h={608}>
         <ContentBox>
-            <TitleText>전체 결과 보기</TitleText>
-            {
-                Object.keys(MBTIS).map((mbti,idx)=>(
-                    <MbtiCardBox key={idx}>
-                        <CharImg src={require(`../../assets/images/characters/${mbti}.png`)}></CharImg>
-                        <CharKeyBox>
-                            <CharKeySentenceText>
-                                <div>{MBTIS[mbti].keySentence1}</div>
-                                <div>{MBTIS[mbti].keySentence2}</div>
-                            </CharKeySentenceText>
-                            <CharKeyWordText>
-                                <div>{MBTIS[mbti].keyWord1}</div>
-                                <div>{MBTIS[mbti].keyWord2}</div>
-                            </CharKeyWordText>
-                        </CharKeyBox>
-                    </MbtiCardBox>
-                ))
-            }
+            <TitleText>전체 캐릭터 보기</TitleText>
+            <MbtiList>
+                {
+                    Object.keys(MBTIS).map((mbti,idx)=>(
+                        <MbtiCardBox key={idx}>
+                            <CharImg src={require(`../../assets/images/characters/${mbti}.png`)}></CharImg>
+                            <CharKeyBox>
+                                <CharKeySentenceText>
+                                    <div>{MBTIS[mbti].keySentence1}</div>
+                                    <div>{MBTIS[mbti].keySentence2}</div>
+                                </CharKeySentenceText>
+                                <CharKeyWordText>
+                                    <div>{MBTIS[mbti].keyWord1}</div>
+                                    <div>{MBTIS[mbti].keyWord2}</div>
+                                </CharKeyWordText>
+                            </CharKeyBox>
+                        </MbtiCardBox>
+                    ))
+                }
+            </MbtiList>
         </ContentBox>
     </Modal>
 }
 const ContentBox=styled.div`
-    display:flex;
-    justify-content: center;
+    width:335px;
+    display: flex;
     align-items: center;
+    justify-content:center;
     flex-direction: column;
 
     font-family: IM_Hyemin-Regular;
-    padding:10px;
 `;
 const TitleText=styled.div`
     width: 167px;
     height: 31px;
-    margin-top:28px;
 
     font-style: normal;
     font-weight: bold;
@@ -61,6 +62,17 @@ const TitleText=styled.div`
     line-height: 26px;
 
     text-align: center;
+    
+    display:block;
+`;
+const MbtiList=styled.div`
+    width:305px;
+    margin-bottom:10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
 `;
 const MbtiCardBox=styled.div`
     width: 305px;
