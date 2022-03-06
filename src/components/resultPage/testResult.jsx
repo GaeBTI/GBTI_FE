@@ -188,7 +188,7 @@ function TestResult({ mbti, cardUri }) {
           <section className={styles.footerBox}>
             <div>Copyright © 2022 TEAMIRUEM. All rights reserved.</div>
             <div><a href="mailto:teamiruem@gmail.com">contact to TEAMIRUEM</a></div>
-            <div><a href="https://instagram.com/kinnyeri?utm_medium=copy_link">@예리 </a><a href="mailto:iamkyeongju@gmail.com">@jjoy_h </a><a href="mailto:dev.jihyun@gmail.com">@지hyun</a></div>
+            <div><a href="https://instagram.com/kinnyeri?utm_medium=copy_link" target="_blank">@kinnyeri </a><a href="mailto:iamkyeongju@gmail.com">@jjoy_h </a><a href="mailto:dev.jihyun@gmail.com">@jihyun</a></div>
           </section>
       </footer>
     </section>
