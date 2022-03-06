@@ -1,4 +1,3 @@
-import { setPointerCapture } from "konva/lib/PointerEvents";
 import Container from "../components/common/Container";
 import React, { useRef, useState } from "react";
 import {
@@ -7,9 +6,11 @@ import {
   Canvas,
   StickerBox,
   DecoModal,
+  RefreshButton,
 } from "../components/decoPage";
 import { useParams } from "react-router-dom";
 import { HIDES } from "../assets/texts/results";
+import styled from "styled-components";
 
 function Deco({ setCardUri }) {
   //dragurl, images
@@ -36,7 +37,10 @@ function Deco({ setCardUri }) {
     //데코 마무리 된 flag
     setDone(true);
   }; 
-
+  // 스티커 초기화
+  const [needRefresh,setNeedRefresh]= useState(false);
+  const doRefresh=()=>{setNeedRefresh(true)};
+  const refreshDone=()=>{setNeedRefresh(false)};
   // 팝업
   const [isOpen, setIsOpen] = useState(true);
   return (
@@ -49,6 +53,8 @@ function Deco({ setCardUri }) {
         hide={hide}
         decoDone={decoDone}
         setCardUri={setCardUri}
+        needRefresh={needRefresh}
+        refreshDone={refreshDone}
       ></Canvas>
       <ChooseBackgroundBox
         setBgImgCnt={setBgImgCnt}
@@ -59,9 +65,21 @@ function Deco({ setCardUri }) {
         images={images}
         setImages={setImages}
       ></StickerBox>
-      <GoResultButton isDone={isDone}></GoResultButton>
+      <ButtonSection>
+        <RefreshButton doRefresh={doRefresh}></RefreshButton>
+        <GoResultButton isDone={isDone}></GoResultButton>
+      </ButtonSection>
     </Container>
   );
 }
+const ButtonSection=styled.div`
+  width: 244px;
+  height: 49px;
+  margin-top:21px;
+  
+  display:flex;
+  align-items: center;
+  justify-content:center;
 
+`;
 export default Deco;
