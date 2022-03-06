@@ -33,12 +33,12 @@ const ModalBox=styled.div`
 `;
 
 const ModalCancelBtn=styled.button`
-    width:35px;
-    height:35px;
+    width:37px;
+    height:37px;
     padding:0px;
     
-    margin-top:2px;
-    margin-right:2px;
+    margin-top:3px;
+    margin-right:3px;
     float:right;
 `;
 export default Modal;
