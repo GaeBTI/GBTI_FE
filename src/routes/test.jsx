@@ -10,7 +10,6 @@ function Test({setScores}) {
 
   const handleClick = (type,clickedFirst) => {
     // 답 골랐을 때의 이벤트 처리 함수
-    console.log(type,clickedFirst);
     setScores((scores)=>{
       // type에 맞춰 score 업데이트
       let newScores = scores.map((scoreObj)=>{
@@ -21,12 +20,10 @@ function Test({setScores}) {
           ): scoreObj
         )
       })
-      console.log(newScores);
       return newScores;
     });
     if(currentNum===TESTS.length-1){
       // 모든 문제를 다 풀었다면 /loading 페이지로 이동하도록 push
-      console.log("last page of Test");
       navigate("/loading");
     } else{
       // 다음 문제로 넘어가기
