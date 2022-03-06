@@ -22,7 +22,6 @@ const StickerBox = ({ dragUrl, images, setImages }) => {
             }}
             onClick={(e) => {
               e.preventDefault();
-              console.log("cicked", e.target);
               setImages((images) =>
                 images.concat([
                   {
@@ -54,7 +53,7 @@ const StickerBoxBG = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-`;//height: 250px;
+`; //height: 250px;
 const StickerButton = styled.button`
   flex: 23%;
   margin: 5px;
