@@ -17,12 +17,10 @@ const getMBTI = (scores) => {
   for (let scoreObj of scores) {
     //if score==0 > 에러 처리 필요
     mbti += scoreObj.score > 0 ? scoreObj.type[0] : scoreObj.type[2];
-    console.log("code", mbti);
-    console.log(scoreObj.type[2]);
   }
   return mbti;
 };
-const Loading = ({ finalScores}) => {
+const Loading = ({ finalScores }) => {
   // 점수에 맞춰 페이지 이동
   let navigate = useNavigate();
   const hide = HIDES[getMBTI(finalScores)];
@@ -59,5 +57,5 @@ const LoadingText = styled.div`
   color: #3c3c3c;
   line-height: 29px;
   text-align: center;
-`
+`;
 export default Loading;
