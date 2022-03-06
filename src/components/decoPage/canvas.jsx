@@ -8,7 +8,7 @@ import { BackgroundImgList } from "./data.jsx";
 const canvasSize = 335;
 const bgName = "background";
 
-const BackgroundImg = ({ bgImgCnt, name }) => {
+const BackgroundImg = ({ bgImgCnt, name, setNeedRefresh }) => {
   const [image] = useImage(
     require(`../../assets/images/backgrounds/${BackgroundImgList[bgImgCnt].url}`)
   );
@@ -24,10 +24,11 @@ function Canvas({
   decoDone,
   setCardUri,
   hide,
+  needRefresh,
+  refreshDone,
 }) {
   const [selectedId, selectShape] = useState(0);
   const stageRef = useRef(null);
-  let imgLength = images.length;
 
   const navigate = useNavigate();
   const handleExport = () => {
@@ -36,23 +37,29 @@ function Canvas({
     setCardUri(uri); // uri 추출 후 결과페이지에서 사용하기 위해 state 저장
     navigate(`/result/${hide}`); // result 페이지 이동
   };
-
-  useEffect(() => {
-    decoDone && handleExport();
+  useEffect(() => { // decoDone true시 이미지 uri 추출
+      decoDone && handleExport();
   }, [decoDone]);
 
-  useEffect(() => {
-    imgLength += 1;
-  }, [images]);
+  const handleRefreshClick=()=>{
+    setImages((cur)=>{
+      return cur.slice(0,1)
+    })
+  }
+  
+  useEffect(()=>{
+    needRefresh && handleRefreshClick();
+    refreshDone();
+  },[needRefresh])
 
   const checkDeselect = (e) => {
+    // 선택 취소
     const clickedOnEmpty = e.target.attrs.name === bgName;
 
     if (clickedOnEmpty) {
       selectShape(null);
     }
   };
-
   return (
     <div
       style={{ marginBottom: 1 }}
@@ -91,5 +98,4 @@ function Canvas({
     </div>
   );
 }
-
 export default Canvas;
