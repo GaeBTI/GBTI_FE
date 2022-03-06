@@ -4,7 +4,6 @@ import { MBTIS } from "../../assets/texts/results";
 import Modal from "../common/Modal";// components/common/Modal/index.jsx"
 
 const FullCharModal=({setIsOpen})=>{
-    console.log(Object.keys(MBTIS));
     // 모달 오버레이에서 스크롤 방지
     useEffect(() => {
         document.body.style.cssText = `

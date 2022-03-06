@@ -155,10 +155,7 @@ function TestResult({ mbti, cardUri }) {
         <section className={styles.showFullChar}>
           <button
             className={styles.showFullCharBox}
-            onClick={() => {
-              console.log("change showing modal", isOpen);
-              return setIsOpen((cur) => !cur);
-            }}
+            onClick={()=>setIsOpen((cur) => !cur)}
           >
             <div className={styles.showFullCharIconBox}>
               <ShowFullCharIcon />
