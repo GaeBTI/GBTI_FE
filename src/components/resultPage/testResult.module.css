@@ -22,11 +22,8 @@
   border: 2px solid #ffcf55;
   margin-bottom: 0.5rem;
 }
-.boddy {
-}
 .page {
   background-image: url("../../assets/images/background_optimize.svg");
-  /* height: calc(var(--vh, 1vh) * 250); */
   background-size: cover;
   display: flex;
   -webkit-box-align: center;
@@ -34,26 +31,7 @@
   -webkit-box-pack: center;
   justify-content: center;
   flex-direction: column;
-  /* padding-inline: 20px;
-  width: 375px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap; */
 }
-/* .page_no_scroll {
-  background-image: url("/public/images/background.svg");
-  background-size: cover;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  flex-direction: column;
-
-  width: 100%;
-  overflow-y: scroll;
-} */
 .mind {
   position: relative;
   text-align: center;
@@ -96,10 +74,7 @@
   font-weight: bold;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  /* identical to box height, or 156% */
-
   text-align: left;
-
   color: red;
 }
 .mindTag {
@@ -112,7 +87,6 @@
   height: 7.625rem;
   top: -1.25rem;
   margin: auto;
-  /* top: 560px; */
   z-index: 1;
   background: #fffae3;
 }
@@ -147,7 +121,6 @@
   font-weight: bold;
   font-size: 0.75rem;
   line-height: 2.05rem;
-  /* or 236% */
   display: flex;
   color: #3c3c3c;
 }
@@ -158,8 +131,6 @@
   width: 300px;
   margin-block: 1.625rem;
   height: 8.438rem;
-}
-.majorTag {
 }
 .majorName {
   position: relative;

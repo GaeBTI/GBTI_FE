@@ -15,11 +15,9 @@ import { MBTIS } from "../../assets/texts/results";
 // import KakaoShare from "./share/kakaoMainShare/kakaoMainShare";
 import KeywordBox from "../common/keywordBox/keywordBox";
 import Header from "../common/header/header";
-import FacebookShare from "./share/facebookShare";
 import CopyLink from "./share/copyLink";
 import FullCharModal from "./FullCharModal";
 import KakaoResultShare from "./share/kakaoResultShare/kakaoResultShare";
-import { TwitterIcon } from "./shareIcons";
 import TwitterShare from "./share/TwitterShare";
 
 function TestResult({ mbti, cardUri }) {
@@ -184,12 +182,23 @@ function TestResult({ mbti, cardUri }) {
           <RetryTag />
         </section>
       </section>
-      <footer >
-          <section className={styles.footerBox}>
-            <div>Copyright © 2022 TEAMIRUEM. All rights reserved.</div>
-            <div><a href="mailto:teamiruem@gmail.com">contact to TEAMIRUEM</a></div>
-            <div><a href="https://instagram.com/kinnyeri?utm_medium=copy_link" target="_blank">@kinnyeri </a><a href="mailto:iamkyeongju@gmail.com">@jjoy_h </a><a href="mailto:dev.jihyun@gmail.com">@jihyun</a></div>
-          </section>
+      <footer>
+        <section className={styles.footerBox}>
+          <div>Copyright © 2022 TEAMIRUEM. All rights reserved.</div>
+          <div>
+            <a href="mailto:teamiruem@gmail.com">contact to TEAMIRUEM</a>
+          </div>
+          <div>
+            <a
+              href="https://instagram.com/kinnyeri?utm_medium=copy_link"
+              target="_blank"
+            >
+              @kinnyeri{" "}
+            </a>
+            <a href="mailto:iamkyeongju@gmail.com">@jjoy_h </a>
+            <a href="mailto:dev.jihyun@gmail.com">@jihyun</a>
+          </div>
+        </section>
       </footer>
     </section>
   );
