@@ -3,6 +3,16 @@ import styled from "styled-components";
 import { TESTS } from "../../assets/texts/questions"
 import { QuestionBGImg } from "./testIcons";
 
+const QuestionSection =({currentNum})=>{
+    return (
+        <QuestionBox currentNum={currentNum}>
+            <QuestionBGImg/>
+            <QuestionNumText>{TESTS[currentNum].id}/{TESTS.length}</QuestionNumText>
+            <QuestionTextBox><div>{TESTS[currentNum].question}</div></QuestionTextBox> 
+        </QuestionBox>
+    );
+}
+
 const QuestionBox=styled.div`
   margin-bottom:1.3rem;
   width:287px;
@@ -53,15 +63,4 @@ const QuestionTextBox=styled.div`
     line-height: 33px;
   }
 `;
-
-const QuestionSection =({currentNum})=>{
-    return (
-        <QuestionBox currentNum={currentNum}>
-            <QuestionBGImg/>
-            <QuestionNumText>{TESTS[currentNum].id}/{TESTS.length}</QuestionNumText>
-            <QuestionTextBox><div>{TESTS[currentNum].question}</div></QuestionTextBox> 
-        </QuestionBox>
-    );
-}
-
 export default QuestionSection;
