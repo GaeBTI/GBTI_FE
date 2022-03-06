@@ -42,7 +42,6 @@ function Canvas({
   }, [decoDone]);
 
   const handleRefreshClick=()=>{
-    console.log('refresh start');
     setImages((cur)=>{
       return cur.slice(0,1)
     })
