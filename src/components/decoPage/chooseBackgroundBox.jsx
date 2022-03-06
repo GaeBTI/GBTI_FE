@@ -26,14 +26,6 @@ const NextButton=styled.button`
     height:48px;
     padding:0;
 `;
-const onLeftClick=({setBgImgCnt})=>{
-    setBgImgCnt((cur)=>{
-        console.log("clicked Left",cur);
-    })
-}
-const onRightClick=()=>{
-    console.log("clicked Right");
-}
 const ChooseBackgroundBox=({setBgImgCnt, bgImgCnt})=>{
     return <ChooseBox>
         <NextButton onClick={()=>setBgImgCnt(cur=>cur==0? BackgroundImgList.length-1 : cur-1)} style={{marginLeft:8}}>
