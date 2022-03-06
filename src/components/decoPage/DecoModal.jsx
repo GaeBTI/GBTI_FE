@@ -12,7 +12,7 @@ const DecoModal =({setIsOpen})=>{
                 <ContentText>
                     다양한 스티커와 배경을 통해<br/>
                     나만의 GBTI 캐릭터 카드를 만들어보세요!<br/>
-                    스티커는 자유롭게 회전, 크기조절이 가능합니다.<br/>
+                    스티커는 자유롭게 조절이 가능합니다.<br/>
                 </ContentText>
             </ContentTextBox>
         </ContentBox>
@@ -42,7 +42,8 @@ const TitleText=styled.div`
     font-size: 22px;
     line-height: 40px;
 
-    color: #3A3A3A;
+    color: #3C3C3C;
+    -webkit-text-stroke: 0.25px #3C3C3C;
 `;
 const ContentText=styled.div`
     height: 80px;
