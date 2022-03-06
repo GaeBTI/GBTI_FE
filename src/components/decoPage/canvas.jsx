@@ -9,7 +9,6 @@ const canvasSize = 335;
 const bgName = "background";
 
 const BackgroundImg = ({ bgImgCnt, name }) => {
-  console.log(BackgroundImgList[bgImgCnt]);
   const [image] = useImage(
     require(`../../assets/images/backgrounds/${BackgroundImgList[bgImgCnt].url}`)
   );

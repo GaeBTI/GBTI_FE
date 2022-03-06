@@ -15,14 +15,13 @@ function Deco({ setCardUri }) {
   //dragurl, images
   const { hide } = useParams();
   const mbti = Object.keys(HIDES).find((key)=>HIDES[key]===hide);
-  console.log('deco',mbti);
 
-  const [images, setImages] = useState([
+  const [images, setImages] = useState([ // 캐릭터 이미지로 초기화
     {
       x: 170,
       y: 200,
       src: require(`../assets/images/characters/${mbti}.png`),
-      id: Date.now().toString(), //images.length.toString(),
+      id: Date.now().toString(),
       w: 200,
       h: 200,
     },
