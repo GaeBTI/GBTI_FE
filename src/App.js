@@ -8,7 +8,6 @@ import Deco from "./routes/deco";
 import Card from "./routes/card";
 import { isMobile } from "react-device-detect";
 import ReactGA from "react-ga";
-import RouteChangeTracker from "./routes/routeChangeTracker";
 
 const { Kakao } = window;
 const JAVASCRIPT_KEY = process.env.REACT_APP_KAKAO_KEY;
@@ -51,7 +50,6 @@ function App() {
   useEffect(() => {
     if (!Kakao.isInitialized()) {
       Kakao.init(JAVASCRIPT_KEY);
-      console.log("kakadosodfo", Kakao.isInitialized());
     }
   }, []);
   return (
@@ -77,7 +75,6 @@ function App() {
           ></Route>
           <Route path="/card/:hide" element={<Card />}></Route>
         </Routes>
-        {/* <RouteChangeTracker></RouteChangeTracker> */}
       </Router>
     </div>
   );
