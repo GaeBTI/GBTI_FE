@@ -1,11 +1,15 @@
 import React from "react";
-import Button from "../components/common/Button";
+import { MainTitle, StartButton } from "../components/startPage";
+import Container from "../components/common/Container";
+import Share from "../components/startPage/share/share";
 
 function Start() {
   return (
-    <div>
-      <Button to="/test">시작하기</Button>
-    </div>
+    <Container>
+      <MainTitle></MainTitle>
+      <StartButton></StartButton>
+      <Share></Share>
+    </Container>
   );
 }
 

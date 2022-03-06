@@ -1,121 +1,41 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import TestBackgroundImg from '../assets/images/testBackgroundImg.svg';
-import QuestionBoxImg from '../assets/images/questionBoxImg.svg';
-import AnswerButtonImg1 from '../assets/images/answerButtonImg1.svg';
-import AnswerButtonImg2 from '../assets/images/answerButtonImg2.svg';
 import { TESTS } from "../assets/texts/questions"
-
-//flex container
-const TestContainer=styled.div`
-  widht:100vw;
-  height: 100vh;
-  background-size : cover;
-  background-image:url(${TestBackgroundImg});
-  display: flex;
-	align-items: center;
-  justify-content:center;
-	flex-direction: column;
-`;
-const QuestionBox=styled.div`
-  background-image:url(${QuestionBoxImg});
-
-  margin-bottom:22px;
-  width:294px;
-  height:327px;
-
-  display:flex;
-	flex-direction: column;
-	align-items: center;
-
-  position:relative;
-`;
-const QuestionNumText=styled.div`
-  width:83px;
-  height:44px;
-  margin: 50px 15px 7px 223px;
-  
-  font-size:22px;
-  text-align:center;
-  line-height:44px;
-
-  position:absolute;
-`;
-const QuestionText=styled.div`
-  width:254px;
-  font-size:20px;
-  text-align:center;
-  position:absolute;
-  top:50%;
-  transform:translate(0,-50%);
-`;
-
-const AnswerBox=styled.div`
-  width:290px;
-  height:290px;
-`;
-
-const AnswerButton=styled.button`
-  width:290px;
-  height:134px;
-  margin-bottom:32px;
-	border: 0px;
-  background-color:transparent;
-  div{
-    font-size:16px;
-    text-align:center;
-    width:240px;
-    margin: 26px 20px 13px 20px;
-  }
-`; //280*116
-
+import {QuestionSection,AnswerSection} from "../components/testPage";
+import Container from "../components/common/Container";
 
 function Test({setScores}) {
-  let navigate=useNavigate();
-  const[currentNum,setCurrentNum]=useState(0);
+  let navigate=useNavigate(); // 결과 페이지로 이동하기 위한 hook
+  const[currentNum,setCurrentNum]=useState(0); // 현재 어떤 문제를 풀고 있는지에 대한 state, TESTS의 index로 활용
+
   const handleClick = (type,clickedFirst) => {
-    console.log(type,clickedFirst);
+    // 답 골랐을 때의 이벤트 처리 함수
     setScores((scores)=>{
+      // type에 맞춰 score 업데이트
       let newScores = scores.map((scoreObj)=>{
-        return (scoreObj.type===type 
+        return (scoreObj.type===type // scoreObj 중 type이 같은 객체에 점수를 기록한다
         ? ( clickedFirst
-            ? {...scoreObj,score:scoreObj.score+1}
-            : {...scoreObj,score:scoreObj.score-1}
+            ? {...scoreObj,score:scoreObj.score+1} // 양수일수록 type 앞 유형으로 구분
+            : {...scoreObj,score:scoreObj.score-1} // 음수일수록 type 뒷 유형으로 구분
           ): scoreObj
         )
       })
-      console.log(newScores);
       return newScores;
     });
     if(currentNum===TESTS.length-1){
-      console.log("last page of Test");
+      // 모든 문제를 다 풀었다면 /loading 페이지로 이동하도록 push
       navigate("/loading");
     } else{
+      // 다음 문제로 넘어가기
       setCurrentNum((currentNum)=>currentNum+1);
     }
 	};
+
   return (
-    <TestContainer>
-        <QuestionBox>
-          <QuestionNumText>{TESTS[currentNum].id}/{TESTS.length}</QuestionNumText>
-          <QuestionText>{TESTS[currentNum].question}</QuestionText> 
-        </QuestionBox>
-        <AnswerBox>
-          <AnswerButton 
-            style={{backgroundImage:`url(${AnswerButtonImg1})`}}
-            onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[0].clickedFirst)}
-          >
-            <div>{TESTS[currentNum].answers[0].text}</div>
-          </AnswerButton>
-          <AnswerButton 
-            style={{backgroundImage:`url(${AnswerButtonImg2})`}}
-            onClick={()=>handleClick(TESTS[currentNum].type,TESTS[currentNum].answers[1].clickedFirst)}
-          >
-            <div>{TESTS[currentNum].answers[1].text}</div>
-          </AnswerButton>
-        </AnswerBox>
-    </TestContainer>
+    <Container>
+        <QuestionSection currentNum={currentNum}/>
+        <AnswerSection currentNum={currentNum} handleClick={handleClick}/>
+    </Container>
     );
 }
 

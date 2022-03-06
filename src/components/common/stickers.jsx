@@ -1,82 +1,102 @@
-import { React, useRef, useEffect, useLayoutEffect } from "react";
-import { render } from "react-dom";
-import { Stage, Layer, Rect, Image, Transformer } from "react-konva";
+import {
+  React,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+  useState,
+  memo,
+} from "react";
+import { Image, Transformer, Group } from "react-konva";
 import useImage from "use-image";
+//import DelBtn from "../../assets/images/DelBtn.png";
 
-function Stickers({ shapeProps, isSelected, onSelect, onChange }) {
-  const [image] = useImage(shapeProps.src);
-  const shapeRef = useRef();
-  const trRef = useRef();
+const Stickers = memo(
+  ({
+    shapeProps,
+    isSelected,
+    onSelect,
+    onChange,
+    decoDone,
+  }) => {
+    const [image] = useImage(shapeProps.src);
+    //const [deleteImage] = useImage(DelBtn);
+    const shapeRef = useRef();
+    const trRef = useRef();
+    const [size, setSize] = useState({ w: shapeProps.w, h: shapeProps.h });
 
-  useEffect(() => {
-    if (isSelected) {
-      // we need to attach transformer manually
-      //trRef.current.nodes([shapeRef.current]);
-      trRef.current.setNode(shapeRef.current);
-      trRef.current.getLayer().batchDraw();
-    }
-  }, [isSelected]);
+    useEffect(() => {
+      if (isSelected) {
+        trRef.current.nodes([shapeRef.current]);
+        trRef.current.getLayer().batchDraw();
+      }
+    }, [isSelected]);
 
-  useLayoutEffect(() => {
-    shapeRef.current.cache();
-  }, [shapeProps, image, isSelected]);
+    useLayoutEffect(() => {
+      if (image) {
+        shapeRef.current.cache();
+      }
+    }, [shapeProps, image, isSelected]);
 
-  console.log("stickers", shapeProps);
-  return (
-    <>
-      <Image
-        image={image}
-        offsetX={image ? image.width / 2 : 0}
-        offsetY={image ? image.height / 2 : 0}
-        // I will use offset to set origin to the center of the image
-        onClick={onSelect}
-        onTap={onSelect}
-        ref={shapeRef}
-        {...shapeProps}
-        draggable
-        onDragEnd={(e) => {
-          onChange({
-            ...shapeProps,
-            x: e.target.x(),
-            y: e.target.y(),
-          });
-        }}
-        onTransformEnd={(e) => {
-          // transformer is changing scale of the node
-          // and NOT its width or height
-          // but in the store we have only width and height
-          // to match the data better we will reset scale on transform end
-          const node = shapeRef.current;
-          const scaleX = node.scaleX();
-          const scaleY = node.scaleY();
-
-          // we will reset it back
-          node.scaleX(1);
-          node.scaleY(1);
-          onChange({
-            ...shapeProps,
-            x: node.x(),
-            y: node.y(),
-            // set minimal value
-            width: Math.max(5, node.width() * scaleX),
-            height: Math.max(node.height() * scaleY),
-          });
-        }}
-      />
-      {isSelected && (
-        <Transformer
-          ref={trRef}
-          boundBoxFunc={(oldBox, newBox) => {
-            // limit resize
-            if (newBox.width < 5 || newBox.height < 5) {
-              return oldBox;
-            }
-            return newBox;
-          }}
-        />
-      )}
-    </>
-  );
-}
+    // const onDelete = () => {
+    //   setImages(
+    //     images.filter((image, i) => {
+    //       return image.id !== selectedId;
+    //     })
+    //   );
+    // };
+    return (
+      <>
+        <Group draggable={isSelected}>
+          <Image
+            image={image}
+            width={200}
+            height={200}
+            offsetX={image ? size.w / 2 : 0}
+            offsetY={image ? size.h / 2 : 0}
+            onClick={onSelect}
+            onTap={onSelect}
+            ref={shapeRef}
+            {...shapeProps}
+            onDragEnd={(e) => {
+              onChange({
+                ...shapeProps,
+                x: e.target.x(),
+                y: e.target.y(),
+              });
+            }}
+            onTransformEnd={(e) => {
+              const node = shapeRef.current;
+              const scaleX = node.scaleX();
+              const scaleY = node.scaleY();
+              node.scaleX(1); // 다시 set 할 예정
+              node.scaleY(1);
+              onChange({
+                ...shapeProps,
+                x: node.x(),
+                y: node.y(),
+                width: Math.max(node.width() * scaleX), //5
+                height: Math.max(node.height() * scaleY),
+              });
+              setSize({ w: node.width(), h: node.height() });
+            }}
+          />
+        </Group>
+        {isSelected && !decoDone && (
+          <Transformer
+            ref={trRef}
+            boundBoxFunc={(oldBox, newBox) => {
+              // limit resize
+              if (newBox.width < 50 || newBox.height < 50) {
+                return oldBox;
+              }
+              return newBox;
+            }}
+          >
+          </Transformer>
+        )}
+      </>
+    );
+  }
+);
 
 export default Stickers;
