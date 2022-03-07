@@ -21,7 +21,6 @@
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src react-scripts start",
-    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "build": "cross-env NODE_PATH=src GENERATE_SOURCEMAP=false react-scripts build",
     "test": "node scripts/test.js --env=jsdom",
     "eject": "react-scripts eject"
