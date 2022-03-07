@@ -68,17 +68,16 @@ const TitleText=styled.div`
 const MbtiList=styled.div`
     width:335px;
     height:520px;
-    
+    margin-top:10px;
     display: flex;
     align-items: center;
-    justify-content:center;
     flex-direction: column;
+    
     overflow:auto;
 `;
 const MbtiCardBox=styled.div`
     width: 305px;
     height: 137px;
-    margin-top:17px;
 
     background: #FFFDF1;
 
