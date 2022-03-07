@@ -183,7 +183,12 @@ function TestResult({ mbti, cardUri }) {
         <section className={styles.footerBox}>
           <div>Copyright © 2022 TEAMIRUEM. All rights reserved.</div>
           <div>
-            <a href="mailto:teamiruem@gmail.com">contact to TEAMIRUEM</a>
+            <a 
+              href="https://instagram.com/teamiruem?utm_medium=copy_link"
+              target="_blank"
+            >
+              contact to TEAMIRUEM
+            </a>
           </div>
           <div>
             <a
