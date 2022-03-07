@@ -97,15 +97,18 @@ const CharKeyBox=styled.div`
     height:70px;
 
     font-weight: 900;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
 `;
 const CharKeySentenceText=styled.div`
-    font-size: 15px;
+    font-size: 0.8rem;
     line-height: 22px;
 
     color: #585858;
 `;
 const CharKeyWordText=styled.div`
-    font-size: 20px;
+    font-size: 1.3rem;
     line-height: 26px;
     color: #3C3C3C;
     -webkit-text-stroke: 0.75px #3C3C3C;
