@@ -44,6 +44,7 @@ const FullCharModal=({setIsOpen})=>{
 }
 const ContentBox=styled.div`
     width:335px;
+    height:550px;
     display: flex;
     align-items: center;
     justify-content:center;
@@ -65,13 +66,14 @@ const TitleText=styled.div`
     display:block;
 `;
 const MbtiList=styled.div`
-    width:305px;
-    margin-bottom:10px;
+    width:335px;
+    height:520px;
     
     display: flex;
     align-items: center;
     justify-content:center;
     flex-direction: column;
+    overflow:auto;
 `;
 const MbtiCardBox=styled.div`
     width: 305px;

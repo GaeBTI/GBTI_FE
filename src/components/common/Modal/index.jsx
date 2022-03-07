@@ -7,7 +7,7 @@ const Modal=({children, setIsOpen, w, h })=>{
     const fWidth= isMobile? window.innerWidth :375;
     return <ModalPageBox style={{top:window.scrollY}} onClick={ (e)=>e.stopPropagation()}>
         <ModalBox style={{width:w, height:h}}>
-        <ModalCancelBtn style={{top:(window.innerHeight-h)/2-10, right:(fWidth-w)/2-10}} onClick={()=>setIsOpen((cur)=>!cur)}><ModalCancelBtnBg/></ModalCancelBtn>
+            <ModalCancelBtn onClick={()=>setIsOpen((cur)=>!cur)}><ModalCancelBtnBg/></ModalCancelBtn>
             {children}
         </ModalBox>
     </ModalPageBox>;
