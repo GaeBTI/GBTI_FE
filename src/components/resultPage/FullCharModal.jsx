@@ -78,6 +78,8 @@ const MbtiList=styled.div`
 const MbtiCardBox=styled.div`
     width: 305px;
     height: 137px;
+    margin-top:8px;
+    margin-bottom:8px;
 
     background: #FFFDF1;
 
