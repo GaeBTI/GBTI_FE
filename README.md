@@ -13,16 +13,16 @@ https://gbti.site 접속
 
 
 ### 기술 스택 Stack
-- react.js
+- React.js
 - Javascript
 - HTML
 - yarn
 
 ### 사용 패키지 Used Package
-- konva
-- postcss
+- Konva
+- PostCSS
 - react-device-detect
-- styled-components
+- Styled-Components
 - use-image
 - web-vitals
 
