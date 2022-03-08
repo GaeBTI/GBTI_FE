@@ -7,19 +7,24 @@ MBTI가 트렌드가 되면서 재밌는 사이트가 많아졌다. 재밌지만
 ### 사용법 How to use
 https://gbti.site 접속
 
-### Stack
+| 시작 페이지 | 테스트 페이지 | 카드 꾸미기 페이지 | 결과지 페이지 |
+|----------|------------|---------------|-----------|
+|<img src="https://user-images.githubusercontent.com/37644146/157196344-6c274122-fb31-406f-9b9d-6d8c0ee5ff8c.png" width="200"/>|<img src="https://user-images.githubusercontent.com/37644146/157196252-2c093177-b828-4485-85e9-d1d99db3d692.jpeg" width="200"/>|<img src="https://user-images.githubusercontent.com/37644146/157197199-445c347e-582e-435c-8f51-bdfb2610394b.jpeg" width="200"/>|<img src="https://user-images.githubusercontent.com/37644146/157196757-3fbf2652-1a73-4475-a106-8a1acffc10bf.png" width="200"/>|
+
+### 기술 스택 Stack
 - react.js
 - Javascript
 - HTML
 - yarn
 
-### Used Package
+### 사용 패키지 Used Package
 - konva
 - postcss
 - react-device-detect
 - styled-components
 - use-image
 - web-vitals
+
 
 -----
 ## Commit Convention
