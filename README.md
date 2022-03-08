@@ -1,5 +1,27 @@
-# GBTI_FE
+# GBTI
+### 개강해지는 MBTI
+MBTI가 트렌드가 되면서 재밌는 사이트가 많아졌다. 재밌지만 이제는 조금 지루한 테스트 결과지.<br/>
+**남들과 다를 수 있는 결과지**를 받아 볼 수 있도록 "카드 꾸미기"라는 기능을 넣었다.<br/>
+대학교 개강 시즌에 맞춘 컨셉으로 다양한 스티커로 꾸민 본인만의 MBTI 카드를 가져갈 수 있다.<br/>
 
+### 사용법 How to use
+https://gbti.site 접속
+
+### Stack
+- react.js
+- Javascript
+- HTML
+- yarn
+
+### Used Package
+- konva
+- postcss
+- react-device-detect
+- styled-components
+- use-image
+- web-vitals
+
+-----
 ## Commit Convention
 |prefix|commit message|
 |------|--------------|
