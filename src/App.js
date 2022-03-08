@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Start from "./routes/start";
-import Test from "./routes/test";
-import Result from "./routes/result";
-import Loading from "./routes/loading";
-import Deco from "./routes/deco";
-import Card from "./routes/card";
+import { Start, Test, Result, Loading, Deco, Card, Error } from "./routes";
 import { isMobile } from "react-device-detect";
 import ReactGA from "react-ga";
 
@@ -74,6 +69,7 @@ function App() {
             element={<Deco setCardUri={setCardUri} />}
           ></Route>
           <Route path="/card/:hide" element={<Card />}></Route>
+          <Route path="*" element={<Error/>}></Route>
         </Routes>
       </Router>
     </div>
