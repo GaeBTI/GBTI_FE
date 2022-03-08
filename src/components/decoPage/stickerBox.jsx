@@ -7,7 +7,7 @@ const StickerBox = ({ dragUrl, images, setImages }) => {
   const StickerImgLength = 69;
   let stickerButtonList = [];
   for (var i = 0; i < StickerImgLength; i++) {
-    stickerButtonList.push(`stk${i}.png`);
+    stickerButtonList.push(`sticker${i}.png`);
   }
   return (
     <StickerBoxBG>
