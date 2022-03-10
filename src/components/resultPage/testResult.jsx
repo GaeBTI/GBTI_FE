@@ -175,9 +175,16 @@ function TestResult({ mbti, cardUri }) {
             <CopyLink></CopyLink>
           </div>
         </section>
+        <section className={styles.contact}>
+        <div className={styles.contactText}>하단 이미지를 눌러<br/>인스타그램 계정에 놀러오세요!</div>
+            <a href="https://instagram.com/teamiruem?utm_medium=copy_link" target="_blank">
+              <img src={require("../../assets/images/ContactUs.jpg")} style={{width:"250px"}}/>
+            </a>
+        </section>
         <section className={styles.retry} onClick={handleRestart}>
           <RetryTag />
         </section>
+        
       </section>
       <footer>
         <section className={styles.footerBox}>

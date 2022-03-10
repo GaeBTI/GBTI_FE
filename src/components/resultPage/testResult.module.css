@@ -267,6 +267,23 @@
 
   text-align: center;
 }
+.contact {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contactText {
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+}
 .retry {
   margin-block: 1.625rem;
   text-align: center;
