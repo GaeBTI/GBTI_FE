@@ -4,11 +4,12 @@ import Stickers from "./../common/stickers";
 import styled from "styled-components";
 
 const StickerBox = ({ dragUrl, images, setImages }) => {
-  const StickerImgLength = 69;
+  const StickerImgLength = 75;
   let stickerButtonList = [];
   for (var i = 0; i < StickerImgLength; i++) {
     stickerButtonList.push(`sticker${i}.png`);
   }
+  console.log(stickerButtonList);
   return (
     <StickerBoxBG>
       {stickerButtonList.map((url, index) => (
