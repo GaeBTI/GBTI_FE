@@ -62,7 +62,7 @@ function TestResult({ mbti, cardUri }) {
                 이미지를 꾹 눌러 다운로드 하세요♥︎
                 <br />
                 <span style={{ color: "red", fontSize: "17px" }}>!!</span>{" "}
-                저장하지 않으면 사라질 수도 있어요
+                저장하지 않으면 사라질 수도 있어요{" "}
                 <span style={{ color: "red", fontSize: "17px" }}>!!</span>
               </div>
             </>
@@ -175,9 +175,19 @@ function TestResult({ mbti, cardUri }) {
             <CopyLink></CopyLink>
           </div>
         </section>
+        <section className={styles.contact}>
+          <div className={styles.tagText}>@teamiruem을 태그하여<br/> 나만의 카드를 자랑해주세요!</div>
+            <div className={styles.contactImg}>
+              <a href="https://instagram.com/teamiruem?utm_medium=copy_link" target="_blank">
+                <img src={require("../../assets/images/ContactUs.jpg")} style={{width:"280px"}}/>
+              </a>
+            </div>  
+          <div className={styles.contactText}>⬆️ 위 이미지를 눌러 인스타그램 계정에 놀러오세요!</div>
+        </section>
         <section className={styles.retry} onClick={handleRestart}>
           <RetryTag />
         </section>
+        
       </section>
       <footer>
         <section className={styles.footerBox}>

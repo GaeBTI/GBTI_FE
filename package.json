@@ -20,8 +20,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "cross-env NODE_PATH=src react-scripts start",
-    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
+    "start": "NODE_PATH=src react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "node scripts/test.js --env=jsdom",
     "eject": "react-scripts eject"
   },
