@@ -17,6 +17,7 @@ https://gbti.site 접속
 - Javascript
 - HTML
 - yarn
+- Netlify
 
 ### 사용 패키지 Used Package
 - Konva
