@@ -25,7 +25,6 @@ https://gbti.site 접속
 - react-device-detect
 - Styled-Components
 - use-image
-- web-vitals
 
 🚧계속 업데이트 중....🏃‍♀️
 
