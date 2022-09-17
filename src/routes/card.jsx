@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../components/common/Container";
-import Header from "../components/common/header/header";
-import KeywordBox from "../components/common/keywordBox/keywordBox";
+import Header from "../components/common/Header";
+import KeywordBox from "../components/common/KeywordBox";
 import { MBTIS, HIDES } from "../assets/texts/results";
 import StartDecoButton from "../components/cardPage/startDecoButton";
 import ResultCard from "../components/cardPage/resultCard";
@@ -44,5 +44,5 @@ const CheerSentence = styled.div`
 
   text-align: center;
 
-  color: #727272;
+  color: ${(theme) => theme.primaryLight};
 `;

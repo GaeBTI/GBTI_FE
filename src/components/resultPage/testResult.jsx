@@ -13,8 +13,8 @@ import {
 import styles from "./testResult.module.css";
 import { MBTIS } from "../../assets/texts/results";
 // import KakaoShare from "./share/kakaoMainShare/kakaoMainShare";
-import KeywordBox from "../common/keywordBox/keywordBox";
-import Header from "../common/header/header";
+import KeywordBox from "../common/KeywordBox";
+import Header from "../common/Header";
 import CopyLink from "./share/copyLink";
 import FullCharModal from "./FullCharModal";
 import KakaoResultShare from "./share/kakaoResultShare/kakaoResultShare";
@@ -155,7 +155,7 @@ function TestResult({ mbti, cardUri }) {
         <section className={styles.showFullChar}>
           <button
             className={styles.showFullCharBox}
-            onClick={()=>setIsOpen((cur) => !cur)}
+            onClick={() => setIsOpen((cur) => !cur)}
           >
             <div className={styles.showFullCharIconBox}>
               <ShowFullCharIcon />
@@ -176,24 +176,34 @@ function TestResult({ mbti, cardUri }) {
           </div>
         </section>
         <section className={styles.contact}>
-          <div className={styles.tagText}>@teamiruem을 태그하여<br/> 나만의 카드를 자랑해주세요!</div>
-            <div className={styles.contactImg}>
-              <a href="https://instagram.com/teamiruem?utm_medium=copy_link" target="_blank">
-                <img src={require("../../assets/images/ContactUs.jpg")} style={{width:"280px"}}/>
-              </a>
-            </div>  
-          <div className={styles.contactText}>⬆️ 위 이미지를 눌러 인스타그램 계정에 놀러오세요!</div>
+          <div className={styles.tagText}>
+            @teamiruem을 태그하여
+            <br /> 나만의 카드를 자랑해주세요!
+          </div>
+          <div className={styles.contactImg}>
+            <a
+              href="https://instagram.com/teamiruem?utm_medium=copy_link"
+              target="_blank"
+            >
+              <img
+                src={require("../../assets/images/ContactUs.jpg")}
+                style={{ width: "280px" }}
+              />
+            </a>
+          </div>
+          <div className={styles.contactText}>
+            ⬆️ 위 이미지를 눌러 인스타그램 계정에 놀러오세요!
+          </div>
         </section>
         <section className={styles.retry} onClick={handleRestart}>
           <RetryTag />
         </section>
-        
       </section>
       <footer>
         <section className={styles.footerBox}>
           <div>Copyright © 2022 TEAMIRUEM. All rights reserved.</div>
           <div>
-            <a 
+            <a
               href="https://instagram.com/teamiruem?utm_medium=copy_link"
               target="_blank"
             >

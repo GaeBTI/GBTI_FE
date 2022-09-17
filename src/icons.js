@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LeftQuote = () => (
+export const LeftQuoteImg = () => (
   <svg
     width="25"
     height="22"
@@ -18,7 +18,7 @@ export const LeftQuote = () => (
   </svg>
 );
 
-export const RightQuote = () => (
+export const RightQuoteImg = () => (
   <svg
     width="25"
     height="22"

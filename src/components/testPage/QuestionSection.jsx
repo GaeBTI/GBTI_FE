@@ -41,7 +41,7 @@ const QuestionNumText = styled.div`
   color: ${(theme) => theme.primary};
   text-align: center;
   line-height: 35px;
-  font-family: ${(theme) => theme.subFont};
+  font-family: HSYuji-Regular;
 `;
 //88px 5px 0px 215px;
 
