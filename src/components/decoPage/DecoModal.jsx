@@ -49,8 +49,8 @@ const TitleText = styled.div`
   font-size: 22px;
   line-height: 40px;
 
-  color: #3c3c3c;
-  -webkit-text-stroke: 0.25px #3c3c3c;
+  color: ${({ theme }) => theme.primary};
+  -webkit-text-stroke: 0.25px ${({ theme }) => theme.primary};
 `;
 const ContentText = styled.div`
   height: 80px;
@@ -58,6 +58,6 @@ const ContentText = styled.div`
   font-size: 13px;
   line-height: 27px;
 
-  color: #635c5c;
+  color: ${({ theme }) => theme.light};
 `;
 export default DecoModal;

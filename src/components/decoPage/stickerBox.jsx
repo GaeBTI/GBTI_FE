@@ -1,6 +1,4 @@
-import { React, useState, useRef, useEffect } from "react";
-import { Stage, Layer } from "react-konva";
-import Stickers from "./../common/stickers";
+import { React } from "react";
 import styled from "styled-components";
 
 const StickerBox = ({ dragUrl, images, setImages }) => {
@@ -9,7 +7,6 @@ const StickerBox = ({ dragUrl, images, setImages }) => {
   for (var i = 0; i < StickerImgLength; i++) {
     stickerButtonList.push(`sticker${i}.png`);
   }
-  console.log(stickerButtonList);
   return (
     <StickerBoxBG>
       {stickerButtonList.map((url, index) => (

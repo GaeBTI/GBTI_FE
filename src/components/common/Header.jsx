@@ -9,7 +9,7 @@ const TitleWrapper = styled.div`
   height: 50px;
   text-align: center;
 
-  color: ${(theme) => theme.primary};
+  color: ${({ theme }) => theme.primary};
 `;
 function Header() {
   return <TitleWrapper>개강한 나는...!</TitleWrapper>;

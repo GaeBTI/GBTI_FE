@@ -69,7 +69,7 @@ const KeyName = styled.div`
   text-align: center;
 
   z-index: 3;
-  color: ${(theme) => theme.primary};
+  color: ${({ theme }) => theme.primary};
 `;
 const KeyBack = styled.div`
   position: absolute;

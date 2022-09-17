@@ -38,7 +38,7 @@ const QuestionNumText = styled.div`
   top: 25%;
 
   font-size: 1.4rem;
-  color: ${(theme) => theme.primary};
+  color: ${({ theme }) => theme.primary};
   text-align: center;
   line-height: 35px;
   font-family: HSYuji-Regular;

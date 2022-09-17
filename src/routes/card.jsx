@@ -44,5 +44,5 @@ const CheerSentence = styled.div`
 
   text-align: center;
 
-  color: ${(theme) => theme.primaryLight};
+  color: ${({ theme }) => theme.primaryLight};
 `;
