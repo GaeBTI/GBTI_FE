@@ -27,7 +27,7 @@ const GoResultText = styled.div`
   font-size: 25px;
   line-height: 48px;
   text-align: center;
-  color: #000000;
+  color: ${({ theme }) => theme.button};
 `;
 const GoResultButtonBGBox = styled.div`
   position: absolute;

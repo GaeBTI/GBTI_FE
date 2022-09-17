@@ -11,9 +11,5 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
-//background-image:url("/public/images/background.svg");
-// const Container=()=>{
-//   return <ContainerDiv></ContainerDiv>
-// }
 
 export default Container;

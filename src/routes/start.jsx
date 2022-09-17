@@ -1,7 +1,6 @@
 import React from "react";
-import { MainTitle, StartButton } from "../components/startPage";
+import { MainTitle, StartButton, Share } from "../components/startPage";
 import Container from "../components/common/Container";
-import Share from "../components/startPage/share/share";
 
 function Start() {
   return (
