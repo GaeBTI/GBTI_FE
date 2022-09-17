@@ -3,8 +3,9 @@ export const color = {
   primary: "#3C3C3C",
   primaryLight: "#727272",
   light: "#635c5c",
-  hightlightRed: "#E94141",
+  highlightRed: "#E94141",
   button: "#000",
+  backGround: "#fffae3",
 };
 
 export const font = {
