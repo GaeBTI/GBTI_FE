@@ -5,7 +5,7 @@ import { HIDES } from "../assets/texts/results";
 
 function Result({ cardUri }) {
   const { hide } = useParams();
-  const mbti = Object.keys(HIDES).find((key)=>HIDES[key]===hide);
+  const mbti = Object.keys(HIDES).find((key) => HIDES[key] === hide);
   return (
     <>
       <TestResult mbti={mbti} cardUri={cardUri}></TestResult>

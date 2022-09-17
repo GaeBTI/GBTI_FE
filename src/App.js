@@ -69,7 +69,7 @@ function App() {
             element={<Deco setCardUri={setCardUri} />}
           ></Route>
           <Route path="/card/:hide" element={<Card />}></Route>
-          <Route path="*" element={<Error/>}></Route>
+          <Route path="*" element={<Error />}></Route>
         </Routes>
       </Router>
     </div>

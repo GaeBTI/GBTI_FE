@@ -3,42 +3,49 @@ import { isMobile } from "react-device-detect";
 import styled from "styled-components";
 import { ModalCancelBtnBg } from "./modalIcon";
 
-const Modal=({children, setIsOpen, w, h })=>{
-    const fWidth= isMobile? window.innerWidth :375;
-    return <ModalPageBox style={{top:window.scrollY}} onClick={ (e)=>e.stopPropagation()}>
-        <ModalBox style={{width:w, height:h}}>
-            <ModalCancelBtn onClick={()=>setIsOpen((cur)=>!cur)}><ModalCancelBtnBg/></ModalCancelBtn>
-            {children}
-        </ModalBox>
-    </ModalPageBox>;
-}
+const Modal = ({ children, setIsOpen, w, h }) => {
+  const fWidth = isMobile ? window.innerWidth : 375;
+  return (
+    <ModalPageBox
+      style={{ top: window.scrollY }}
+      onClick={(e) => e.stopPropagation()}
+    >
+      <ModalBox style={{ width: w, height: h }}>
+        <ModalCancelBtn onClick={() => setIsOpen((cur) => !cur)}>
+          <ModalCancelBtnBg />
+        </ModalCancelBtn>
+        {children}
+      </ModalBox>
+    </ModalPageBox>
+  );
+};
 
-const ModalPageBox=styled.div`
-    position:absolute;
-    width:${isMobile?`100vw`:`375px`};
-    height:calc(var(--vh, 1vh) * 100);
-    background:#00000080;
-    z-index:10000;
+const ModalPageBox = styled.div`
+  position: absolute;
+  width: ${isMobile ? `100vw` : `375px`};
+  height: calc(var(--vh, 1vh) * 100);
+  background: #00000080;
+  z-index: 10000;
 
-    display: flex;
-    align-items: center;
-    justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const ModalBox=styled.div`
-    background:white;
-    border-radius:10px;
+const ModalBox = styled.div`
+  background: white;
+  border-radius: 10px;
 
-    overflow:auto;
+  overflow: auto;
 `;
 
-const ModalCancelBtn=styled.button`
-    width:37px;
-    height:37px;
-    padding:0px;
-    
-    margin-top:3px;
-    margin-right:3px;
-    float:right;
+const ModalCancelBtn = styled.button`
+  width: 37px;
+  height: 37px;
+  padding: 0px;
+
+  margin-top: 3px;
+  margin-right: 3px;
+  float: right;
 `;
 export default Modal;

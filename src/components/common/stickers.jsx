@@ -11,13 +11,7 @@ import useImage from "use-image";
 //import DelBtn from "../../assets/images/DelBtn.png";
 
 const Stickers = memo(
-  ({
-    shapeProps,
-    isSelected,
-    onSelect,
-    onChange,
-    decoDone,
-  }) => {
+  ({ shapeProps, isSelected, onSelect, onChange, decoDone }) => {
     const [image] = useImage(shapeProps.src);
     //const [deleteImage] = useImage(DelBtn);
     const shapeRef = useRef();
@@ -91,8 +85,7 @@ const Stickers = memo(
               }
               return newBox;
             }}
-          >
-          </Transformer>
+          ></Transformer>
         )}
       </>
     );
