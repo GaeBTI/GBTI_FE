@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import backgroundImg from "../../assets/images/background_optimize.svg";
 import {
   Worst,
   Best,
@@ -10,9 +11,8 @@ import {
   SmstrComnt,
   ShowFullCharIcon,
 } from "../../icons";
-import styles from "./testResult.module.css";
 import { MBTIS } from "../../assets/texts/results";
-// import KakaoShare from "./share/kakaoMainShare/kakaoMainShare";
+import styled from "styled-components";
 import KeywordBox from "../common/keywordBox/keywordBox";
 import Header from "../common/header/header";
 import CopyLink from "./share/copyLink";
@@ -22,20 +22,16 @@ import TwitterShare from "./share/TwitterShare";
 
 function TestResult({ mbti, cardUri }) {
   const featureList = MBTIS[mbti].CharList.map((c, i) => (
-    <div key={i} className={styles.charac}>
-      <div className={styles.charac_split}>o</div>
-      <div className={styles.charac_text}>{c}</div>
-    </div>
+    <Charac key={i}>
+      <CharacSplit>o</CharacSplit>
+      <CharacText>{c}</CharacText>
+    </Charac>
   ));
   const mindList = MBTIS[mbti].Mind.map((m, i) => (
-    <div key={i} className={styles.mindWord}>
-      {m}
-    </div>
+    <MindWord key={i}>{m}</MindWord>
   ));
   const scoreList = MBTIS[mbti].Score.map((s, i) => (
-    <div key={i} className={styles.mindScore}>
-      {s}
-    </div>
+    <MindScore key={i}>{s}</MindScore>
   ));
   //팝업
   const [isOpen, setIsOpen] = useState(false);
@@ -48,124 +44,122 @@ function TestResult({ mbti, cardUri }) {
   const keySentence = MBTIS[mbti].keySentence1 + " " + MBTIS[mbti].keySentence2;
 
   return (
-    <section className={styles.boddy}>
+    <section>
       {isOpen && <FullCharModal setIsOpen={setIsOpen}></FullCharModal>}
-      <section className={styles.page}>
-        <section className={styles.headerBox}>
+      <Page>
+        <HeaderBox>
           <Header></Header>
-        </section>
-        <section className={styles.imageBox}>
+        </HeaderBox>
+        <ImageBox>
           {cardUri ? (
             <>
-              <img className={styles.charImage} alt="My Card" src={cardUri} />
-              <div className={styles.download}>
+              <img
+                style={{ width: "293px", height: "293px" }}
+                alt="My Card"
+                src={cardUri}
+              />
+              <Download>
                 이미지를 꾹 눌러 다운로드 하세요♥︎
                 <br />
                 <span style={{ color: "red", fontSize: "17px" }}>!!</span>{" "}
                 저장하지 않으면 사라질 수도 있어요{" "}
                 <span style={{ color: "red", fontSize: "17px" }}>!!</span>
-              </div>
+              </Download>
             </>
           ) : (
             <>
-              <div className={styles.charImage_gone_box}>
-                <img
-                  className={styles.charImage}
+              <CharImageGoneBox>
+                <CharImage
                   src={require(`../../assets/images/characters/${mbti}.png`)}
                 />
-              </div>
-              <div className={styles.download}>
+              </CharImageGoneBox>
+              <Download>
                 나만의 GBTI 카드가 저장되지 않았어요!
                 <br />
                 기본 카드를 보여드릴게요.
-              </div>
+              </Download>
             </>
           )}
-        </section>
+        </ImageBox>
         <KeywordBox MBTIS={MBTIS} mbti={mbti}></KeywordBox>
-        <section className={styles.smstrSection}>
-          <div className={styles.smstrMent}>
+        <SemesterSection>
+          <SemesterComment>
             <SmstrComnt />
-          </div>
-          <div className={styles.smstrText}>
-            <div id={styles.snt1}>{MBTIS[mbti].promise.snt1}</div>
+          </SemesterComment>
+          <SemesterText>
+            <SentenceLine>{MBTIS[mbti].promise.snt1}</SentenceLine>
             <div>{MBTIS[mbti].promise.snt2}</div>
-          </div>
+          </SemesterText>
           {/* <div className={styles.smstrBox}></div> */}
-        </section>
-        <section className={styles.majorSection}>
-          <div className={styles.majorTag}>
+        </SemesterSection>
+        <MajorSection>
+          <div>
             <Major></Major>
           </div>
-          <div className={styles.majorName}>
+          <MajorName>
             {MBTIS[mbti].Major}
-            <div className={styles.majorTape}>
+            <MajorTape>
               <MajorMasking />
-            </div>
-          </div>
-        </section>
-        <section className={styles.charSection}>
-          <div className={styles.charBox}>
+            </MajorTape>
+          </MajorName>
+        </MajorSection>
+        <CharSection>
+          <CharBox>
             <CharList />
-          </div>
-          <div className={styles.listBox}>{featureList}</div>
-        </section>
-        <section className={styles.teamSection}>
-          <div className={styles.teamBox}>
-            <div className={styles.teamLeft}>
+          </CharBox>
+          <ListBox>{featureList}</ListBox>
+        </CharSection>
+        <TeamSection>
+          <TeamBox>
+            <Teams>
               <Best />
               <div>
-                <img
-                  className={styles.teamImg}
+                <TeamImg
                   src={require(`../../assets/images/characters/${MBTIS[mbti].best.mbti}.png`)}
-                ></img>
+                ></TeamImg>
               </div>
-              <div className={styles.teamText}>
+              <TeamText>
                 <div>{MBTIS[mbti].best.word1}</div>
                 <div>{MBTIS[mbti].best.word2}</div>
-              </div>
-            </div>
-            <div className={styles.teamRight}>
+              </TeamText>
+            </Teams>
+            <Teams>
               <Worst />
               <div>
-                <img
-                  className={styles.teamImg}
+                <TeamImg
                   src={require(`../../assets/images/characters/${MBTIS[mbti].worst.mbti}.png`)}
-                ></img>
+                ></TeamImg>
               </div>
-              <div className={styles.teamText}>
+              <TeamText>
                 <div>{MBTIS[mbti].worst.word1}</div>
                 <div>{MBTIS[mbti].worst.word2}</div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className={styles.mind}>
-          <div className={styles.mindLevel}>
-            <div className={styles.mindTag}>
+              </TeamText>
+            </Teams>
+          </TeamBox>
+        </TeamSection>
+        <MindSection>
+          <MindLevels>
+            <MindTag>
               <MindLevel />
-            </div>
-            <div className={styles.mindBox}>
-              <div className={styles.mindWordBox}>{mindList}</div>
-              <div className={styles.mindScoreBox}>{scoreList}</div>
-            </div>
-          </div>
+            </MindTag>
+            <MindBox>
+              <MindWordBox>{mindList}</MindWordBox>
+              <MindScoreBox>{scoreList}</MindScoreBox>
+            </MindBox>
+          </MindLevels>
           {/* <div className={styles.mindBox}></div> */}
-        </section>
-        <section className={styles.showFullChar}>
-          <button
-            className={styles.showFullCharBox}
-            onClick={()=>setIsOpen((cur) => !cur)}
-          >
-            <div className={styles.showFullCharIconBox}>
+        </MindSection>
+        <ShowAllCharSection>
+          <ShowAllCharBox onClick={() => setIsOpen((cur) => !cur)}>
+            <ShowAllCharIconBox>
               <ShowFullCharIcon />
-            </div>
-            <div className={styles.showFullCharText}>전체 캐릭터 보기</div>
-          </button>
-        </section>
+            </ShowAllCharIconBox>
+            <ShowFullCharText>전체 캐릭터 보기</ShowFullCharText>
+          </ShowAllCharBox>
+        </ShowAllCharSection>
         <section>
-          <div className={styles.shareText}>결과 공유하기</div>
-          <div className={styles.shareBox}>
+          <ShareText>결과 공유하기</ShareText>
+          <ShareBox>
             <KakaoResultShare
               keySentence={keySentence}
               words={keywords}
@@ -173,27 +167,37 @@ function TestResult({ mbti, cardUri }) {
             <TwitterShare></TwitterShare>
             {/* <FacebookShare></FacebookShare> */}
             <CopyLink></CopyLink>
-          </div>
+          </ShareBox>
         </section>
-        <section className={styles.contact}>
-          <div className={styles.tagText}>@teamiruem을 태그하여<br/> 나만의 카드를 자랑해주세요!</div>
-            <div className={styles.contactImg}>
-              <a href="https://instagram.com/teamiruem?utm_medium=copy_link" target="_blank">
-                <img src={require("../../assets/images/ContactUs.jpg")} style={{width:"280px"}}/>
-              </a>
-            </div>  
-          <div className={styles.contactText}>⬆️ 위 이미지를 눌러 인스타그램 계정에 놀러오세요!</div>
-        </section>
-        <section className={styles.retry} onClick={handleRestart}>
+        <ContactSection>
+          <Instagram>
+            @teamiruem을 태그하여
+            <br /> 나만의 카드를 자랑해주세요!
+          </Instagram>
+          <ContactImgBox>
+            <a
+              href="https://instagram.com/teamiruem?utm_medium=copy_link"
+              target="_blank"
+            >
+              <img
+                src={require("../../assets/images/ContactUs.jpg")}
+                style={{ width: "280px" }}
+              />
+            </a>
+          </ContactImgBox>
+          <ContactText>
+            ⬆️ 위 이미지를 눌러 인스타그램 계정에 놀러오세요!
+          </ContactText>
+        </ContactSection>
+        <RestartSection onClick={handleRestart}>
           <RetryTag />
-        </section>
-        
-      </section>
+        </RestartSection>
+      </Page>
       <footer>
-        <section className={styles.footerBox}>
+        <FooterSection>
           <div>Copyright © 2022 TEAMIRUEM. All rights reserved.</div>
           <div>
-            <a 
+            <a
               href="https://instagram.com/teamiruem?utm_medium=copy_link"
               target="_blank"
             >
@@ -210,10 +214,356 @@ function TestResult({ mbti, cardUri }) {
             <a href="mailto:iamkyeongju@gmail.com">@jjoy_h </a>
             <a href="mailto:dev.jihyun@gmail.com">@jihyun</a>
           </div>
-        </section>
+        </FooterSection>
       </footer>
     </section>
   );
 }
 
+const Download = styled.div`
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 25px;
+  color: ${({ theme }) => theme.primaryLight};
+`;
+
+const HeaderBox = styled.section`
+  margin-top: 65px;
+`;
+
+const ImageBox = styled.section`
+  text-align: center;
+  position: relative;
+`;
+
+const CharImage = styled.img`
+  width: 293px;
+  height: 293px;
+`;
+const CharImageGoneBox = styled.div`
+  background-color: #fffdf1;
+  border: 2px solid #ffcf55;
+  margin-bottom: 0.5rem;
+`;
+const Page = styled.section`
+  background-image: url(${backgroundImg});
+  background-size: cover;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+const MindSection = styled.section`
+  position: relative;
+  text-align: center;
+`;
+
+const MindLevels = styled.div`
+  position: relative;
+  z-index: 2;
+`;
+const MindWordBox = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  margin-top: 2.5rem;
+  width: 15.625rem;
+`;
+const MindScoreBox = styled.div`
+  display: grid;
+  grid-template-columns: 7.813rem 6.25rem;
+  left: 8.75rem;
+  top: 2.5rem;
+  position: absolute;
+`;
+const MindWord = styled.div`
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  /* identical to box height, or 156% */
+
+  text-align: right;
+
+  color: ${({ theme }) => theme.black};
+`;
+const MindScore = styled.div`
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  text-align: left;
+  color: ${({ theme }) => theme.highlightRed};
+`;
+const MindTag = styled.div`
+  position: relative;
+  z-index: 2;
+`;
+
+const MindBox = styled.div`
+  position: relative;
+  width: 20.938rem;
+  height: 7.625rem;
+  top: -1.25rem;
+  margin: auto;
+  z-index: 1;
+  background: ${({ theme }) => theme.backGround};
+`;
+
+const CharSection = styled.section`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  height: 34.313rem;
+  margin-top: 1.625rem;
+`;
+
+const CharBox = styled.div`
+  position: absolute;
+  z-index: 1;
+`;
+
+const ListBox = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  top: 1.125rem;
+`;
+
+const CharacSplit = styled.div`
+  margin-right: 0.4rem;
+`;
+
+const Charac = styled.div`
+  z-index: 2;
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 2.05rem;
+  display: flex;
+  color: ${({ theme }) => theme.primary};
+`;
+
+const CharacText = styled.div`
+  width: 17.5rem;
+`;
+
+const MajorSection = styled.section`
+  width: 300px;
+  margin-block: 1.625rem;
+  height: 8.438rem;
+`;
+
+const MajorName = styled.div`
+  position: relative;
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 4.375rem;
+  /* or 156% */
+  height: 4.375rem;
+
+  text-align: center;
+
+  color: ${({ theme }) => theme.primary};
+`;
+
+const MajorTape = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 0px;
+`;
+
+const SemesterSection = styled.section`
+  position: relative;
+  height: 9.375rem;
+  z-index: 2;
+  margin-top: 1.625rem;
+`;
+
+const SemesterComment = styled.div`
+  position: absolute;
+  z-index: 2;
+`;
+const SentenceLine = styled.div`
+  margin-block: 0.938rem;
+`;
+const SemesterText = styled.div`
+  position: relative;
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.125rem;
+  width: 18.313rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  top: 1.25rem;
+  background: ${({ theme }) => theme.backGround};
+  text-align: center;
+
+  color: ${({ theme }) => theme.primary};
+`;
+
+const SemesterBox = styled.div`
+  position: absolute;
+  width: 18.313rem;
+  height: 8rem;
+  left: 1.188rem;
+  z-index: 1;
+  top: 1.25rem;
+  background: ${({ theme }) => theme.backGround};
+`;
+
+const TeamSection = styled.section`
+  margin-block: 1.625rem;
+`;
+
+const TeamBox = styled.div`
+  display: flex;
+  text-align: center;
+`;
+
+const Teams = styled.div`
+  margin-inline: auto;
+`;
+
+const TeamImg = styled.img`
+  width: 9.375rem;
+`;
+const TeamText = styled.div`
+  font-family: HSYuji-Regular;
+  font-size: 20px;
+  line-height: 22px;
+  /* or 110% */
+
+  text-align: center;
+
+  color: ${({ theme }) => theme.primary};
+`;
+
+const ShareText = styled.div`
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  /* or 130% */
+
+  text-align: center;
+
+  color: ${({ theme }) => theme.primary};
+`;
+
+const ShareBox = styled.div`
+  margin-block: 1rem;
+  width: 170px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+const ShowAllCharSection = styled.section`
+  position: relative;
+`;
+
+const ShowAllCharBox = styled.button`
+  width: 20.938rem;
+  height: 2.188rem;
+  margin-bottom: 1.625rem;
+  background: ${({ theme }) => theme.backGround};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ShowAllCharIconBox = styled.div`
+  margin-right: 0.625rem;
+`;
+
+const ShowFullCharText = styled.div`
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: ${({ theme }) => theme.button};
+  line-height: 1.625rem;
+  text-align: center;
+  /* or 130% */
+
+  text-align: center;
+`;
+
+const ContactSection = styled.section`
+  width: 300px;
+  height: 220px;
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const Instagram = styled.div`
+  height: 35px;
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  color: ${({ theme }) => theme.primary};
+`;
+
+const ContactText = styled.div`
+  height: 20px;
+  font-family: IM_Hyemin-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.7rem;
+  text-align: center;
+  color: ${({ theme }) => theme.primary};
+`;
+
+const ContactImgBox = styled.div`
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const RestartSection = styled.section`
+  margin-block: 1.625rem;
+  text-align: center;
+`;
+
+const FooterSection = styled.section`
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #b0b0b0;
+  font-size: 0.5rem;
+`;
 export default TestResult;
