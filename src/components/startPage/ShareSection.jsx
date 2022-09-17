@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "./share.module.css";
-import CopyLink from "./../../resultPage/share/copyLink";
-import KakaoMainShare from "./../../resultPage/share/kakaoMainShare/kakaoMainShare";
-import TwitterShare from "./../../resultPage/share/TwitterShare";
+import CopyLink from "../resultPage/share/copyLink";
+import KakaoMainShare from "../resultPage/share/kakaoMainShare/kakaoMainShare";
+import TwitterShare from "../resultPage/share/TwitterShare";
 import styled from "styled-components";
 
 const ShareSection = styled.section`
