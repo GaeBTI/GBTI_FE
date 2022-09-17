@@ -14,13 +14,13 @@
     "react-ga": "^3.3.0",
     "react-konva": "^17.0.2-5",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
+    "react-scripts": "^5.0.1",
     "styled-components": "^5.3.3",
     "use-image": "^1.0.8",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "NODE_PATH=src react-scripts start",
+    "start": "react-scripts start", 
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "node scripts/test.js --env=jsdom",
     "eject": "react-scripts eject"
