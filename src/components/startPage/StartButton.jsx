@@ -21,7 +21,7 @@ const StartText = styled.div`
   font-size: 25px;
   line-height: 36px;
   text-align: center;
-  color: #3c3c3c;
+  color: ${({ theme }) => theme.button};
 `;
 const StartBGBox = styled.div`
   position: absolute;
