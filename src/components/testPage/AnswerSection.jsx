@@ -67,6 +67,6 @@ const AnswerButton = styled.button`
   font-size: 0.94rem;
   line-height: 25px;
   text-align: center;
-  color: #3c3c3c;
+  color: ${(theme) => theme.primary};
 `; //280*116
 export default AnswerSection;

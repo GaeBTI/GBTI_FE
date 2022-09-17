@@ -8,7 +8,7 @@ const ShareSection = styled.section`
   margin-top: 116px;
 `;
 const ShareText = styled.div`
-  font-family: ${({ theme }) => theme.mainFont};
+  font-family: IM_Hyemin-Regular;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
