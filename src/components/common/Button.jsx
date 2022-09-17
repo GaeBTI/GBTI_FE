@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLink = styled(Link)`
-	width: 100%;
+  width: 100%;
 `;
 const StyledButton = styled.button`
     font-size: 25px;
@@ -23,12 +23,12 @@ const StyledButton = styled.button`
 }
 `;
 //background-color: ${(props) => props.theme.primaryColor80};
-const Button=({to,onClick,children})=>
-    to ? (
-        <StyledLink to={to}>
-            <StyledButton onClick={onClick}>{children}</StyledButton>
-        </StyledLink>
-    ) : (
-        <StyledButton onClick={onClick}>{children}</StyledButton>
-    );
+const Button = ({ to, onClick, children }) =>
+  to ? (
+    <StyledLink to={to}>
+      <StyledButton onClick={onClick}>{children}</StyledButton>
+    </StyledLink>
+  ) : (
+    <StyledButton onClick={onClick}>{children}</StyledButton>
+  );
 export default Button;

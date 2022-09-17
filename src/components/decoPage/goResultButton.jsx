@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { GoResultButtonBG } from "./decoIcon";
-const GoResultButton = ({isDone}) => (
+const GoResultButton = ({ isDone }) => (
   <GoResultBox>
-    <GoResultBtn onClick={()=>isDone()}>
+    <GoResultBtn onClick={() => isDone()}>
       <GoResultButtonBGBox>
         <GoResultButtonBG />
       </GoResultButtonBGBox>
@@ -17,7 +17,7 @@ const GoResultBox = styled.div`
   position: relative;
 `;
 const GoResultBtn = styled.div`
-  padding:0;
+  padding: 0;
 `;
 const GoResultText = styled.div`
   width: 111px;

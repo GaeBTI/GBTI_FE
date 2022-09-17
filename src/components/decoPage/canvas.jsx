@@ -37,20 +37,21 @@ function Canvas({
     setCardUri(uri); // uri 추출 후 결과페이지에서 사용하기 위해 state 저장
     navigate(`/result/${hide}`); // result 페이지 이동
   };
-  useEffect(() => { // decoDone true시 이미지 uri 추출
-      decoDone && handleExport();
+  useEffect(() => {
+    // decoDone true시 이미지 uri 추출
+    decoDone && handleExport();
   }, [decoDone]);
 
-  const handleRefreshClick=()=>{
-    setImages((cur)=>{
-      return cur.slice(0,1)
-    })
-  }
-  
-  useEffect(()=>{
+  const handleRefreshClick = () => {
+    setImages((cur) => {
+      return cur.slice(0, 1);
+    });
+  };
+
+  useEffect(() => {
     needRefresh && handleRefreshClick();
     refreshDone();
-  },[needRefresh])
+  }, [needRefresh]);
 
   const checkDeselect = (e) => {
     // 선택 취소
@@ -61,9 +62,7 @@ function Canvas({
     }
   };
   return (
-    <div
-      style={{ marginBottom: 1 }}
-    >
+    <div style={{ marginBottom: 1 }}>
       <div>
         <Stage
           width={canvasSize}
@@ -74,7 +73,7 @@ function Canvas({
         >
           <Layer>
             <BackgroundImg bgImgCnt={bgImgCnt} name={bgName} />
-            { images.map((image, i) => {
+            {images.map((image, i) => {
               return (
                 <Stickers
                   key={i}

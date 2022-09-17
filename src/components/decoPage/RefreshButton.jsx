@@ -1,24 +1,26 @@
 import styled from "styled-components";
 import { RefreshBtnBg } from "./decoIcon";
 
-const RefreshButton =({doRefresh})=>{
-    return <RefreshBox>
-    <RefreshBtn onClick={doRefresh}>
-      <RefreshButtonBGBox>
-        <RefreshBtnBg />
-      </RefreshButtonBGBox>
-      <RefreshText>초기화</RefreshText>
-    </RefreshBtn>
-  </RefreshBox>
-}
+const RefreshButton = ({ doRefresh }) => {
+  return (
+    <RefreshBox>
+      <RefreshBtn onClick={doRefresh}>
+        <RefreshButtonBGBox>
+          <RefreshBtnBg />
+        </RefreshButtonBGBox>
+        <RefreshText>초기화</RefreshText>
+      </RefreshBtn>
+    </RefreshBox>
+  );
+};
 const RefreshBox = styled.div`
   width: 111px;
   height: 48px;
   position: relative;
-  margin-right:20px;
+  margin-right: 20px;
 `;
 const RefreshBtn = styled.div`
-  padding:0;
+  padding: 0;
 `;
 const RefreshText = styled.div`
   width: 111px;
