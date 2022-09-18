@@ -14,7 +14,7 @@ import {
 import { MBTIS } from "../../assets/texts/results";
 import KeywordBox from "../common/KeywordBox";
 import Header from "../common/Header";
-
+import styled from "styled-components";
 import CopyLink from "./share/copyLink";
 import FullCharModal from "./FullCharModal";
 import KakaoResultShare from "./share/kakaoResultShare/kakaoResultShare";
